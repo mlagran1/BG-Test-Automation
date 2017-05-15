@@ -3,16 +3,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.bah.nos</groupId>
-    <artifactId>NOS-Test-Automation</artifactId>
+    <artifactId>BG-Test-Automation</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Native One Stop Automated Testing</name>
+    <name>Benefits.gov Automated Testing</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <serenity.version>1.2.2-rc.1</serenity.version>
-        <serenity.jbehave.version>1.18.0</serenity.jbehave.version>
+        <serenity.version>1.1.36</serenity.version>
+        <serenity.jbehave.version>1.13.0</serenity.jbehave.version>
     </properties>
 
     <repositories>

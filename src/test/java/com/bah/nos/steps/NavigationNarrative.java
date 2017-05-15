@@ -13,9 +13,9 @@ public class NavigationNarrative {
     @Steps
     private NavigationSteps navigationSteps;
 
-    @Given("I am on the Native One Stop home page")
+    @Given("I am on the Benefits.gov home page")
     public void onHomePage() throws ReflectiveOperationException {
-        navigationSteps.openPage(NosPageEnum.HOME);
+        navigationSteps.openPage(NosPageEnum.BROWSE);
     }
 
     @When("I click on <navBarPath> on the top navigation bar")

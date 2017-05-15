@@ -8,10 +8,11 @@ import org.openqa.selenium.WebDriver;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@DefaultUrl("https://www.nativeonestop.gov/resources/resource-finder#mybenefits")
+@DefaultUrl("https://www.benefits.gov/benefits/benefit-finder#mybenefits")
 public class ResourceFinderFavoritePage extends ResourceFinderPage {
 
-    @FindBy(xpath = "//tbody[@id='resultTableBody-fav']/tr/td/h2/a")
+    @FindBy(xpath = "//tbody[@id='resultTableBody-fav']/tr/td/a")
+    
     private List<WebElementFacade> favoriteTitles;
 
     public ResourceFinderFavoritePage(WebDriver webDriver) {

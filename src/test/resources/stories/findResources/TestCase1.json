@@ -1,14 +1,14 @@
 {
-  "title": "Resource Finder Test Case 1",
-  "summary": "Just Core section answers",
+  "title": "BG benefits finder Test Case 1",
+  "summary": "All Sections. All sections",
   "answers": [
     {
       "section": "CORE",
       "pageNum": 1,
       "questionId": 1,
-      "answerType": "RADIO",
+      "answerType": "TEXT",
       "answer": [
-        "U.S. Citizen"
+        "01/01/1950"
       ]
     },
     {
@@ -17,32 +17,962 @@
       "questionId": 2,
       "answerType": "RADIO",
       "answer": [
-        "Employed (part-time or seasonal)"
+        "One of the 50 states or the District of Columbia"
       ]
     },
     {
       "section": "CORE",
       "pageNum": 1,
       "questionId": 3,
-      "answerType": "TEXT",
+      "answerType": "DROPDOWN",
       "answer": [
-        "6"
+        "Virginia"
       ]
     },
     {
       "section": "CORE",
       "pageNum": 1,
       "questionId": 4,
+      "answerType": "RADIO",
+      "answer": [
+        "U.S. Citizen"
+      ]
+    },
+    {
+      "section": "CORE",
+      "pageNum": 1,
+      "questionId": 5,
+      "answerType": "RADIO",
+      "answer": [
+        "Employed (full-time)"
+      ]
+    },
+    {
+      "section": "CORE",
+      "pageNum": 1,
+      "questionId": 6,
       "answerType": "TEXT",
       "answer": [
-        "20000"
+        "5"
+      ]
+    },
+    {
+      "section": "CORE",
+      "pageNum": 1,
+      "questionId": 7,
+      "answerType": "TEXT",
+      "answer": [
+        "25000"
+      ]
+    },
+    {
+      "section": "CORE",
+      "pageNum": 1,
+      "questionId": 8,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 1,
+      "questionId": 1,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "Caucasian"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 1,
+      "questionId": 2,
+      "answerType": "RADIO",
+      "answer": [
+        "Active"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 1,
+      "questionId": 3,
+      "answerType": "RADIO",
+      "answer": [
+        "Yes"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 1,
+      "questionId": 4,
+      "answerType": "RADIO",
+      "answer": [
+        "Private residence"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 1,
+      "questionId": 5,
+      "answerType": "RADIO",
+      "answer": [
+        "Not a student"
+      ]
+    },
+     {
+      "section": "GENERAL",
+      "pageNum": 1,
+      "questionId": 6,
+      "answerType": "RADIO",
+      "answer": [
+        "None of the above"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 1,
+      "questionId": 7,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "Military service member"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 1,
+      "questionId": 8,
+      "answerType": "TEXT",
+      "answer": [
+        "2500"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 1,
+      "questionId": 9,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "I do not receive any of these benefits"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 1,
+      "questionId": 10,
+      "answerType": "RADIO",
+      "answer": [
+        "Yes"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 2,
+      "questionId": 11,
+      "answerType": "TEXT",
+      "answer": [
+        "1"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 2,
+      "questionId": 12,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 2,
+      "questionId": 13,
+      "answerType": "RADIO",
+      "answer": [
+        "None of the above"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 2,
+      "questionId": 14,
+      "answerType": "RADIO",
+      "answer": [
+        "Yes"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 2,
+      "questionId": 15,
+      "answerType": "RADIO",
+      "answer": [
+        "Yes"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 2,
+      "questionId": 16,
+      "answerType": "RADIO",
+      "answer": [
+        "Yes"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 2,
+      "questionId": 17,
+      "answerType": "RADIO",
+      "answer": [
+        "Yes"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 2,
+      "questionId": 18,
+      "answerType": "RADIO",
+      "answer": [
+        "Yes"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 2,
+      "questionId": 19,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "Disaster relief",
+        "Drug or alcohol dependency",
+        "Homeless assistance",
+        "Mental health services",
+        "Conducting clinical research",
+        "Volunteering",
+        "Environmental or conservation issues",
+        "Adaptive equipment for disabilities",
+        "Wheelchair"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 2,
+      "questionId": 20,
+      "answerType": "RADIO",
+      "answer": [
+        "Yes"
+      ]
+    },
+    {
+      "section": "HOUSEHOLD",
+      "pageNum": 1,
+      "questionId": 1,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "HOUSEHOLD",
+      "pageNum": 1,
+      "questionId": 2,
+      "answerType": "RADIO",
+      "answer": [
+        "Yes"
+      ]
+    },
+    {
+      "section": "HOUSEHOLD",
+      "pageNum": 1,
+      "questionId": 3,
+      "answerType": "RADIO",
+      "answer": [
+        "Yes"
+      ]
+    },
+    {
+      "section": "HOUSEHOLD",
+      "pageNum": 1,
+      "questionId": 4,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "Current or prospective homeowner",
+        "Live in a rural area"
+      ]
+    },
+    {
+      "section": "HOUSEHOLD",
+      "pageNum": 1,
+      "questionId": 5,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "HOUSEHOLD",
+      "pageNum": 1,
+      "questionId": 6,
+      "answerType": "RADIO",
+      "answer": [
+        "Yes"
+      ]
+    },
+    {
+      "section": "HOUSEHOLD",
+      "pageNum": 1,
+      "questionId": 7,
+      "answerType": "RADIO",
+      "answer": [
+        "Yes"
+      ]
+    },
+    {
+      "section": "HOUSEHOLD",
+      "pageNum": 1,
+      "questionId": 8,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "HOUSEHOLD",
+      "pageNum": 1,
+      "questionId": 9,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "Responsible for a child(ren) who attend(s) school (high school or under)"
+      ]
+    },
+    {
+      "section": "HOUSEHOLD",
+      "pageNum": 1,
+      "questionId": 10,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "17",
+        "20"
+      ]
+    },
+    {
+      "section": "HOUSEHOLD",
+      "pageNum": 2,
+      "questionId": 11,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "HOUSEHOLD",
+      "pageNum": 2,
+      "questionId": 12,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "HOUSEHOLD",
+      "pageNum": 2,
+      "questionId": 13,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "None of the above"
+      ]
+    },
+    {
+      "section": "HOUSEHOLD",
+      "pageNum": 2,
+      "questionId": 14,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "Coal miner"
+      ]
+    },
+    {
+      "section": "HOUSEHOLD",
+      "pageNum": 2,
+      "questionId": 15,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "HOUSEHOLD",
+      "pageNum": 2,
+      "questionId": 16,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "HOUSEHOLD",
+      "pageNum": 2,
+      "questionId": 17,
+      "answerType": "TEXT",
+      "answer": [
+        "01/01/2000"
+      ]
+    },
+    {
+      "section": "HOUSEHOLD",
+      "pageNum": 2,
+      "questionId": 18,
+      "answerType": "TEXT",
+      "answer": [
+        "01/01/1950"
+      ]
+    },
+    {
+      "section": "HOUSEHOLD",
+      "pageNum": 2,
+      "questionId": 19,
+      "answerType": "RADIO",
+      "answer": [
+        "Divorce/Annulment"
+      ]
+    },
+    {
+      "section": "HOUSEHOLD",
+      "pageNum": 2,
+      "questionId": 20,
+      "answerType": "TEXT",
+      "answer": [
+        "01/01/2001"
+      ]
+    },
+    {
+      "section": "HOUSEHOLD",
+      "pageNum": 3,
+      "questionId": 21,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "EDUCATION",
+      "pageNum": 1,
+      "questionId": 1,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "High school"
+      ]
+    },
+    {
+      "section": "EDUCATION",
+      "pageNum": 1,
+      "questionId": 2,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "Education",
+        "Engineering",
+        "Mathematics",
+        "Public service"
+      ]
+    },
+    {
+      "section": "EDUCATION",
+      "pageNum": 1,
+      "questionId": 3,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "EDUCATION",
+      "pageNum": 1,
+      "questionId": 4,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "EDUCATION",
+      "pageNum": 1,
+      "questionId": 5,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "HEALTH",
+      "pageNum": 1,
+      "questionId": 1,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "None of the above"
+      ]
+    },
+    {
+      "section": "HEALTH",
+      "pageNum": 1,
+      "questionId": 2,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "Self"
+      ]
+    },
+    {
+      "section": "HEALTH",
+      "pageNum": 1,
+      "questionId": 3,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "HEALTH",
+      "pageNum": 1,
+      "questionId": 4,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "I live in a community with limited or no health services"
+      ]
+    },
+    {
+      "section": "HEALTH",
+      "pageNum": 1,
+      "questionId": 5,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "Drug or alcohol dependency",
+        "Mental illness"
+      ]
+    },
+    {
+      "section": "HEALTH",
+      "pageNum": 1,
+      "questionId": 6,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "Result of a vaccine"
+      ]
+    },
+    {
+      "section": "HEALTH",
+      "pageNum": 1,
+      "questionId": 7,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "None of the above"
+      ]
+    },
+    {
+      "section": "HEALTH",
+      "pageNum": 1,
+      "questionId": 8,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "None of the above"
+      ]
+    },
+    {
+      "section": "HEALTH",
+      "pageNum": 1,
+      "questionId": 9,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "Disability insurance benefits"
+      ]
+    },
+    {
+      "section": "HEALTH",
+      "pageNum": 1,
+      "questionId": 10,
+      "answerType": "RADIO",
+      "answer": [
+        "Underinsured"
+      ]
+    },
+    {
+      "section": "HEALTH",
+      "pageNum": 2,
+      "questionId": 11,
+      "answerType": "RADIO",
+      "answer": [
+        "Yes"
+      ]
+    },
+    {
+      "section": "HEALTH",
+      "pageNum": 2,
+      "questionId": 12,
+      "answerType": "RADIO",
+      "answer": [
+        "Yes"
+      ]
+    },
+    {
+      "section": "HEALTH",
+      "pageNum": 2,
+      "questionId": 13,
+      "answerType": "RADIO",
+      "answer": [
+        "Yes"
+      ]
+    },
+    {
+      "section": "HEALTH",
+      "pageNum": 2,
+      "questionId": 14,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "Veterans' disability compensation"
+      ]
+    },
+    {
+      "section": "HEALTH",
+      "pageNum": 2,
+      "questionId": 15,
+      "answerType": "RADIO",
+      "answer": [
+        "Yes"
+      ]
+    },
+    {
+      "section": "HEALTH",
+      "pageNum": 2,
+      "questionId": 16,
+      "answerType": "RADIO",
+      "answer": [
+        "Yes"
+      ]
+    },
+    {
+      "section": "HEALTH",
+      "pageNum": 2,
+      "questionId": 17,
+      "answerType": "RADIO",
+      "answer": [
+        "Yes"
+      ]
+    },
+    {
+      "section": "HEALTH",
+      "pageNum": 2,
+      "questionId": 18,
+      "answerType": "RADIO",
+      "answer": [
+        "Yes"
+      ]
+    },
+    {
+      "section": "INCOME & ASSISTANCE",
+      "pageNum": 1,
+      "questionId": 1,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "None of the above"
+      ]
+    },
+    {
+      "section": "INCOME & ASSISTANCE",
+      "pageNum": 1,
+      "questionId": 2,
+      "answerType": "TEXT",
+      "answer": [
+        "1345"
+      ]
+    },
+    {
+      "section": "INCOME & ASSISTANCE",
+      "pageNum": 1,
+      "questionId": 3,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "Health care/insurance costs"
+      ]
+    },
+    {
+      "section": "INCOME & ASSISTANCE",
+      "pageNum": 1,
+      "questionId": 4,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "Purchasing a manufactured home"
+      ]
+    },
+    {
+      "section": "INCOME & ASSISTANCE",
+      "pageNum": 1,
+      "questionId": 5,
+      "answerType": "RADIO",
+      "answer": [
+        "Yes"
+      ]
+    },
+    {
+      "section": "INCOME & ASSISTANCE",
+      "pageNum": 1,
+      "questionId": 6,
+      "answerType": "RADIO",
+      "answer": [
+        "Yes"
+      ]
+    },
+    {
+      "section": "INCOME & ASSISTANCE",
+      "pageNum": 1,
+      "questionId": 7,
+      "answerType": "RADIO",
+      "answer": [
+        "Yes"
+      ]
+    },
+    {
+      "section": "INCOME & ASSISTANCE",
+      "pageNum": 1,
+      "questionId": 8,
+      "answerType": "RADIO",
+      "answer": [
+        "Moderate income"
+      ]
+    },
+    {
+      "section": "INCOME & ASSISTANCE",
+      "pageNum": 1,
+      "questionId": 9,
+      "answerType": "RADIO",
+      "answer": [
+        "Yes"
+      ]
+    },
+    {
+      "section": "INCOME & ASSISTANCE",
+      "pageNum": 1,
+      "questionId": 10,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "Veterans' disability compensation"
+      ]
+    },
+    {
+      "section": "INCOME & ASSISTANCE",
+      "pageNum": 2,
+      "questionId": 11,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "None of the above"
+      ]
+    },
+    {
+      "section": "INCOME & ASSISTANCE",
+      "pageNum": 2,
+      "questionId": 12,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "INCOME & ASSISTANCE",
+      "pageNum": 2,
+      "questionId": 13,
+      "answerType": "RADIO",
+      "answer": [
+        "Yes"
+      ]
+    },
+    {
+      "section": "INCOME & ASSISTANCE",
+      "pageNum": 2,
+      "questionId": 14,
+      "answerType": "TEXT",
+      "answer": [
+        "1000"
+      ]
+    },
+    {
+      "section": "INCOME & ASSISTANCE",
+      "pageNum": 2,
+      "questionId": 15,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "INCOME & ASSISTANCE",
+      "pageNum": 2,
+      "questionId": 16,
+      "answerType": "TEXT",
+      "answer": [
+        "500"
+      ]
+    },
+    {
+      "section": "INCOME & ASSISTANCE",
+      "pageNum": 2,
+      "questionId": 17,
+      "answerType": "TEXT",
+      "answer": [
+        "0"
+      ]
+    },
+
+    {
+      "section": "WORK EXPERIENCE",
+      "pageNum": 1,
+      "questionId": 1,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "WORK EXPERIENCE",
+      "pageNum": 1,
+      "questionId": 2,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "WORK EXPERIENCE",
+      "pageNum": 1,
+      "questionId": 3,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "WORK EXPERIENCE",
+      "pageNum": 1,
+      "questionId": 4,
+      "answerType": "TEXT",
+      "answer": [
+        "12"
+      ]
+    },
+    {
+      "section": "WORK EXPERIENCE",
+      "pageNum": 1,
+      "questionId": 5,
+      "answerType": "RADIO",
+      "answer": [
+        "Yes"
+      ]
+    },
+    {
+      "section": "WORK EXPERIENCE",
+      "pageNum": 1,
+      "questionId": 6,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "None of the above"
+      ]
+    },
+    {
+      "section": "WORK EXPERIENCE",
+      "pageNum": 1,
+      "questionId": 7,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "None of the above"
+      ]
+    },
+    {
+      "section": "WORK EXPERIENCE",
+      "pageNum": 1,
+      "questionId": 8,
+      "answerType": "RADIO",
+      "answer": [
+        "Not Applicable"
+      ]
+    },
+    {
+      "section": "WORK EXPERIENCE",
+      "pageNum": 1,
+      "questionId": 9,
+      "answerType": "TEXT",
+      "answer": [
+        "01/01/2000"
+      ]
+    },
+    {
+      "section": "WORK EXPERIENCE",
+      "pageNum": 1,
+      "questionId": 10,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "WORK EXPERIENCE",
+      "pageNum": 2,
+      "questionId": 11,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "WORK EXPERIENCE",
+      "pageNum": 2,
+      "questionId": 12,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "Servicemember on active duty or ready reservists"
+      ]
+    },
+    {
+      "section": "WORK EXPERIENCE",
+      "pageNum": 2,
+      "questionId": 13,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "WORK EXPERIENCE",
+      "pageNum": 2,
+      "questionId": 14,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "WORK EXPERIENCE",
+      "pageNum": 2,
+      "questionId": 15,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
       ]
     }
-  ],
-  "assertions": {
-    "totalResourceCount": 1,
-    "resourceTitles": [
-        "WEATHERIZATION ASSISTANCE PROGRAM FOR LOW-INCOME PERSONS"
+
+    
+
+
+    
+
+   
+],
+"result": {
+    "totalResourceCount": 99,
+    "resultAssertionList": [
+      "ADJUSTABLE RATE MORTGAGE INSURANCE",
+      "WEATHERIZATION ASSISTANCE PROGRAM FOR LOW-INCOME PERSONS"
+    ],
+    "favorites": [
+      "ADJUSTABLE RATE MORTGAGE INSURANCE",
+      "WEATHERIZATION ASSISTANCE PROGRAM FOR LOW-INCOME PERSONS"
     ]
-  }
+  }  
+
+
+
 }

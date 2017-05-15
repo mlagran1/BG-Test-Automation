@@ -1,6 +1,6 @@
 {
-  "title": "Resource Finder Test Case 2",
-  "summary": "Quick run though. No household questions",
+  "title": "BG benefits finder",
+  "summary": "All Sections",
   "answers": [
     {
       "section": "CORE",
@@ -38,7 +38,7 @@
         "U.S. Citizen"
       ]
     },
-    {
+     {
       "section": "CORE",
       "pageNum": 1,
       "questionId": 5,
@@ -93,65 +93,54 @@
       ]
     },
     {
-      "section": "GENERAL",
-      "pageNum": 2,
-      "questionId": 12,
+      "section": "HOUSEHOLD",
+      "pageNum": 1,
+      "questionId": 1,
       "answerType": "RADIO",
       "answer": [
         "No"
       ]
     },
-    {
-      "section": "EDUCATION",
-      "pageNum": 1,
-      "questionId": 1,
-      "answerType": "RADIO",
-      "answer": [
-        "Bachelor's degree"
-      ]
-    },
-    {
-      "section": "HEALTH",
-      "pageNum": 1,
-      "questionId": 1,
-      "answerType": "CHECKBOX",
-      "answer": [
-        "Parent"
-      ]
-    },
-    {
-      "section": "HEALTH",
-      "pageNum": 1,
-      "questionId": 2,
-      "answerType": "CHECKBOX",
-      "answer": [
-        "Family or household member"
-      ]
-    },
-    {
-      "section": "INCOME & ASSISTANCE",
-      "pageNum": 1,
-      "questionId": 1,
-      "answerType": "CHECKBOX",
-      "answer": [
-        "Education loans",
-        "Housing debt/mortgage",
-        "Delinquent Federal debt"
-      ]
-    },
-    {
-      "section": "INCOME & ASSISTANCE",
-      "pageNum": 1,
-      "questionId": 2,
+     {
+      "section": "HOUSEHOLD",
+      "pageNum": 2,
+      "questionId": 12,
       "answerType": "TEXT",
       "answer": [
-        "1345"
+        "01/01/2000"
       ]
     },
     {
-      "section": "WORK EXPERIENCE",
+      "section": "HOUSEHOLD",
+      "pageNum": 2,
+      "questionId": 14,
+      "answerType": "RADIO",
+      "answer": [
+        "Death"
+      ]
+    },
+    {
+      "section": "HOUSEHOLD",
+      "pageNum": 2,
+      "questionId": 15,
+      "answerType": "TEXT",
+      "answer": [
+        "01/20/2000"
+      ]
+    },
+    {
+      "section": "INCOME & ASSISTANCE",
       "pageNum": 1,
       "questionId": 1,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "None of the above"
+      ]
+    },
+    {
+      "section": "INCOME & ASSISTANCE",
+      "pageNum": 2,
+      "questionId": 15,
       "answerType": "RADIO",
       "answer": [
         "No"
@@ -159,14 +148,14 @@
     } 
   ],
   "result": {
-    "totalResourceCount": 23,
+    "totalResourceCount": 17,
     "resultAssertionList": [
       "American Music Abroad Program",
-      "Cell Biology and Biophysics Research and Research Training"
+      "Identity Protection"
     ],
     "favorites": [
       "American Music Abroad Program",
-      "Cell Biology and Biophysics Research and Research Training"
+      "Identity Protection"
     ]
-  }
+  }  
 }

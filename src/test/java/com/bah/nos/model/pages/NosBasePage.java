@@ -6,14 +6,18 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
+
+import java.util.List;
+
 import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@DefaultUrl("https://www.nativeonestop.gov")
+@DefaultUrl("https://www.benefits.gov")
 public class NosBasePage extends PageObject {
 
     private static final Logger log = LoggerFactory.getLogger(NosBasePage.class);
@@ -22,15 +26,21 @@ public class NosBasePage extends PageObject {
 
     protected static final String XPATH_TO_UPPERCASE =
             "translate(%s,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')";
-
     // -------- Navigation xpath components --------
 
     private static final String NAV_XPATH_BASE = "//nav[@id='nav']";
 
     private static final String NAV_XPATH_EXTENSION = "//li[contains(.,'%s')]";
 
-    @FindBy(xpath = "//*[@class='page__title title']")
+    //@FindBy(xpath = "//*[@class='page__title title']")
+    
+  //*[@id='page-title']
+    @FindBy(xpath = "//*[@id='page-title']")
     private WebElementFacade pageTitle;
+    
+    @FindBy(xpath = "//*[@class='field-item even']")
+    private WebElementFacade subpageTitle;
+    
 
     public NosBasePage(WebDriver webDriver) {
         super(webDriver);
@@ -69,6 +79,10 @@ public class NosBasePage extends PageObject {
     public String getPageTitle() {
         return pageTitle.getText();
     }
+    
+    public String getSubpageTitle() {
+        return subpageTitle.getText();
+    }
 
     private void validateElement(String buttonText, WebElementFacade navButton) {
         if (navButton == null || !navButton.isVisible()) {
@@ -82,8 +96,14 @@ public class NosBasePage extends PageObject {
         Actions hoverOverLocationSelector = builder.moveToElement(element);
         hoverOverLocationSelector.perform();
 
-        sleep(1000L);
+       sleep(1000L);
     }
+    
+    
+   
+    
+    
+    
 
     protected void sleep(long duration) {
         try {

@@ -9,14 +9,15 @@ import org.openqa.selenium.WebDriver;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@DefaultUrl("https://www.nativeonestop.gov/resources/resource-finder#results")
+@DefaultUrl("https://www.benefits.gov/benefits/benefit-finder#results")
 public class ResourceFinderResultPage extends ResourceFinderPage {
-
-    private static final String FAVORITE_BUTTON_XPATH = "//td[./h2/a[" +
-            String.format(XPATH_TO_UPPERCASE, "text()") +
+	    
+	private static final String FAVORITE_BUTTON_XPATH = "//td[./a[" + "text()" +
             "=%s]]/div/a[text() = 'Add to Favorites']";
+	
+	 //td[./a[text()='American Music Abroad Program']]/div/a[text() = 'Add to Favorites']
 
-    @FindBy(xpath = "//tbody[@id='resultTableBody']/tr/td/h2/a")
+    @FindBy(xpath = "//tbody[@id='resultTableBody']/tr/td/a")
     private List<WebElementFacade> resourceTitles;
 
     public ResourceFinderResultPage(WebDriver webDriver) {
@@ -30,7 +31,9 @@ public class ResourceFinderResultPage extends ResourceFinderPage {
     public void addToFavorites(String resourceTitle) {
         scrollToTop();
         String answerXpath = String.format(FAVORITE_BUTTON_XPATH, formatXpathStringInput(resourceTitle));
+        //System.out.println("fav button path is: " + FAVORITE_BUTTON_XPATH);
         WebElementFacade button = find(By.xpath(answerXpath));
+        //System.out.println("answer path is: " + answerXpath);
         button.click();
     }
 

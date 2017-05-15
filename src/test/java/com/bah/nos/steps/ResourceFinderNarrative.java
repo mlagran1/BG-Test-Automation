@@ -21,7 +21,7 @@ public class ResourceFinderNarrative {
     @Steps
     private ResourceFinderSteps resourceFinderSteps;
 
-    @Given("I am on the Native One Stop resource finder page")
+    @Given("I am on the Benefits.gov benefit finder page")
     public void onResourceFinderPage() {
         resourceFinderSteps.openPage();
     }

@@ -87,7 +87,7 @@ public class ResourceFinderAnswer {
     }
 
     public enum AnswerTypeEnum {
-        RADIO, TEXT, CHECKBOX
+        RADIO, TEXT, CHECKBOX, DROPDOWN
     }
 
     @Override
