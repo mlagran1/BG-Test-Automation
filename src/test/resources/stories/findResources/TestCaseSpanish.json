@@ -1,0 +1,172 @@
+{
+  "title": "Resource Finder Test Case Spanish",
+  "summary": "Quick run though. No household questions",
+  "answers": [
+    {
+      "section": "Básicas",
+      "pageNum": 1,
+      "questionId": 1,
+      "answerType": "TEXT",
+      "answer": [
+        "01/01/1950"
+      ]
+    },
+    {
+      "section": "Básicas",
+      "pageNum": 1,
+      "questionId": 2,
+      "answerType": "RADIO",
+      "answer": [
+        "En uno de los 50 Estados o el Distrito de Colombia"
+      ]
+    },
+    {
+      "section": "Básicas",
+      "pageNum": 1,
+      "questionId": 3,
+      "answerType": "DROPDOWN",
+      "answer": [
+        "Virginia"
+      ]
+    },
+    {
+      "section": "Básicas",
+      "pageNum": 1,
+      "questionId": 4,
+      "answerType": "RADIO",
+      "answer": [
+        "Ciudadano/a de los Estados Unidos"
+      ]
+    },
+    {
+      "section": "Básicas",
+      "pageNum": 1,
+      "questionId": 5,
+      "answerType": "RADIO",
+      "answer": [
+        "Empleado (a tiempo completo)"
+      ]
+    },
+    {
+      "section": "Básicas",
+      "pageNum": 1,
+      "questionId": 6,
+      "answerType": "TEXT",
+      "answer": [
+        "5"
+      ]
+    },
+    {
+      "section": "Básicas",
+      "pageNum": 1,
+      "questionId": 7,
+      "answerType": "TEXT",
+      "answer": [
+        "25000"
+      ]
+    },
+    {
+      "section": "Básicas",
+      "pageNum": 1,
+      "questionId": 8,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "Generales",
+      "pageNum": 1,
+      "questionId": 9,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "No recibo ningunos de estos beneficios"
+      ]
+    },
+    {
+      "section": "Generales",
+      "pageNum": 2,
+      "questionId": 11,
+      "answerType": "TEXT",
+      "answer": [
+        "1"
+      ]
+    },
+    {
+      "section": "Generales",
+      "pageNum": 2,
+      "questionId": 12,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "Educación",
+      "pageNum": 1,
+      "questionId": 1,
+      "answerType": "RADIO",
+      "answer": [
+        "Licenciatura (título universitário de cuatro años)"
+      ]
+    },
+    {
+      "section": "Salud",
+      "pageNum": 1,
+      "questionId": 1,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "Padre/madre"
+      ]
+    },
+    {
+      "section": "Salud",
+      "pageNum": 1,
+      "questionId": 2,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "Miembro de familia o hogar"
+      ]
+    },
+    {
+      "section": "Ingresos y asistencia",
+      "pageNum": 1,
+      "questionId": 1,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "Costos de educación",
+        "Hipoteca/deuda por compra de vivienda",
+        "Deuda federal en mora"
+      ]
+    },
+    {
+      "section": "Ingresos y asistencia",
+      "pageNum": 1,
+      "questionId": 2,
+      "answerType": "TEXT",
+      "answer": [
+        "1345"
+      ]
+    },
+    {
+      "section": "Experiencia laboral",
+      "pageNum": 1,
+      "questionId": 1,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    } 
+  ],
+  "result": {
+    "totalResourceCount": 24,
+    "resultAssertionList": [
+      "Programa de Música Estadounidense en el Extranjero",
+      "Investigación de Biología Celular y Biofísica y Capacitación para Investigación"
+    ],
+    "favorites": [
+      "Programa de Música Estadounidense en el Extranjero",
+      "Investigación de Biología Celular y Biofísica y Capacitación para Investigación"
+    ]
+  }
+}

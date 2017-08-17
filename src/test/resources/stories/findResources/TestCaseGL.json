@@ -1,0 +1,172 @@
+{
+  "title": "Resource Finder Govloans Test Case 1",
+  "summary": "Quick run though. No household questions",
+  "answers": [
+    {
+      "section": "CORE",
+      "pageNum": 1,
+      "questionId": 1,
+      "answerType": "RADIO",
+      "answer": [
+        "U.S. Citizen"
+      ]
+    },
+    {
+      "section": "CORE",
+      "pageNum": 1,
+      "questionId": 2,
+      "answerType": "RADIO",
+      "answer": [
+        "Employed (full-time)"
+      ]
+    },
+    {
+      "section": "CORE",
+      "pageNum": 1,
+      "questionId": 3,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 1,
+      "questionId": 1,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "Native American or American Indian"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 1,
+      "questionId": 2,
+      "answerType": "RADIO",
+      "answer": [
+        "Active"
+      ]
+    },
+    {
+      "section": "CORE",
+      "pageNum": 1,
+      "questionId": 6,
+      "answerType": "TEXT",
+      "answer": [
+        "5"
+      ]
+    },
+    {
+      "section": "CORE",
+      "pageNum": 1,
+      "questionId": 7,
+      "answerType": "TEXT",
+      "answer": [
+        "25000"
+      ]
+    },
+    {
+      "section": "CORE",
+      "pageNum": 1,
+      "questionId": 8,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 1,
+      "questionId": 9,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "I do not receive any of these benefits"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 2,
+      "questionId": 11,
+      "answerType": "TEXT",
+      "answer": [
+        "1"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 2,
+      "questionId": 12,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "EDUCATION",
+      "pageNum": 1,
+      "questionId": 1,
+      "answerType": "RADIO",
+      "answer": [
+        "Bachelor's degree"
+      ]
+    },
+    {
+      "section": "HEALTH",
+      "pageNum": 1,
+      "questionId": 1,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "Parent"
+      ]
+    },
+    {
+      "section": "HEALTH",
+      "pageNum": 1,
+      "questionId": 2,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "Family or household member"
+      ]
+    },
+    {
+      "section": "INCOME & ASSISTANCE",
+      "pageNum": 1,
+      "questionId": 1,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "Education loans",
+        "Housing debt/mortgage",
+        "Delinquent Federal debt"
+      ]
+    },
+    {
+      "section": "INCOME & ASSISTANCE",
+      "pageNum": 1,
+      "questionId": 2,
+      "answerType": "TEXT",
+      "answer": [
+        "1345"
+      ]
+    },
+    {
+      "section": "WORK EXPERIENCE",
+      "pageNum": 1,
+      "questionId": 1,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    } 
+  ],
+  "result": {
+    "totalResourceCount": 24,
+    "resultAssertionList": [
+      "American Music Abroad Program",
+      "Cell Biology and Biophysics Research and Research Training"
+    ],
+    "favorites": [
+      "American Music Abroad Program",
+      "Cell Biology and Biophysics Research and Research Training"
+    ]
+  }
+}

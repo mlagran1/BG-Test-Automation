@@ -1,0 +1,116 @@
+{
+  "title": "Resource Finder SSABest Test Case 1",
+  "summary": "Quick run though. No household questions",
+  "answers": [
+    {
+      "section": "General - Part One",
+      "pageNum": 1,
+      "questionId": 1,
+      "answerType": "TEXT",
+      "answer": [
+        "01/01/1950"
+      ]
+    },
+    {
+      "section": "General - Part One",
+      "pageNum": 1,
+      "questionId": 2,
+      "answerType": "RADIO",
+      "answer": [
+        "One of the 50 states or the District of Columbia"
+      ]
+    },
+    {
+      "section": "General - Part One",
+      "pageNum": 1,
+      "questionId": 3,
+      "answerType": "DROPDOWN",
+      "answer": [
+        "Virginia"
+      ]
+    },
+    {
+      "section": "General - Part One",
+      "pageNum": 1,
+      "questionId": 4,
+      "answerType": "RADIO",
+      "answer": [
+        "U.S. Citizen"
+      ]
+    },
+    {
+      "section": "General - Part One",
+      "pageNum": 1,
+      "questionId": 5,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "General - Part One",
+      "pageNum": 1,
+      "questionId": 6,
+      "answerType": "RADIO",
+      "answer": [
+        "Private residence"
+      ]
+    },
+    {
+      "section": "General - Part One",
+      "pageNum": 1,
+      "questionId": 7,
+      "answerType": "RADIO",
+      "answer": [
+        "Not a student"
+      ]
+    },
+    {
+      "section": "General - Part One",
+      "pageNum": 1,
+      "questionId": 8,
+      "answerType": "TEXT",
+      "answer": [
+        "2500"
+      ]
+    },
+    {
+      "section": "General - Part One",
+      "pageNum": 1,
+      "questionId": 9,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "I do not receive any of these benefits"
+      ]
+    },
+    {
+      "section": "General - Part One",
+      "pageNum": 1,
+      "questionId": 10,
+      "answerType": "TEXT",
+      "answer": [
+        "1"
+      ]
+    },
+    {
+      "section": "General - Part One",
+      "pageNum": 1,
+      "questionId": 1,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    } 
+  ],
+  "result": {
+    "totalResourceCount": 24,
+    "resultAssertionList": [
+      "American Music Abroad Program",
+      "Cell Biology and Biophysics Research and Research Training"
+    ],
+    "favorites": [
+      "American Music Abroad Program",
+      "Cell Biology and Biophysics Research and Research Training"
+    ]
+  }
+}
