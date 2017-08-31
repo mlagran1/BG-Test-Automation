@@ -26,7 +26,6 @@ import net.thucydides.core.pages.PageObject;
 public class BGPage extends PageObject {
     
 	private String env = System.getProperty("environment");
-	//public String defaultUrl = "https://" + env + ".benefits.gov";
 	
 	public BGPage(WebDriver driver) {
 		super(driver);
@@ -123,7 +122,7 @@ public class BGPage extends PageObject {
 		List<WebElement> footer = FAQButtonsExpand();
 		for (int i = 0; i < 14; i++) {
 			footer.get(i).click();
-			pause(1000);
+			pause(500);
 		}
 	}
 		
@@ -132,7 +131,7 @@ public class BGPage extends PageObject {
 		List<WebElement> footer = FAQButtonsMinimize();
 		for (int i = 0; i < 14; i++) {
 			footer.get(i).click();
-			pause(1000);
+			pause(500);
 		}
 	}
 
@@ -170,7 +169,7 @@ public class BGPage extends PageObject {
 	private WebElementFacade homeButtonNode;	
 	
 	public void clickHomeButton() {
-		pause(1000);
+		pause(500);
 		homeButtonNode.click();
 	}
 	
@@ -178,7 +177,7 @@ public class BGPage extends PageObject {
 	private WebElementFacade toggleLanguageNode;
 	
 	public void clickToggleLanguageButton() {
-		pause(1000);
+		pause(500);
 		toggleLanguageNode.click();
 	}
 	
@@ -241,7 +240,7 @@ public class BGPage extends PageObject {
 	}
 
 	public List<String> checkGroupHeadingNodes(){
-		pause(1000);
+		pause(500);
 		List<String> headingList = new ArrayList<String>();
 		List<WebElement> footer = groupHeadingNodes();
 		
@@ -257,7 +256,7 @@ public class BGPage extends PageObject {
 	}
 	
 	public int checkResourceNodes() {
-		pause(1000);
+		pause(500);
 		List<WebElement> footer = resourceNodes();
 		
 		System.out.println("Number of resources is: " + footer.size());
@@ -273,7 +272,7 @@ public class BGPage extends PageObject {
     private WebElementFacade toggleFilterNode;
 	
 	public void clickToggleFilterButton() {
-		pause(1000);
+		pause(500);
 		toggleFilterNode.click();
 	}
 	
@@ -285,14 +284,14 @@ public class BGPage extends PageObject {
     private WebElementFacade hiddenFilterNode;
 	
 	public boolean checkFilterShow() {
-		pause(1000);
+		pause(500);
 		Boolean isPresent = getDriver().findElements(By.xpath("//*[contains(@class,'ctools-auto-submit-full')][contains(@style,'display: block')]")).size() == 1;
 		
 		return isPresent;
 	}
 	
 	public boolean checkFilterHidden() {
-		pause(1000);
+		pause(500);
 		Boolean isHidden = getDriver().findElements(By.xpath("//*[contains(@class,'ctools-auto-submit-full')][contains(@style,'display: none')]")).size() == 1;
 		
 		return isHidden;
@@ -304,7 +303,7 @@ public class BGPage extends PageObject {
 	
 	public void selectFilterByType(String filterType) {
 		filterByTypeDropdown.sendKeys(filterType);
-		pause(2000);
+		pause(1000);
 	}
 
 
@@ -313,7 +312,7 @@ public class BGPage extends PageObject {
 	
 	public void selectFilterByState(String filterType) {
 		filterByStateDropdown.sendKeys(filterType);
-		pause(2000);
+		pause(1000);
 	}
 	
  
@@ -710,7 +709,7 @@ public class BGPage extends PageObject {
         System.out.println("current window url is: " + windowUrl);
 
     	WebElement pageTitle = getDriver().findElement(By.xpath("//*[@id='page-title']"));
-    	pause(2000);
+    	//pause(2000);
 		return pageTitle.getText();
 	}
         
@@ -790,7 +789,7 @@ public class BGPage extends PageObject {
 		// Switch to new window opened
 		List<String> browserTabs = new ArrayList<String>(getDriver().getWindowHandles());
 		getDriver().switchTo().window(browserTabs.get(1));
-		pause(2000);
+		pause(1000);
 
 		// Perform the actions on new window
 		Serenity.takeScreenshot();

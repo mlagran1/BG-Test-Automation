@@ -10,9 +10,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @DefaultUrl("https://www.benefits.gov")
-public class NosBasePage extends PageObject {
+public class BasePage extends PageObject {
 
-    private static final Logger log = LoggerFactory.getLogger(NosBasePage.class);
+    private static final Logger log = LoggerFactory.getLogger(BasePage.class);
 
     // -------- Xpath Functions --------
 
@@ -27,7 +27,7 @@ public class NosBasePage extends PageObject {
     @FindBy(xpath = "//*[@class='field-item even']")
     private WebElementFacade subpageTitle;
 
-    public NosBasePage(WebDriver webDriver) {
+    public BasePage(WebDriver webDriver) {
         super(webDriver);
     }
 
