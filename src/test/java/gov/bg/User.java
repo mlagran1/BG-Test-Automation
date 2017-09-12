@@ -1,6 +1,6 @@
-package gov.bg.steps.serenity;
+package gov.bg;
 
-import gov.bg.model.pages.BGPage;
+import gov.bg.pages.BGPage;
 
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Step;
@@ -227,7 +227,7 @@ public class User {
 			System.err.println("INVALID PAGE SENT");
 			break;	
   		}
-  		Assert.assertEquals(selectedUrl, bgPage.processWindows(selectedUrl));	
+  		Assert.assertEquals(selectedUrl, bgPage.processWindows());	
   	}	
     
  
@@ -613,7 +613,6 @@ public class User {
    	}
     
     //Slider test
-    
     @Step
    	public void clickSliderTile(String sliderNum) {
     	bgPage.clickSliderTileNode(sliderNum);
@@ -622,6 +621,8 @@ public class User {
     
     @Step 
    	public void verifySliderTitle(String sliderNum, String language) {	
+    	
+    	String selectedUrl = "";
     	
     	switch(sliderNum) {
 		case "1": 
@@ -639,10 +640,12 @@ public class User {
    			}
    			break;
 		case "4": 
-			Assert.assertEquals(bgPage.getWindowUrl(), "https://www.youtube.com/watch?v=YVAJ-fSJz-k");
+			selectedUrl = "https://www.youtube.com/watch?v=YVAJ-fSJz-k";
+			Assert.assertEquals(selectedUrl, bgPage.processWindows());	
 			break;
 		case "5": 
-			Assert.assertEquals(bgPage.getWindowUrl(), "https://www.careeronestop.org/WorkerReEmployment/default.aspx");
+			selectedUrl = "https://www.careeronestop.org/WorkerReEmployment/default.aspx";
+			Assert.assertEquals(selectedUrl, bgPage.processWindows());
 			break;
 		case "6": 
 			if(language.equals("EN")){

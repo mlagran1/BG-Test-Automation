@@ -1,4 +1,4 @@
-package gov.bg.model;
+package gov.bg;
 
 import org.codehaus.jackson.annotate.JsonCreator;
 

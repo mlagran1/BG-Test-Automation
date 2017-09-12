@@ -1,4 +1,4 @@
-package gov.bg.steps;
+package gov.bg;
 
 import net.thucydides.core.annotations.Steps;
 import org.jbehave.core.annotations.Given;
@@ -7,7 +7,7 @@ import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
 //import gov.benefits.bg.test.steps.serenity.User;
-import gov.bg.steps.serenity.User;
+import gov.bg.User;
 
 public class DailyRegression {
 

@@ -1,11 +1,11 @@
-package gov.bg.steps.serenity;
+package gov.bg;
 
-import gov.bg.model.ResourceFinderAnswer;
-import gov.bg.model.ResourceFinderResult;
-import gov.bg.model.ResourceFinderTestCase;
-import gov.bg.model.pages.ResourceFinderFavoritePage;
-import gov.bg.model.pages.ResourceFinderQuestionPage;
-import gov.bg.model.pages.ResourceFinderResultPage;
+import gov.bg.ResourceFinderAnswer;
+import gov.bg.ResourceFinderResult;
+import gov.bg.ResourceFinderTestCase;
+import gov.bg.pages.ResourceFinderFavoritePage;
+import gov.bg.pages.ResourceFinderQuestionPage;
+import gov.bg.pages.ResourceFinderResultPage;
 import net.thucydides.core.annotations.Screenshots;
 import net.thucydides.core.annotations.Step;
 import org.apache.commons.io.IOUtils;

@@ -1,6 +1,6 @@
 Test Feature
 
-Meta: 
+Meta: @skip
 @feature Test Feature
 @categories testFilter
 
@@ -24,9 +24,6 @@ Examples:
 |5|
 |6|
 |7|
-
-
-
 
 
 

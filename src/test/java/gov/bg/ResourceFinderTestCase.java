@@ -1,4 +1,4 @@
-package gov.bg.model;
+package gov.bg;
 
 import java.util.ArrayList;
 import java.util.List;

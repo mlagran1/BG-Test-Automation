@@ -1,4 +1,4 @@
-package gov.bg.model.pages;
+package gov.bg.pages;
 
 import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.annotations.findby.FindBy;

@@ -1,6 +1,6 @@
 Navigate BG English
 
-Meta: 
+Meta:
 @feature BG_English
 
 Narrative:
@@ -97,7 +97,7 @@ Then the correct benefits should show
 
 Examples:
 |stateOrTerritory|
-|Florida|
+|Nevada|
 |California|
 
 

@@ -1,4 +1,4 @@
-package gov.bg.model.pages;
+package gov.bg.pages;
 
 
 import java.util.ArrayList;
@@ -779,12 +779,12 @@ public class BGPage extends PageObject {
 	}
     // ***********************************************************************************
 
-	public String processWindows(String url) {
+	public String processWindows() {
 		// Store the current window handle
 		String winHandleBefore = getDriver().getWindowHandle();
 
 		// Perform the click operation that opens new window
-		System.out.println("url passed in is " + url);
+		//System.out.println("url passed in is " + url);
 
 		// Switch to new window opened
 		List<String> browserTabs = new ArrayList<String>(getDriver().getWindowHandles());

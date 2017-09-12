@@ -1,9 +1,9 @@
-package gov.bg.steps;
+package gov.bg;
 
-import gov.bg.model.ResourceFinderAnswer;
-import gov.bg.model.ResourceFinderResult;
-import gov.bg.model.ResourceFinderTestCase;
-import gov.bg.steps.serenity.ResourceFinderSteps;
+import gov.bg.ResourceFinderAnswer;
+import gov.bg.ResourceFinderResult;
+import gov.bg.ResourceFinderTestCase;
+import gov.bg.ResourceFinderSteps;
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Steps;
 import org.apache.commons.io.IOUtils;

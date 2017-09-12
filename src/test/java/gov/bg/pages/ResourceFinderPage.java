@@ -1,10 +1,10 @@
-package gov.bg.model.pages;
+package gov.bg.pages;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.WebDriver;
 
-public abstract class ResourceFinderPage extends NosBasePage {
+public abstract class ResourceFinderPage extends BasePage {
 
     @FindBy(xpath = "//div[@id='questionnaire-id']/div[@id='mtid']/ul/li/a[text()='Answer Questions']")
     private WebElementFacade questionnaireNavAnswer;
