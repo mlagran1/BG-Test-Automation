@@ -1,7 +1,5 @@
-Navigate BG English
-
-Meta:
-@feature BG_English
+Meta: 
+@feature BG English
 
 Narrative:
 In order to assure that the basic functionality of benefits.gov is working
@@ -9,7 +7,7 @@ As a tester
 I want to run the daily regressions at least twice a day
 
 
-Scenario: Verify all of the navigation tabs open correctly
+Scenario: (Benefits) Verify all of the navigation tabs open correctly
 Meta: 
 Given the user is on the Benefits home page
 When the user clicks on <navMenuItem> within the top navigation bar
@@ -23,7 +21,7 @@ Examples:
 |help|
 
 
-Scenario: Verify all of the sub-navigation tabs open correctly
+Scenario: (Benefits) Verify all of the sub-navigation tabs open correctly
 Meta: 
 Given the user is on the Benefits home page
 When the user clicks on the <subNavMenuItem> within the top navigation bar
@@ -54,7 +52,7 @@ Examples:
 |Privacy and Terms of Use|
 
 
-Scenario: Verify all of the browse by buttons open correctly
+Scenario: (Benefits) Verify all of the browse by buttons open correctly
 Meta: 
 Given the user is on the Benefits home page
 When the user clicks on the <browseByItem> on the homepage
@@ -68,7 +66,7 @@ Examples:
 |Browse by Agency|
 
 
-Scenario: Verify all of the footer links open correctly
+Scenario: (Benefits) Verify all of the footer links open correctly
 Meta: 
 Given the user is on the Benefits home page
 When the user clicks on the <footerLink> within the homepage
@@ -86,7 +84,7 @@ Examples:
 |Disaster Assistance|
 
 
-Scenario: Verify personalization functions correctly
+Scenario: (Benefits) Verify personalization functions correctly
 Meta: 
 Given the user is on the Benefits home page
 When the user clicks on the change location button
@@ -101,7 +99,7 @@ Examples:
 |California|
 
 
-Scenario: Verify FAQ page functions correctly
+Scenario: (Benefits) Verify FAQ page functions correctly
 Meta: 
 Given the user is on the Benefits FAQ page
 When the user clicks on the expand button
@@ -110,7 +108,7 @@ When the user clicks on the minimize button
 Then the answer text should be hidden
 
 
-Scenario: Verify that the home button works
+Scenario: (Benefits) Verify that the home button works
 Meta: 
 Given the user is on the Benefits home page
 Then the home page title should show
@@ -118,7 +116,7 @@ When the user clicks on the home button
 Then the user should be taken to the home page
 
 
-Scenario: Verify that toggle language button works
+Scenario: (Benefits) Verify that toggle language button works
 Meta: 
 Given the user is on the Benefits home page
 When the user clicks on the toggle language button
@@ -127,7 +125,7 @@ When the user clicks on the toggle language button
 Then the user should be taken to the English home page
 
 
-Scenario: Verify the Browse by pages
+Scenario: (Benefits) Verify the Browse by pages
 Meta: 
 Given the user is on the Browse by <browseByItem> page
 When the user clicks on a category
@@ -142,7 +140,7 @@ Examples:
 |agency|
 
 
-Scenario: Verify the Other Resources page filter toggle
+Scenario: (Benefits) Verify the Other Resources page filter toggle
 Meta: 
 Given the user is on the Other Resources page
 When the user clicks on the minimize filter button
@@ -151,7 +149,7 @@ When the user clicks on the expand filter button
 Then the filter should reappear
 
 
-Scenario: Verify the Other Resources page filter by type
+Scenario: (Benefits) Verify the Other Resources page filter by type
 Meta: 
 Given the user is on the Other Resources page
 When the user filters by type <filterByType>
@@ -165,7 +163,7 @@ Examples:
 |Other|
 
 
-Scenario: Verify the Other Resources page filter by state
+Scenario: (Benefits) Verify the Other Resources page filter by state
 Meta: 
 Given the user is on the Other Resources page
 When the user filters by state <filterByState>
@@ -178,14 +176,14 @@ Examples:
 |Nevada|
 
 
-Scenario: Verify the Other Resources page filter by all categories
+Scenario: (Benefits) Verify the Other Resources page filter by all categories
 Meta: 
 Given the user is on the Other Resources page
 When the user filters by all categories
 Then the correct group headings for categories should appear
 
 
-Scenario: Verify the News & Updates click article
+Scenario: (Benefits) Verify the News & Updates click article
 Meta: 
 Given the user is on the News & Updates page
 Then the user should see five news articles
@@ -197,7 +195,7 @@ Examples:
 |1|
 |2|
 
-Scenario: Verify the News & Updates click read more
+Scenario: (Benefits) Verify the News & Updates click read more
 Meta: 
 Given the user is on the News & Updates page
 Then the user should see five news articles
@@ -209,7 +207,7 @@ Examples:
 |1|
 |2|
 
-Scenario: Verify the News & Updates navigation buttons
+Scenario: (Benefits) Verify the News & Updates navigation buttons
 Meta: 
 Given the user is on the News & Updates page
 When the user clicks on the next button
@@ -222,7 +220,7 @@ When the user clicks on the first button
 Then the user should be taken to the first page
 
 
-Scenario: Verify the News & Updates page filter by news type works
+Scenario: (Benefits) Verify the News & Updates page filter by news type works
 Meta: 
 Given the user is on the News & Updates page
 When the user filters by news type <filterByType>
@@ -234,7 +232,7 @@ Examples:
 |Compass Article|
 
 
-Scenario: Verify the News & Updates page filter by benefit category works
+Scenario: (Benefits) Verify the News & Updates page filter by benefit category works
 Meta: 
 Given the user is on the News & Updates page
 When the user filters by benefit category <benefitCategory>
@@ -245,7 +243,7 @@ Examples:
 |Child Care/Child Support|
 
 
-Scenario: Verify the Compass Newsletter click article
+Scenario: (Benefits) Verify the Compass Newsletter click article
 Meta: 
 Given the user is on the Compass Newsletter page
 Then the user should see the correct number of compass articles
@@ -258,7 +256,7 @@ Examples:
 |2|
 
 
-Scenario: Verify the Compass Newsletter click read more
+Scenario: (Benefits) Verify the Compass Newsletter click read more
 Meta: 
 Given the user is on the Compass Newsletter page
 When the user clicks on compass article <articleNum> read more
@@ -270,7 +268,7 @@ Examples:
 |2|
 
 
-Scenario: Verify the home page slider
+Scenario: (Benefits) Verify the home page slider
 Meta: 
 Given the user is on the Benefits home page
 When the user clicks on slider tile <sliderNum>

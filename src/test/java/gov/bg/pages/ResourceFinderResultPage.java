@@ -12,8 +12,6 @@ import java.util.stream.Collectors;
 @DefaultUrl("https://www.benefits.gov/benefits/benefit-finder#results")
 public class ResourceFinderResultPage extends ResourceFinderPage {
 	    
-	//private static final String FAVORITE_BUTTON_XPATH = "//td[./a[" + "text()" +
-    //        "=%s]]/div/a[text() = 'Add to Favorites']";
 	
     private static final String FAVORITE_BUTTON_XPATH = "(//td[./a[" + "text()" +
                     "=%s]]/div/a)[2]";

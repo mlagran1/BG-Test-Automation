@@ -2,6 +2,8 @@ package gov.ssa;
 
 import gov.ssa.pages.SSAPage;
 import gov.ssa.pages.SSAHomepage;
+import gov.ssa.pages.SSABrowseByPage;
+import gov.ssa.pages.SSAFAQPage;
 
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.annotations.findby.FindBy;
@@ -18,6 +20,8 @@ public class UserSSA {
 
 	SSAPage ssaPage;
 	SSAHomepage ssaHomepage;
+	SSABrowseByPage ssaBrowseByPage;
+	SSAFAQPage ssaFAQPage;
 
     @Step
     public void onHomePage() {
@@ -37,28 +41,34 @@ public class UserSSA {
 		System.out.println("Directory path is: " + url);	
 	}
     
-
+    
     @Step
     public void clickNavNode(String node) {
     	
     	switch(node) {
     	//sub nav links 
 		case "SSA Best Questionnaire": 
+		case "Buscador de Beneficios":
 			ssaPage.clickSubNavButtons(ssaHomepage.benefitsMainNavButton, ssaHomepage.questionnaireSubNavButton);
 			break;	
 		case "Browse By Category": 
+		case "Búsqueda por Categoría":
 			ssaPage.clickSubNavButtons(ssaHomepage.benefitsMainNavButton, ssaHomepage.browseByCategorySubNavButton);
 			break;	
 		case "Other Resources": 
+		case "Otros recursos":
 			ssaPage.clickSubNavButtons(ssaHomepage.benefitsMainNavButton, ssaHomepage.otherResourcesSubNavButton);
 			break;	
 		case "FAQs": 
+		case "Preguntas más frecuentes":
 			ssaPage.clickSubNavButtons(ssaHomepage.helpMainNavButton, ssaHomepage.FAQSubNavButton);
 			break;	
 		case "Contact Us": 
+		case "Contáctenos":
 			ssaPage.clickSubNavButtons(ssaHomepage.helpMainNavButton, ssaHomepage.contactUsSubNavButton);
 			break;	
 		case "Privacy & Terms of Use": 
+		case "Privacidad y Términos de Uso":
 			ssaPage.clickSubNavButtons(ssaHomepage.helpMainNavButton, ssaHomepage.privacyAndTermsSubNavButton);
 			break;	
 			
@@ -87,6 +97,31 @@ public class UserSSA {
    		case "FAQs":	
    		case "Contact Us":
    		case "Privacy & Terms of Use":
+   			
+   		case "Buscador de Beneficios": 
+   		case "Búsqueda por Categoría":
+   		case "Otros recursos":	
+   		case "Preguntas más frecuentes":
+   		case "Contáctenos":
+   		case "Privacidad y Términos de Uso":
+   			
+		case "Family":	
+		case "Disability Assistance":	
+		case "Insurance":	
+		case "Medicare":	
+		case "Retirement":	
+		case "Spouse & Widow(er)":	
+		case "Supplemental Security Income":	
+		case "Veterans":
+			
+		case "Asistencia por discapacidad":	
+		case "Cónyuge y viudo o viuda":	
+		case "Jubilación":	
+		case "Seguridad de Ingreso Suplementario":	
+		case "Familia":	
+		case "Seguros":	
+		case "Veteranos":	
+			
    			Assert.assertEquals(expectedPageName, pageTitle);
    			break;
    			
@@ -101,23 +136,30 @@ public class UserSSA {
     @Step
     public void clickFooterLink(String link) {
     	
+    	ssaPage.scrollToBottom();
+    
     	switch(link) {
 		case "The White House": 
 			ssaHomepage.whiteHouseFooterLink.click();
 			break;
-		case "USA.gov": 
+		case "USA.gov":
+		case "USA.gov ES":
 			ssaHomepage.USAGovFooterLink.click();
 			break;
 		case "Benefits.gov": 
+		case "Benefits.gov ES":
 			ssaHomepage.BGFooterLink.click();
 			break;
-		case "Disaster Assistance": 
+		case "Disaster Assistance":
+		case "Disaster Assistance ES":
 			ssaHomepage.DAFooterLink.click();
 			break;
 		case "GovLoans": 
+		case "GovLoans ES":
 			ssaHomepage.GLFooterLink.click();
 			break;
 		case "Privacy & Terms of Use": 
+		case "Privacidad y Términos de Uso":
 			ssaHomepage.privacyAndTermsFooterLink.click();
 			break;
 		
@@ -135,29 +177,214 @@ public class UserSSA {
   					
 		case "The White House": 
 			selectedUrl = "https://www.whitehouse.gov/";
+			Assert.assertEquals(selectedUrl, ssaPage.processWindows());		
 			break;
 		case "USA.gov": 
 			selectedUrl = "https://www.usa.gov/";
+			Assert.assertEquals(selectedUrl, ssaPage.processWindows());		
+			break;
+		case "USA.gov ES": 
+			selectedUrl = "https://gobierno.usa.gov//";
+			Assert.assertEquals(selectedUrl, ssaPage.processWindows());		
 			break;
 		case "Benefits.gov": 
 			selectedUrl = "https://www.benefits.gov/";
+			Assert.assertEquals(selectedUrl, ssaPage.processWindows());		
+			break;
+		case "Benefits.gov ES":
+			selectedUrl = "https://www.benefits.gov/es";
+			Assert.assertEquals(selectedUrl, ssaPage.processWindows());		
 			break;
 		case "Disaster Assistance": 
 			selectedUrl = "https://www.disasterassistance.gov/";
+			Assert.assertEquals(selectedUrl, ssaPage.processWindows());		
+			break;
+		case "Disaster Assistance ES": 
+			selectedUrl = "https://www.disasterassistance.gov/es";
+			Assert.assertEquals(selectedUrl, ssaPage.processWindows());		
 			break;
 		case "GovLoans": 
 			selectedUrl = "https://www.govloans.gov/";
+			Assert.assertEquals(selectedUrl, ssaPage.processWindows());		
+			break;
+		case "GovLoans ES": 
+			selectedUrl = "https://es.govloans.gov/";
+			Assert.assertEquals(selectedUrl, ssaPage.processWindows());		
 			break;
 		case "Privacy & Terms of Use": 
-			selectedUrl = "https://ssabest.benefits.gov/help/privacy-and-terms-of-use";
-			break;
+			Assert.assertEquals(expectedPageURL, ssaPage.pullPageTitle());
+   			break;
+		case "Privacidad y Términos de Uso":
+			Assert.assertEquals(expectedPageURL, ssaPage.pullPageTitle());
+   			break;
 		
 		default:
 			System.err.println("INVALID PAGE SENT");
 			break;
-  		}
-  		Assert.assertEquals(selectedUrl, ssaPage.processWindows());		
+  		}		
   	}	
 
+    
+    @Step
+    public void clickHomepageLink(String node) {
+    	
+    	
+    	
+    	switch(node) {
+		case "Start Questionnaire": 
+		case "Empieza Cuestionario": 
+			ssaHomepage.startQuestionnaireButton.click();
+			break;	
+		case "Benefits.gov": 
+		case "Benefits.gov ES": 
+			ssaHomepage.BGHomepageLink.click();
+			break;	
+		case "Help With Medicare": 
+		case "Medicare ES": 
+			ssaPage.scrollToBottom();
+			ssaHomepage.helpWithMedicareLink.click();
+			break;	
+		case "BG Logo": 
+		case "BG Logo ES": 
+			ssaHomepage.BGHomepageLogoLink.click();
+			break;	
+		case "SSA.gov": 
+		case "SSA.gov ES": 
+			ssaHomepage.SSAGovLink.click();
+			break;	
+				
+		default:
+			System.err.println("INVALID BUTTON CLICKED");
+			break;
+    	}	
+    }
+    
+    @Step
+	public void verifyHomepageLink(String expectedPageURL) {
+  		String selectedUrl = "";
+  		
+  		switch(expectedPageURL) { 	
+		case "Start Questionnaire": 
+			Assert.assertEquals("Benefit Finder", ssaPage.pullPageTitle());
+			break;	
+		case "Empieza Cuestionario":
+			Assert.assertEquals("Buscador de Beneficios", ssaPage.pullPageTitle());
+			break;	
+		case "Benefits.gov": 
+		case "BG Logo": 
+			selectedUrl = "https://www.benefits.gov/";
+			Assert.assertEquals(selectedUrl, ssaPage.processWindows());
+			break;
+		case "Benefits.gov ES": 
+		case "BG Logo ES": 
+			selectedUrl = "https://www.benefits.gov/es";
+			Assert.assertEquals(selectedUrl, ssaPage.processWindows());
+			break;
+		case "Help With Medicare": 
+			selectedUrl = "https://www.ssa.gov/medicare/prescriptionhelp/";
+			Assert.assertEquals(selectedUrl, ssaPage.processWindows());
+			break;
+		case "Medicare ES": 
+			selectedUrl = "https://www.ssa.gov/espanol/medicare-es/medicamentos/";
+			Assert.assertEquals(selectedUrl, ssaPage.processWindows());
+			break;
+		case "SSA.gov": 
+			selectedUrl = "https://www.ssa.gov/";
+			Assert.assertEquals(selectedUrl, ssaPage.processWindows());
+			break;
+		case "SSA.gov ES": 
+			selectedUrl = "https://www.ssa.gov/espanol/";
+			Assert.assertEquals(selectedUrl, ssaPage.processWindows());
+			break;
 
+  		default:
+			System.err.println("INVALID PAGE SENT");
+			break;	
+  		}	
+  	}	
+    
+    @Step
+	public void clickHomeButton(String node) {
+  		
+  		switch(node) { 	
+		case "Home Logo": 
+		case "Home Logo ES": 
+			ssaHomepage.homeLogoButton.click();
+			break;	
+		case "Home Nav": 
+		case "Home Nav ES":
+			ssaHomepage.homeMainNavButton.click();
+			break;
+  		default:
+			System.err.println("INVALID BUTTON CLICKED");
+			break;	
+  		}	
+  	}	
+    
+    
+    @Step
+	public void verifyHomepage() {
+    	Assert.assertEquals("https://ssabest.benefits.gov/", ssaPage.getWindowUrl());
+  	}
+    
+    @Step
+	public void verifyHomepageES() {
+    	Assert.assertEquals("https://ssabest.benefits.gov/es", ssaPage.getWindowUrl());
+  	}	
+
+    
+    @Step
+	public void clickToggleLanguage() {
+    	ssaHomepage.languageToggleButton.click();
+  	}	
+    
+    @Step
+	public void verifyToggleLanguage(String language) {
+    	
+    	System.out.println("language is "+ language);
+  		
+  		switch(language) { 	
+		case "EN": 
+			Assert.assertEquals("https://ssabest.benefits.gov/", ssaPage.getWindowUrl());
+			break;	
+		case "ES": 
+			Assert.assertEquals("https://ssabest.benefits.gov/es", ssaPage.getWindowUrl());
+			break;
+  		default:
+			System.err.println("INVALID LANGUAGE");
+			break;	
+  		}	
+  	}
+    
+    //browse by category tests
+    @Step
+    public void clickBrowseByCategorySSA(String categoryItem) {
+    	ssaBrowseByPage.clickCategoryTitle(categoryItem);
+    }
+    
+    @Step
+    public void clickBenefitDetailNode() {
+    	ssaBrowseByPage.clickBenefitTitle();
+   	}
+    
+    @Step
+   	public void verifyBenefitTitle() {
+    	//System.out.println("getBenefitTitle : " + ssaBrowseByPage.getBenefitTitle());
+    	//System.out.println("pullBenefitTitle : " + ssaPage.pullBenefitTitle());
+    	Assert.assertEquals(ssaBrowseByPage.getBenefitTitle(), ssaPage.pullBenefitTitle());
+   	}
+    
+    //FAQ
+    @Step
+    public void clickFAQ(String questionNum) {
+    	ssaFAQPage.clickFAQNode(questionNum);
+    }
+    
+    @Step
+   	public void verifyFAQTitle() {
+//    	System.out.println("getFAQquestion : " + ssaFAQPage.getFAQquestion());
+//    	System.out.println("pullPageTitle : " + ssaPage.pullPageTitle());
+    	Assert.assertEquals(ssaFAQPage.getFAQquestion(), ssaPage.pullPageTitle());
+   	}
+    
 }

@@ -23,35 +23,33 @@ public class ResourceFinderNarrative {
 
     @Given("I am on the Benefits.gov benefit finder page")
     public void onResourceFinderPage() {
-
         resourceFinderSteps.onFinderPage("");
     }
     
     @Given("I am on the Spanish Benefits.gov benefit finder page")
     public void onSpanishResourceFinderPage() {
-
         resourceFinderSteps.onFinderPage("es/");
     }
     
     
     @Given("I am on the SSABest.gov benefit finder page")
     public void onResourceFinderPageSSA() {
-
         resourceFinderSteps.onFinderPageSSA("");
     }
     
     @Given("I am on the Govloans.gov benefit finder page")
     public void onResourceFinderPageGL() {
-
         resourceFinderSteps.onFinderPageGL("");
     }
-    
-    
-    
+      
 
     @When("I enter my <information> into the questionnaire")
     public void completeResourceFinder(@Named("information") String testCaseFileName) throws IOException {
-        ResourceFinderTestCase testCase = getTestCase(testCaseFileName);
+    	
+    	
+    	resourceFinderSteps.resetAnswers();
+    	
+    	ResourceFinderTestCase testCase = getTestCase(testCaseFileName);
 
         for (ResourceFinderAnswer answer : testCase.getAnswers()) {
             resourceFinderSteps.answerQuestion(answer);
@@ -74,11 +72,15 @@ public class ResourceFinderNarrative {
 
     @Then("I should see available benefits related to my <information>")
     public void thenBenefitsDisplayed(@Named("information") String testCaseFileName) throws IOException {
+    	//resourceFinderSteps.closeWindow();
+    	
         ResourceFinderResult result = getTestCase(testCaseFileName).getResult();
 
         resourceFinderSteps.verifyBenefitsDisplayed(result);
 
         Serenity.takeScreenshot();
+        
+        
     }
 
     private ResourceFinderTestCase getTestCase(String testCaseFileName) throws IOException {

@@ -12,9 +12,13 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.google.common.base.Predicate;
+
+import junit.framework.Assert;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -505,6 +509,15 @@ public class BGPage extends PageObject {
 	
 	@FindBy(xpath = "//*[@class='pager-last last']/a")
     private WebElementFacade newsUpdateNavLastNode;
+	
+	
+	@FindBy(xpath = "//*[@class='pager-current last']")
+    private WebElementFacade newsUpdateLastPageNumber;
+	
+	public String getNewsAndUpdatesLastPageNumber(){
+		return newsUpdateLastPageNumber.getText();
+	}
+	
 
 	public void clickNewsNavNextNode() {
 		newsUpdateNavNextNode.click();
@@ -784,13 +797,20 @@ public class BGPage extends PageObject {
 		String winHandleBefore = getDriver().getWindowHandle();
 
 		// Perform the click operation that opens new window
-		//System.out.println("url passed in is " + url);
 
 		// Switch to new window opened
 		List<String> browserTabs = new ArrayList<String>(getDriver().getWindowHandles());
 		getDriver().switchTo().window(browserTabs.get(1));
-		pause(1000);
-
+		
+		ExpectedCondition<Boolean> pageLoadCondition = new ExpectedCondition<Boolean>() {
+			public Boolean apply(WebDriver driver) {
+				return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
+			}
+		};
+		WebDriverWait wait = new WebDriverWait(this.getDriver(), 10);
+		wait.until(pageLoadCondition);
+	
+		
 		// Perform the actions on new window
 		Serenity.takeScreenshot();
 		String windowUrl = getDriver().getCurrentUrl();

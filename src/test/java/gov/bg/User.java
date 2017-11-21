@@ -568,20 +568,18 @@ public class User {
     	
     	switch(buttonType) {
 		case "next": 
-//			Assert.assertEquals("https://www.benefits.gov/newsroom/news-and-updates?page=1", bgPage.getWindowUrl());
 			Assert.assertTrue(bgPage.getWindowUrl().contains("newsroom/news-and-updates?page=1"));
 			break;
 		case "prev":
-//			Assert.assertEquals("https://www.benefits.gov/newsroom/news-and-updates", bgPage.getWindowUrl());
 			Assert.assertTrue(bgPage.getWindowUrl().contains("newsroom/news-and-updates"));
 			break;
 		case "first":
-//			Assert.assertEquals("https://www.benefits.gov/newsroom/news-and-updates", bgPage.getWindowUrl());
 			Assert.assertTrue(bgPage.getWindowUrl().contains("newsroom/news-and-updates"));
 			break;
 		case "last":
-//			Assert.assertEquals("https://www.benefits.gov/newsroom/news-and-updates?page=9", bgPage.getWindowUrl());
-			Assert.assertTrue(bgPage.getWindowUrl().contains("newsroom/news-and-updates?page=9"));
+			int lastPageNum = Integer.parseInt(bgPage.getNewsAndUpdatesLastPageNumber()) - 1;
+			
+			Assert.assertTrue(bgPage.getWindowUrl().contains("newsroom/news-and-updates?page=" + lastPageNum));
 			break;
     	}	
    	}
@@ -589,7 +587,9 @@ public class User {
     
     public void verifyNewsAndUpdatesNavButtonsES(String buttonType) {	
     	if(buttonType.equals("last")){
-    		Assert.assertTrue(bgPage.getWindowUrl().contains("newsroom/news-and-updates?page=4"));
+    		int lastPageNum = Integer.parseInt(bgPage.getNewsAndUpdatesLastPageNumber()) - 1;
+			
+			Assert.assertTrue(bgPage.getWindowUrl().contains("newsroom/news-and-updates?page=" + lastPageNum));
     	}
     }
     
@@ -633,14 +633,14 @@ public class User {
 			break;
    		case "3": 
    			if(language.equals("EN")){
-   				Assert.assertEquals(bgPage.getWindowUrl(), "https://www.benefits.gov/newsroom/eNewsletter/july-2017");
+   				Assert.assertEquals(bgPage.getWindowUrl(), "https://www.benefits.gov/newsroom/eNewsletter/october-2017");
    			}
    			else if(language.equals("ES")){
-   				Assert.assertEquals(bgPage.getWindowUrl(), "https://www.benefits.gov/es/newsroom/eNewsletter/july-2017");
+   				Assert.assertEquals(bgPage.getWindowUrl(), "https://www.benefits.gov/es/newsroom/eNewsletter/october-2017");
    			}
    			break;
 		case "4": 
-			selectedUrl = "https://www.youtube.com/watch?v=YVAJ-fSJz-k";
+			selectedUrl = "https://www.youtube.com/watch?v=zz0UoSL-Ivw";
 			Assert.assertEquals(selectedUrl, bgPage.processWindows());	
 			break;
 		case "5": 

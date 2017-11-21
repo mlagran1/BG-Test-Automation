@@ -1,7 +1,5 @@
-Find Resources
-
 Meta: 
-@feature Finder
+@feature Resource Finder
 
 Narrative:
 I want to find benefits that apply to me using the Benefits.gov Questionnaire

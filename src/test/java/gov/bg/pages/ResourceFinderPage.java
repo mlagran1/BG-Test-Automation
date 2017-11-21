@@ -14,15 +14,36 @@ public abstract class ResourceFinderPage extends BasePage {
 
     @FindBy(xpath = "(//div[@id='questionnaire-id']/div[@id='mtid']/ul/li/a)[3]")
     private WebElementFacade questionnaireNavFavorites;
-    
-    
 
     @FindBy(xpath = "//div[@id='bc-value']")
     private WebElementFacade benefitTotal;
+    
+    
+    @FindBy(xpath = "//*[@id='resetButton']")
+    private WebElementFacade resetAnswersButton;
+
+    @FindBy(xpath = "//*[@class='btn'][1]")
+  
+    private WebElementFacade resetAnswersPopup;
+    
+    public void clickResetAnswers() {
+    	resetAnswersButton.click();
+    	System.out.println("Answers Reset");
+    	sleep(1000);
+    	resetAnswersPopup.click();
+    }
+    
+    public void closePage() {
+    	System.out.println("Closing Window");
+    	this.getDriver().quit();
+    }
+    
+    
 
     public ResourceFinderPage(WebDriver webDriver) {
         super(webDriver);
     }
+
 
     public void clickQuestionnaireNavAnswer() {
         scrollToTop();

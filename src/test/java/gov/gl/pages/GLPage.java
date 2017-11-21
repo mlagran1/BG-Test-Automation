@@ -11,6 +11,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -18,7 +19,7 @@ import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
-
+import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
 
 //@DefaultUrl("https://www.benefits.gov")
@@ -36,12 +37,15 @@ public class GLPage extends PageObject {
 		this.getDriver().manage().deleteAllCookies();
 	}
 	
-	public String setEnvironment() {
+	
+	public String getEnvironment() {
+		
 		if(env.isEmpty()){
-			env ="www";
+			return env;
 		}
-		String defaultUrl = "https://" + env + ".govloans.gov";
-		return defaultUrl;
+		else{
+			return env + ".";
+		}
 	}
 	
 	public String getCurrUrl() {
@@ -57,7 +61,7 @@ public class GLPage extends PageObject {
     public String pullPageTitle() {
     	
     	System.out.println("Waiting for page title to load");
-        WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+        WebDriverWait wait = new WebDriverWait(getDriver(), 10);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='page-header']/h1")));
         
         String windowUrl = getDriver().getCurrentUrl();
@@ -66,6 +70,17 @@ public class GLPage extends PageObject {
     	WebElement pageTitle = getDriver().findElement(By.xpath("//*[@class='page-header']/h1"));
 		return pageTitle.getText();
 	}
+    
+    public String pullLoanTitle() {
+    	   
+        String windowUrl = getDriver().getCurrentUrl();
+        System.out.println("current window url is: " + windowUrl);
+
+    	WebElement loanTitle = getDriver().findElement(By.xpath("//*[@class='span8 benefit-detail-title']/h2"));
+		return loanTitle.getText();
+	}
+    
+
     
     
     public void clickSubNavButtons(WebElementFacade nav, WebElementFacade subNav) {
@@ -90,7 +105,15 @@ public class GLPage extends PageObject {
 		// Switch to new window opened
 		List<String> browserTabs = new ArrayList<String>(getDriver().getWindowHandles());
 		getDriver().switchTo().window(browserTabs.get(1));
-		pause(1000);
+		//pause(3000);
+		
+		ExpectedCondition<Boolean> pageLoadCondition = new ExpectedCondition<Boolean>() {
+			public Boolean apply(WebDriver driver) {
+				return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
+			}
+		};
+		WebDriverWait wait = new WebDriverWait(this.getDriver(), 10);
+		wait.until(pageLoadCondition);
 
 		// Perform the actions on new window
 		Serenity.takeScreenshot();
@@ -113,5 +136,10 @@ public class GLPage extends PageObject {
 			e.printStackTrace();
 		}
 	}
+	
+    @Step
+    public void scrollToBottom() {
+    	((JavascriptExecutor) getDriver()).executeScript("window.scrollTo(0, document.body.scrollHeight)");   
+    }
 
 }

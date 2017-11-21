@@ -24,6 +24,7 @@ public class ResourceFinderQuestionPage extends ResourceFinderPage {
 	//public String defaultUrl = "https://" + env + ".benefits.gov/benefits/benefit-finder";
 
 	public void clearCookies() {
+		System.out.println("cookies cleared");	
 		this.getDriver().manage().deleteAllCookies();
 	}
 	
@@ -89,11 +90,6 @@ public class ResourceFinderQuestionPage extends ResourceFinderPage {
     @FindBy(xpath = "//div[@class='tab-content']/p/ul/li[@class='active' or @class='active disabled']/a")
     private WebElementFacade currentPageNum;
     
-//    @FindBy(xpath = "//div[@class='tab-content']/p/ul/li[(@class='active' or @class='active disabled') and (contains(@style,'display: none'))]/a")
-//    private WebElementFacade currentPageNumTest; 	
-//    
-//    @FindBy(xpath = "//div[@class='tab-content']/p/ul")
-//    private WebElementFacade currentPageNumTest2; 	
     
     @FindBy(xpath = "//div[@class='tab-content']//a[@title='Next']")
     private WebElementFacade nextButton;
@@ -136,20 +132,12 @@ public class ResourceFinderQuestionPage extends ResourceFinderPage {
             
         String windowUrl = getDriver().getCurrentUrl();
         System.out.println("current window url is: " + windowUrl);
-        
-    	long start = System.currentTimeMillis();
-    	System.out.println("Start");
     	
-        System.out.println("Waiting for questionnaire to load");
-        WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+        System.out.println("Questionnaire loading");
+        WebDriverWait wait = new WebDriverWait(getDriver(), 20);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='tab-content']/h6[@class='result-header']")));
                 
         String sectionName = answer.getSection().getSectionTitle();
-        
-        long finish = System.currentTimeMillis();
-    	long totalTime = finish - start; 
-    	System.out.println("Total Time for page load - "+ totalTime + " milliseconds"); 
-    	
 
         // If we're not in right section, navigate to that section
         if (!sectionName.equalsIgnoreCase(sectionTitle.getText())) {
@@ -159,8 +147,10 @@ public class ResourceFinderQuestionPage extends ResourceFinderPage {
             String sectionNavXpath = String.format(SECTION_NAV_XPATH, formatXpathStringInput(sectionName));
             WebElementFacade sectionNavButton = find(By.xpath(sectionNavXpath));
             sectionNavButton.click();
-            sleep(10000);
+            //sleep(5000);
             System.out.println("section change"); // put a sleep here
+            
+            //System.out.println("Current Benefit total: " + getBenefitTotal());
         }
         
         JavascriptExecutor jse = (JavascriptExecutor)getDriver();
@@ -183,10 +173,14 @@ public class ResourceFinderQuestionPage extends ResourceFinderPage {
             JavascriptExecutor jse2 = (JavascriptExecutor)getDriver();
             WebElement element2 = getDriver().findElement(By.xpath(pageNumXpath));
             jse2.executeScript("arguments[0].click();", element2);
-            sleep(10000);
+            //sleep(5000);
             System.out.println("page change"); //put sleep 3000 here. or wait til visible?
             
+            //System.out.println("Current Benefit total: " + getBenefitTotal());
+            
         }
+        
+       
 
     }
 

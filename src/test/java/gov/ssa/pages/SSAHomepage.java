@@ -54,24 +54,50 @@ public class SSAHomepage extends PageObject {
 	public WebElementFacade privacyAndTermsSubNavButton;
 	
 	//Footer Links
-	@FindBy(xpath = "//*[@id='node-15']/div/div/div/div/div/div[1]/ul/li[1]/a")
+	//@FindBy(xpath = "//*[@id='node-15']/div/div/div/div/div/div[1]/ul/li[2]/a")
+	@FindBy(xpath = "//*[@class='partners']/ul/li[1]/a")
 	public WebElementFacade whiteHouseFooterLink;
 						
-	@FindBy(xpath = "//*[@id='node-15']/div/div/div/div/div/div[1]/ul/li[2]/a")
+	@FindBy(xpath = "//*[@class='partners']/ul/li[2]/a")
 	public WebElementFacade USAGovFooterLink;
 	
-	@FindBy(xpath = "//*[@id='node-15']/div/div/div/div/div/div[2]/ul/li[1]/a")
+	@FindBy(xpath = "//*[@class='resources']/ul/li[1]/a")
 	public WebElementFacade BGFooterLink;
 	
-	@FindBy(xpath = "//*[@id='node-15']/div/div/div/div/div/div[2]/ul/li[2]/a")
+	@FindBy(xpath = "//*[@class='resources']/ul/li[2]/a")
 	public WebElementFacade DAFooterLink;
 	
-	@FindBy(xpath = "//*[@id='node-15']/div/div/div/div/div/div[2]/ul/li[3]/a")
+	@FindBy(xpath = "//*[@class='resources']/ul/li[3]/a")
 	public WebElementFacade GLFooterLink;
 	
-	@FindBy(xpath = "//*[@id='node-15']/div/div/div/div/div/div[3]/h5/a")
+	@FindBy(xpath = "//*[@class='privacy']/h5/a")
 	public WebElementFacade privacyAndTermsFooterLink;
 	
+
+	// other homepage links
+	@FindBy(xpath = "//*[@id='nav']/ul/li[1]/a")
+	public WebElementFacade homeMainNavButton;
+
+	@FindBy(xpath = "//*[@id='logo']/img")
+	public WebElementFacade homeLogoButton;
+
+	@FindBy(xpath = "//*[@class='language-link']")
+	public WebElementFacade languageToggleButton;
+	
+	@FindBy(xpath = "//*[@id='nav']/ul/li[4]/a")
+	public WebElementFacade SSAGovLink;
+	
+	@FindBy(xpath = "//*[@id='get-started']")
+	public WebElementFacade startQuestionnaireButton;
+
+	@FindBy(xpath = "(//*[@class='content']/div/div/div/p/a)[1]")
+	public WebElementFacade helpWithMedicareLink;
+
+	@FindBy(xpath = "(//*[@class='content']/div/div/div/p/a)[2]")
+	public WebElementFacade BGHomepageLink;
+	
+	@FindBy(xpath = "(//*[@class='content']/div/div/div/p/a)[3]")
+	public WebElementFacade BGHomepageLogoLink;
 	
 	
 	// *************************************************************************

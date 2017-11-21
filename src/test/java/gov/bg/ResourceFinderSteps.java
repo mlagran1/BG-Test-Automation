@@ -26,15 +26,24 @@ public class ResourceFinderSteps {
     private ResourceFinderResultPage resultPage;
 
     private ResourceFinderFavoritePage favoritePage;
+    
+    @Step
+    public void closeWindow() {
+    			
+    	questionPage.closePage();
+    }
 
     
     @Step
     public void onFinderPage(String language) {
     			
+    	//WebDriver driver = new Webdriver();
+    	
 		questionPage.clearCookies();
 		String url = questionPage.setEnvironment(language);
 		questionPage.openAt(url);		
 		System.out.println("Directory path is: " + questionPage.setEnvironment(language));	
+		
     }
     
     @Step
@@ -53,6 +62,11 @@ public class ResourceFinderSteps {
 		String url = questionPage.setEnvironmentGL(language);
 		questionPage.openAt(url);		
 		System.out.println("Directory path is: " + questionPage.setEnvironmentGL(language));	
+    }
+    
+    @Step
+    public void resetAnswers() {
+        questionPage.clickResetAnswers();
     }
     
     
@@ -86,7 +100,7 @@ public class ResourceFinderSteps {
         questionPage.clickQuestionnaireNavResults();
 
         try {
-            Thread.sleep(5000);
+            Thread.sleep(4000);
         } catch (InterruptedException e) {
             log.info("sleep interrupted");
         }

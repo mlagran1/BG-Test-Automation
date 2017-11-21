@@ -67,7 +67,7 @@ public class GLHomepage extends PageObject {
 
 	//Footer Links
 	@FindBy(xpath = "//*[@id='block-block-2']/div/div/div[1]/div[1]/ul/li/ul/li/a")
-	public WebElementFacade espanolFooterLink;
+	public WebElementFacade homeLangFooterLink;
 	
 	@FindBy(xpath = "//*[@id='block-block-2']/div/div/div[1]/div[2]/ul/li/ul/li[1]/a")
 	public WebElementFacade loanFinderFooterLink;
@@ -106,22 +106,22 @@ public class GLHomepage extends PageObject {
 	public WebElementFacade whiteHouseFooterLink;
 	
 	//Loan Category Homepage Links
-	@FindBy(xpath = "//*[@id='node-582']/div/div/div/div/div[2]/div[3]/div[2]/table/tbody/tr[1]/td[1]/a")
+	@FindBy(xpath = "(//*[@class='table']/tbody/tr/td/a)[1]")
 	public WebElementFacade agricultureHomepageLink;
 	
-	@FindBy(xpath = "//*[@id='node-582']/div/div/div/div/div[2]/div[3]/div[2]/table/tbody/tr[2]/td[1]/a")
-	public WebElementFacade businessHomepageLink;
-	
-	@FindBy(xpath = "//*[@id='node-582']/div/div/div/div/div[2]/div[3]/div[2]/table/tbody/tr[3]/td[1]/a")
-	public WebElementFacade disasterReliefHomepageLink;
-	
-	@FindBy(xpath = "//*[@id='node-582']/div/div/div/div/div[2]/div[3]/div[2]/table/tbody/tr[1]/td[2]/a")
+	@FindBy(xpath = "(//*[@class='table']/tbody/tr/td/a)[2]")
 	public WebElementFacade educationHomepageLink;
 	
-	@FindBy(xpath = "//*[@id='node-582']/div/div/div/div/div[2]/div[3]/div[2]/table/tbody/tr[2]/td[2]/a")
+	@FindBy(xpath = "(//*[@class='table']/tbody/tr/td/a)[3]")
+	public WebElementFacade businessHomepageLink;
+	
+	@FindBy(xpath = "(//*[@class='table']/tbody/tr/td/a)[4]")
 	public WebElementFacade housingHomepageLink;
 	
-	@FindBy(xpath = "//*[@id='node-582']/div/div/div/div/div[2]/div[3]/div[2]/table/tbody/tr[3]/td[2]/a")
+	@FindBy(xpath = "(//*[@class='table']/tbody/tr/td/a)[5]")
+	public WebElementFacade disasterReliefHomepageLink;
+	
+	@FindBy(xpath = "(//*[@class='table']/tbody/tr/td/a)[6]")
 	public WebElementFacade veteranHomepageLink;
 	
 	//other homepage links
@@ -131,19 +131,24 @@ public class GLHomepage extends PageObject {
 	@FindBy(xpath = "//*[@id='navbar']/div/div/a[2]/img")
 	public WebElementFacade homeLogoButton;
 	
+	
+	@FindBy(xpath = "//*[@class='link-class1 link-class2']")
+	public WebElementFacade languageToggleButton;
+	
 	@FindBy(xpath = "//*[@id='block-locale-language']/div[1]/ul/li[1]/a")
 	public WebElementFacade languageToggleButtonEN;
 	
 	@FindBy(xpath = "//*[@id='block-locale-language']/div[1]/ul/li[2]/a")
 	public WebElementFacade languageToggleButtonES;
 	
-	@FindBy(xpath = "//*[@id='node-582']/div/div/div/div/div[1]/div[2]/div[2]/a")
+	
+	@FindBy(xpath = "//*[@class='get-started']")
 	public WebElementFacade getStartedButton;
 
-	@FindBy(xpath = "//*[@id='node-582']/div/div/div/div/div[2]/div[1]/div[2]/ul/li[4]/a")
+	@FindBy(xpath = "//*[@class='home-well-content']/ul/li/a")
 	public WebElementFacade loansVsGrantsLink;
 	
-	@FindBy(xpath = "//*[@id='node-582']/div/div/div/div/div[2]/div[2]/div[2]/a/img")
+	@FindBy(xpath = "//*[@class='home-well-content']/a/img")
 	public WebElementFacade BGHomepageLink;
 	
 
