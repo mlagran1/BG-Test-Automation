@@ -21,7 +21,6 @@ import net.thucydides.core.annotations.DefaultUrl;
 
 import net.thucydides.core.pages.PageObject;
 
-//@DefaultUrl("https://ssabest.benefits.gov")
 public class SSAFAQPage extends PageObject {
     
 	// *************************************************************************

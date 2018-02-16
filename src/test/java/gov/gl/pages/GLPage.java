@@ -22,7 +22,6 @@ import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
 
-//@DefaultUrl("https://www.benefits.gov")
 public class GLPage extends PageObject {
     
 	private String env = System.getProperty("environment");
@@ -36,7 +35,6 @@ public class GLPage extends PageObject {
 	public void clearCookies() {
 		this.getDriver().manage().deleteAllCookies();
 	}
-	
 	
 	public String getEnvironment() {
 		
@@ -53,19 +51,17 @@ public class GLPage extends PageObject {
 		return currentUrl;
 	}
 
-   
     // ***********************************************************************************
 	// Functions
 	
-	
     public String pullPageTitle() {
     	
-    	System.out.println("Waiting for page title to load");
+    	//System.out.println("Waiting for page title to load");
         WebDriverWait wait = new WebDriverWait(getDriver(), 10);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='page-header']/h1")));
         
         String windowUrl = getDriver().getCurrentUrl();
-        System.out.println("current window url is: " + windowUrl);
+        //System.out.println("current window url is: " + windowUrl);
 
     	WebElement pageTitle = getDriver().findElement(By.xpath("//*[@class='page-header']/h1"));
 		return pageTitle.getText();
@@ -74,14 +70,11 @@ public class GLPage extends PageObject {
     public String pullLoanTitle() {
     	   
         String windowUrl = getDriver().getCurrentUrl();
-        System.out.println("current window url is: " + windowUrl);
+        //System.out.println("current window url is: " + windowUrl);
 
     	WebElement loanTitle = getDriver().findElement(By.xpath("//*[@class='span8 benefit-detail-title']/h2"));
 		return loanTitle.getText();
 	}
-    
-
-    
     
     public void clickSubNavButtons(WebElementFacade nav, WebElementFacade subNav) {
         Actions action = new Actions(getDriver());
@@ -90,11 +83,10 @@ public class GLPage extends PageObject {
     
     public String getWindowUrl(){
 		String windowUrl = getDriver().getCurrentUrl();
-	    System.out.println("current window url is: " + windowUrl);
+	    //System.out.println("current window url is: " + windowUrl);
 	    return windowUrl;
 	}
 	
-
 	public String processWindows() {
 		// Store the current window handle
 		String winHandleBefore = getDriver().getWindowHandle();
@@ -105,15 +97,27 @@ public class GLPage extends PageObject {
 		// Switch to new window opened
 		List<String> browserTabs = new ArrayList<String>(getDriver().getWindowHandles());
 		getDriver().switchTo().window(browserTabs.get(1));
-		//pause(3000);
-		
-		ExpectedCondition<Boolean> pageLoadCondition = new ExpectedCondition<Boolean>() {
-			public Boolean apply(WebDriver driver) {
-				return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
+
+		for (int i = 0; i < 10; i++) {
+			try {
+				Thread.sleep(1000);
+				System.out.println("page loading");
+			} catch (InterruptedException e) {
 			}
-		};
-		WebDriverWait wait = new WebDriverWait(this.getDriver(), 10);
-		wait.until(pageLoadCondition);
+			// To check page ready state.
+			if (((JavascriptExecutor) this.getDriver()).executeScript("return document.readyState").toString().equals("complete")) {
+				System.out.println("done");
+				break;	
+			}
+		}
+		
+//		ExpectedCondition<Boolean> pageLoadCondition = new ExpectedCondition<Boolean>() {
+//			public Boolean apply(WebDriver driver) {
+//				return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
+//			}
+//		};
+//		WebDriverWait wait = new WebDriverWait(this.getDriver(), 10);
+//		wait.until(pageLoadCondition);
 
 		// Perform the actions on new window
 		Serenity.takeScreenshot();

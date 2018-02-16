@@ -1,0 +1,161 @@
+{
+  "title": "Resource Finder Test Case 4",
+  "summary": "test",
+  "answers": [
+    {
+      "section": "CORE",
+      "pageNum": 1,
+      "questionId": 1,
+      "answerType": "TEXT",
+      "answer": [
+        "01/01/1950"
+      ]
+    },
+    {
+      "section": "CORE",
+      "pageNum": 1,
+      "questionId": 2,
+      "answerType": "RADIO",
+      "answer": [
+        "One of the 50 states or the District of Columbia"
+      ]
+    },
+    {
+      "section": "CORE",
+      "pageNum": 1,
+      "questionId": 3,
+      "answerType": "DROPDOWN",
+      "answer": [
+        "Alabama"
+      ]
+    },
+    {
+      "section": "CORE",
+      "pageNum": 1,
+      "questionId": 4,
+      "answerType": "RADIO",
+      "answer": [
+        "U.S. Citizen"
+      ]
+    },
+    {
+      "section": "CORE",
+      "pageNum": 1,
+      "questionId": 5,
+      "answerType": "RADIO",
+      "answer": [
+        "Employed (full-time)"
+      ]
+    },
+    {
+      "section": "CORE",
+      "pageNum": 1,
+      "questionId": 6,
+      "answerType": "TEXT",
+      "answer": [
+        "5"
+      ]
+    },
+    {
+      "section": "CORE",
+      "pageNum": 1,
+      "questionId": 7,
+      "answerType": "TEXT",
+      "answer": [
+        "25000"
+      ]
+    },
+    {
+      "section": "CORE",
+      "pageNum": 1,
+      "questionId": 8,
+      "answerType": "RADIO",
+      "answer": [
+        "No"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 1,
+      "questionId": 9,
+      "answerType": "CHECKBOX",
+      "answer": [
+        "I do not receive any of these benefits"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 2,
+      "questionId": 11,
+      "answerType": "TEXT",
+      "answer": [
+        "1"
+      ]
+    },
+    {
+      "section": "GENERAL",
+      "pageNum": 2,
+      "questionId": 14,
+      "answerType": "RADIO",
+      "answer": [
+        "Yes"
+      ]
+    },
+ 	{
+      "section": "HOUSEHOLD",
+      "pageNum": 2,
+      "questionId": 12,
+      "answerType": "TEXT",
+      "answer": [
+        "01/01/1980"
+      ]
+    },
+	{
+      "section": "HOUSEHOLD",
+      "pageNum": 2,
+      "questionId": 14,
+      "answerType": "RADIO",
+      "answer": [
+        "Divorce/Annulment"
+      ]
+    },
+  	{
+      "section": "HOUSEHOLD",
+      "pageNum": 2,
+      "questionId": 15,
+      "answerType": "TEXT",
+      "answer": [
+        "01/01/1991"
+      ]
+    }
+  ],
+  "result": {
+    "totalResourceCount": 20,
+    "resultAssertionList": [
+      "Alabama Head Start and Early Head Start",
+      "Alabama Low-Income Home Energy Assistance Program (LIHEAP)",
+      "Alabama Special Milk Program",
+      "Alabama Summer Food Service",
+      "Alabama Weatherization Assistance Program",
+      "American Music Abroad Program",
+      "Arts Envoy Program",
+      "Client Assistance Program (CAP)",
+      "Free File",
+      "Identity Protection",
+      "Job Accommodation Network (JAN)",
+      "Life Sciences Awards",
+      "National Center on Physical Activity and Disability",
+      "National Library Service for the Blind and Physically Handicapped",
+      "Section 811 Supportive Housing for Persons with Disabilities",
+      "Senior Community Service Employment Program (SCSEP)",
+      "The Emergency Food Assistance Program (TEFAP)",
+      "U.S. Citizenship and Immigration Services (USCIS)",
+      "U.S. Participation at Venice and Cairo Biennale Exhibitions",
+      "Weatherization Assistance Program for Low-Income Persons"
+    ],
+    "favorites": [
+      "Alabama Head Start and Early Head Start",
+      "Alabama Low-Income Home Energy Assistance Program (LIHEAP)"
+    ]
+  }
+}

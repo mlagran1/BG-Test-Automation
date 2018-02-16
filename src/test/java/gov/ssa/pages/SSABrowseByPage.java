@@ -21,7 +21,6 @@ import net.thucydides.core.annotations.DefaultUrl;
 
 import net.thucydides.core.pages.PageObject;
 
-//@DefaultUrl("https://ssabest.benefits.gov")
 public class SSABrowseByPage extends PageObject {
     
 	// *************************************************************************
@@ -32,7 +31,6 @@ public class SSABrowseByPage extends PageObject {
 	}
 
 	private static final String CATEGORY_TITLE_XPATH = "//*[contains(text(),'%s')]";
-
 	private static final String BENEFIT_TITLE_XPATH = "(//*[@class='browse-by-header']/a)[%s]";
 
 	private String benefitTitle;

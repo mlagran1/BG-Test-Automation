@@ -21,11 +21,11 @@ import net.thucydides.core.annotations.DefaultUrl;
 
 import net.thucydides.core.pages.PageObject;
 
-//@DefaultUrl("https://www.govloans.gov")
 public class GLBrowseByPage extends PageObject {
     
 	// *************************************************************************
 	// browse by category tests
+	
 
 	public List<WebElement> loanDetailNodes() {
 		return this.getDriver().findElements(By.xpath("//*[@class='browse-by-header']/a"));

@@ -22,8 +22,9 @@ public class ResourceFinderNarrative {
     private ResourceFinderSteps resourceFinderSteps;
 
     @Given("I am on the Benefits.gov benefit finder page")
-    public void onResourceFinderPage() {
+    public void onResourceFinderPage() throws InterruptedException {
         resourceFinderSteps.onFinderPage("");
+    	
     }
     
     @Given("I am on the Spanish Benefits.gov benefit finder page")
@@ -31,17 +32,7 @@ public class ResourceFinderNarrative {
         resourceFinderSteps.onFinderPage("es/");
     }
     
-    
-    @Given("I am on the SSABest.gov benefit finder page")
-    public void onResourceFinderPageSSA() {
-        resourceFinderSteps.onFinderPageSSA("");
-    }
-    
-    @Given("I am on the Govloans.gov benefit finder page")
-    public void onResourceFinderPageGL() {
-        resourceFinderSteps.onFinderPageGL("");
-    }
-      
+
 
     @When("I enter my <information> into the questionnaire")
     public void completeResourceFinder(@Named("information") String testCaseFileName) throws IOException {

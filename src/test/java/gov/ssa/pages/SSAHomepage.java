@@ -21,7 +21,6 @@ import net.thucydides.core.annotations.DefaultUrl;
 
 import net.thucydides.core.pages.PageObject;
 
-//@DefaultUrl("https://www.govloans.gov")
 public class SSAHomepage extends PageObject {
     
 	// *************************************************************************

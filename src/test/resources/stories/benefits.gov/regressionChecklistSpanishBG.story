@@ -7,7 +7,7 @@ As a tester
 I want to run the daily regressions at least twice a day
 
 
-Scenario: (Benefits, Spanish) Verify all of the Spanish navigation tabs open correctly
+Scenario: (Benefits, Spanish) Verify all of the navigation tabs open correctly
 Meta:                          
 Given the user is on the Spanish Benefits home page
 When the user clicks on <navMenuItem> within the top navigation bar
@@ -21,7 +21,7 @@ Examples:
 |Ayuda|
 
 
-Scenario: (Benefits, Spanish) Verify all of the Spanish sub-navigation tabs open correctly
+Scenario: (Benefits, Spanish) Verify all of the sub-navigation tabs open correctly
 Meta: 
 Given the user is on the Spanish Benefits home page
 When the user clicks on the <subNavMenuItem> within the top navigation bar
@@ -52,7 +52,7 @@ Examples:
 |Privacidad y Términos de Uso|
 
 
-Scenario: (Benefits, Spanish) Verify all of the Spanish browse by buttons open correctly
+Scenario: (Benefits, Spanish) Verify all of the browse by buttons open correctly
 Meta: 
 Given the user is on the Spanish Benefits home page
 When the user clicks on the <browseByItem> on the homepage
@@ -66,7 +66,7 @@ Examples:
 |Búsqueda por agencia|
 
 
-Scenario: (Benefits, Spanish) Verify all of the Spanish footer links open correctly
+Scenario: (Benefits, Spanish) Verify all of the footer links open correctly
 Meta: 
 Given the user is on the Spanish Benefits home page
 When the user clicks on the <footerLink> within the homepage
@@ -108,7 +108,7 @@ When the user clicks on the minimize button
 Then the answer text should be hidden
 
 
-Scenario: (Benefits, Spanish) Verify that the Spanish home button works
+Scenario: (Benefits, Spanish) Verify that the home button works
 Meta: 
 Given the user is on the Spanish Benefits home page
 Then the Spanish home page title should show
@@ -116,7 +116,7 @@ When the user clicks on the Spanish home button
 Then the user should be taken to the Spanish home page
 
 
-Scenario: (Benefits, Spanish) Verify the Spanish Browse by pages
+Scenario: (Benefits, Spanish) Verify the Browse by pages
 Meta: 
 Given the user is on the Spanish Browse by <browseByItem> page
 When the user clicks on a category
@@ -131,7 +131,7 @@ Examples:
 |agency|
 
 
-Scenario: (Benefits, Spanish) Verify the Spanish Other Resources page filter toggle
+Scenario: (Benefits, Spanish) Verify the Other Resources page filter toggle
 Meta: 
 Given the user is on the Spanish Other Resources page
 When the user clicks on the minimize filter button
@@ -140,7 +140,7 @@ When the user clicks on the expand filter button
 Then the filter should reappear
 
 
-Scenario: (Benefits, Spanish) Verify the Spanish Other Resources page filter by type
+Scenario: (Benefits, Spanish) Verify the Other Resources page filter by type
 Meta: 
 Given the user is on the Spanish Other Resources page
 When the user filters by type <filterByType>
@@ -154,7 +154,7 @@ Examples:
 |Otro|
 
 
-Scenario: (Benefits, Spanish) Verify the Spanish Other Resources page filter by state
+Scenario: (Benefits, Spanish) Verify the Other Resources page filter by state
 Meta: 
 Given the user is on the Spanish Other Resources page
 When the user filters by state <filterByState>
@@ -167,14 +167,14 @@ Examples:
 |Nevada|
 
 
-Scenario: (Benefits, Spanish) Verify the Spanish Other Resources page filter by all categories
+Scenario: (Benefits, Spanish) Verify the Other Resources page filter by all categories
 Meta: 
 Given the user is on the Spanish Other Resources page
 When the user filters by all categories
 Then the correct Spanish group headings for categories should appear
 
 
-Scenario: (Benefits, Spanish) Verify the Spanish News & Updates click article
+Scenario: (Benefits, Spanish) Verify the News & Updates click article
 Meta: 
 Given the user is on the Spanish News & Updates page
 Then the user should see five news articles
@@ -187,7 +187,7 @@ Examples:
 |2|
 
 
-Scenario: (Benefits, Spanish) Verify the Spanish News & Updates click read more
+Scenario: (Benefits, Spanish) Verify the News & Updates click read more
 Meta: 
 Given the user is on the Spanish News & Updates page
 Then the user should see five news articles
@@ -200,7 +200,7 @@ Examples:
 |2|
 
 
-Scenario: (Benefits, Spanish) Verify the Spanish News & Updates navigation buttons
+Scenario: (Benefits, Spanish) Verify the News & Updates navigation buttons
 Meta: 
 Given the user is on the Spanish News & Updates page
 When the user clicks on the next button
@@ -213,7 +213,7 @@ When the user clicks on the first button
 Then the user should be taken to the first page
 
 
-Scenario: (Benefits, Spanish) Verify the Spanish News & Updates page filter by news type works
+Scenario: (Benefits, Spanish) Verify the News & Updates page filter by news type works
 Meta: 
 Given the user is on the Spanish News & Updates page
 When the user filters by news type <filterByType>
@@ -225,7 +225,7 @@ Examples:
 |Artículo de Compass|
 
 
-Scenario: (Benefits, Spanish) Verify the Spanish News & Updates page filter by benefit category works
+Scenario: (Benefits, Spanish) Verify the News & Updates page filter by benefit category works
 Meta: 
 Given the user is on the Spanish News & Updates page
 When the user filters by benefit category <benefitCategory>
@@ -236,7 +236,7 @@ Examples:
 |Cuidado infantil/Manutención|
 
 
-Scenario: (Benefits, Spanish) Verify the Spanish Compass Newsletter click article
+Scenario: (Benefits, Spanish) Verify the Compass Newsletter click article
 Meta: 
 Given the user is on the Spanish Compass Newsletter page
 Then the user should see the correct number of compass articles
@@ -249,7 +249,7 @@ Examples:
 |2|
 
 
-Scenario: (Benefits, Spanish) Verify the Spanish Compass Newsletter click read more
+Scenario: (Benefits, Spanish) Verify the Compass Newsletter click read more
 Meta: 
 Given the user is on the Spanish Compass Newsletter page
 When the user clicks on compass article <articleNum> read more
@@ -261,7 +261,7 @@ Examples:
 |2|
 
 
-Scenario: (Benefits, Spanish) Verify the Spanish home page slider
+Scenario: (Benefits, Spanish) Verify the home page slider
 Meta: 
 Given the user is on the Spanish Benefits home page
 When the user clicks on slider tile <sliderNum>

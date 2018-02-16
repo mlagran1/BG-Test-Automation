@@ -23,29 +23,15 @@ public class UserGL {
 	GLHomepage glHomepage;
 	GLBrowseByPage glBrowseByPage;
 
-//    @Step
-//    public void onHomePage() {
-//    	
-//    	glPage.clearCookies();
-//		String url = glPage.setEnvironment();		
-//		glPage.openAt(url);		
-//		System.out.println("Directory path is: " + glPage.setEnvironment());
-//    }
-
     @Step
 	public void open_page(String language, String directoryPath) {
     	
     	glPage.clearCookies();		
-    	
 		String url = "https://" + (language.equals("es") ? "es." : "") + glPage.getEnvironment() + "govloans.gov" + directoryPath;
-		
 		glPage.openAt(url);
-		System.out.println("Directory path is: " + url);	
+		//System.out.println("Directory path is: " + url);	
 	}
-    
- 
-    
-    
+
     @Step
     public void clickNavNode(String node) {
     	
@@ -94,17 +80,12 @@ public class UserGL {
     	}	
     }
             
-    
-
-    
     @Step
 	public void shouldSeePage(String expectedPageName) {
 
 		String pageTitle = glPage.pullPageTitle();
-		//String subpageTitle = bgPage.pullSubpageTitle(expectedPageName);
-		
-		System.out.println("page title is: " + pageTitle);
-		System.out.println("expected PageName is: " + expectedPageName);
+		//System.out.println("page title: " + pageTitle);
+		//System.out.println("expected PageName: " + expectedPageName);
 		
 		switch(expectedPageName) {
 		case "Loan Finder": 
@@ -155,8 +136,7 @@ public class UserGL {
     //Footer Test
     @Step
     public void clickFooterLink(String link) {
-    	
- 	
+
     	glPage.scrollToBottom();
     	
     	switch(link) {
@@ -418,8 +398,8 @@ public class UserGL {
     
     @Step
    	public void verifyLoanTitle() {
-    	System.out.println("getLoanTitle : " + glBrowseByPage.getLoanTitle());
-    	System.out.println("pullLoanTitle : " + glPage.pullLoanTitle());
+    	//System.out.println("getLoanTitle : " + glBrowseByPage.getLoanTitle());
+    	//System.out.println("pullLoanTitle : " + glPage.pullLoanTitle());
     	Assert.assertEquals(glBrowseByPage.getLoanTitle(), glPage.pullLoanTitle());
    	}
     

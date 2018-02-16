@@ -22,7 +22,6 @@ import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
 
-//@DefaultUrl("https://www.benefits.gov")
 public class SSAPage extends PageObject {
     
 	private String env = System.getProperty("environment");
@@ -49,29 +48,21 @@ public class SSAPage extends PageObject {
 		String currentUrl = getDriver().getCurrentUrl();
 		return currentUrl;
 	}
-
-   
+ 
     // ***********************************************************************************
 	// Functions
 	
-	
     public String pullPageTitle() {
     	
-    	System.out.println("Waiting for page title to load");
+    	//System.out.println("Waiting for page title to load");
         WebDriverWait wait = new WebDriverWait(getDriver(), 10);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='content-header']/h1")));
-        
-        String windowUrl = getWindowUrl();
-        System.out.println("current window url is: " + windowUrl);
 
     	WebElement pageTitle = getDriver().findElement(By.xpath("//*[@id='content-header']/h1"));
 		return pageTitle.getText();
 	}
     
     public String pullBenefitTitle() {
- 	   
-        String windowUrl = getDriver().getCurrentUrl();
-        System.out.println("current window url is: " + windowUrl);
 
     	WebElement benefitTitle = getDriver().findElement(By.xpath("//*[@class='span8 benefit-detail-title']/h2"));
 		return benefitTitle.getText();
@@ -85,11 +76,10 @@ public class SSAPage extends PageObject {
 	
     public String getWindowUrl(){
 		String windowUrl = getDriver().getCurrentUrl();
-	    //System.out.println("current window url is: " + windowUrl);
+
 	    return windowUrl;
 	}
     
-
 	public String processWindows() {
 		
 		// Store the current window handle
@@ -100,21 +90,37 @@ public class SSAPage extends PageObject {
 		// Switch to new window opened
 		List<String> browserTabs = new ArrayList<String>(getDriver().getWindowHandles());
 		getDriver().switchTo().window(browserTabs.get(1));
-
-		ExpectedCondition<Boolean> pageLoadCondition = new ExpectedCondition<Boolean>() {
-			public Boolean apply(WebDriver driver) {
-				return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
+		
+//		for (int i = 0; i < 10; i++) {
+//			try {
+//				Thread.sleep(1000);
+//				System.out.println("page loading");
+//			} catch (InterruptedException e) {
+//			}
+//			// To check page ready state.
+//			if (((JavascriptExecutor) this.getDriver()).executeScript("return document.readyState").toString().equals("complete")) {
+//				System.out.println("done");
+//				break;	
+//			}
+//		}
+		
+		for (int i = 0; i < 10; i++) {
+			try {
+				Thread.sleep(1000);
+				System.out.println("page loading");
+			} catch (InterruptedException e) {
 			}
-		};
-		WebDriverWait wait = new WebDriverWait(this.getDriver(), 10);
-		wait.until(pageLoadCondition);
+			// To check page ready state.
+			if (!getDriver().getCurrentUrl().equals("about:blank")) {
+				System.out.println("done");
+				break;	
+			}
+		}
+		//while loop this?
 		
 		// Perform the actions on new window
 		Serenity.takeScreenshot();
-		
 		String windowUrl = getDriver().getCurrentUrl();
-		System.out.print("External Tab URL is:" + windowUrl);
-		//wait.until(ExpectedConditions.urlToBe("test"));
 
 		// Close the new window, if that window no more required
 		getDriver().close();

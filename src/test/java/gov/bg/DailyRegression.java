@@ -408,12 +408,12 @@ public class DailyRegression {
 
     @Given("the user is on the Compass Newsletter page")
     public void given_the_user_is_on_the_compass_newsletter_page() {
-		user.open_page("/newsroom/eNewsletter/july-2017");
+		user.open_page("/newsroom/eNewsletter/october-2017");
 	}
     
     @Given("the user is on the Spanish Compass Newsletter page")
     public void given_the_user_is_on_the_Spanish_compass_newsletter_page() {
-		user.open_page("/es/newsroom/eNewsletter/july-2017");
+		user.open_page("/es/newsroom/eNewsletter/october-2017");
 	}
     
     @Then("the user should see the correct number of compass articles")

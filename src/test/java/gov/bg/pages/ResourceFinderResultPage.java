@@ -31,9 +31,9 @@ public class ResourceFinderResultPage extends ResourceFinderPage {
     public void addToFavorites(String resourceTitle) {
         scrollToTop();
         String answerXpath = String.format(FAVORITE_BUTTON_XPATH, formatXpathStringInput(resourceTitle));
-        //System.out.println("fav button path is: " + FAVORITE_BUTTON_XPATH);
+        	System.out.println("fav button path is: " + FAVORITE_BUTTON_XPATH);
         WebElementFacade button = find(By.xpath(answerXpath));
-        //System.out.println("answer path is: " + answerXpath);
+        	System.out.println("answer path is: " + answerXpath);
         button.click();
     }
 

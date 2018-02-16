@@ -29,7 +29,7 @@ public class UserSSA {
     	ssaPage.clearCookies();
 		String url = ssaPage.setEnvironment();		
 		ssaPage.openAt(url);		
-		System.out.println("Directory path is: " + ssaPage.setEnvironment());
+		//System.out.println("Directory path is: " + ssaPage.setEnvironment());
     }
 
     @Step
@@ -38,7 +38,7 @@ public class UserSSA {
     	ssaPage.clearCookies();
 		String url = ssaPage.setEnvironment() + directoryPath;
 		ssaPage.openAt(url);
-		System.out.println("Directory path is: " + url);	
+		//System.out.println("Directory path is: " + url);	
 	}
     
     
@@ -83,10 +83,9 @@ public class UserSSA {
    	public void shouldSeePage(String expectedPageName) {
 
    		String pageTitle = ssaPage.pullPageTitle();
-   		//String subpageTitle = bgPage.pullSubpageTitle(expectedPageName);
    		
-   		System.out.println("page title is: " + pageTitle);
-   		System.out.println("expected PageName is: " + expectedPageName);
+   		//System.out.println("page title is: " + pageTitle);
+   		//System.out.println("expected PageName is: " + expectedPageName);
    		
    		switch(expectedPageName) {
    		case "SSA Best Questionnaire": 
@@ -224,11 +223,8 @@ public class UserSSA {
   		}		
   	}	
 
-    
     @Step
     public void clickHomepageLink(String node) {
-    	
-    	
     	
     	switch(node) {
 		case "Start Questionnaire": 
@@ -281,11 +277,11 @@ public class UserSSA {
 			Assert.assertEquals(selectedUrl, ssaPage.processWindows());
 			break;
 		case "Help With Medicare": 
-			selectedUrl = "https://www.ssa.gov/medicare/prescriptionhelp/";
+			selectedUrl = "https://www.ssa.gov/benefits/medicare/prescriptionhelp/";
 			Assert.assertEquals(selectedUrl, ssaPage.processWindows());
 			break;
 		case "Medicare ES": 
-			selectedUrl = "https://www.ssa.gov/espanol/medicare-es/medicamentos/";
+			selectedUrl = "https://www.ssa.gov/espanol/beneficios/medicare/medicamentos/";
 			Assert.assertEquals(selectedUrl, ssaPage.processWindows());
 			break;
 		case "SSA.gov": 
@@ -321,7 +317,6 @@ public class UserSSA {
   		}	
   	}	
     
-    
     @Step
 	public void verifyHomepage() {
     	Assert.assertEquals("https://ssabest.benefits.gov/", ssaPage.getWindowUrl());
@@ -332,7 +327,6 @@ public class UserSSA {
     	Assert.assertEquals("https://ssabest.benefits.gov/es", ssaPage.getWindowUrl());
   	}	
 
-    
     @Step
 	public void clickToggleLanguage() {
     	ssaHomepage.languageToggleButton.click();
@@ -341,8 +335,6 @@ public class UserSSA {
     @Step
 	public void verifyToggleLanguage(String language) {
     	
-    	System.out.println("language is "+ language);
-  		
   		switch(language) { 	
 		case "EN": 
 			Assert.assertEquals("https://ssabest.benefits.gov/", ssaPage.getWindowUrl());
@@ -386,5 +378,6 @@ public class UserSSA {
 //    	System.out.println("pullPageTitle : " + ssaPage.pullPageTitle());
     	Assert.assertEquals(ssaFAQPage.getFAQquestion(), ssaPage.pullPageTitle());
    	}
+    
     
 }

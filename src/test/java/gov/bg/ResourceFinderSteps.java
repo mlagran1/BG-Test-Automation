@@ -6,6 +6,8 @@ import gov.bg.ResourceFinderTestCase;
 import gov.bg.pages.ResourceFinderFavoritePage;
 import gov.bg.pages.ResourceFinderQuestionPage;
 import gov.bg.pages.ResourceFinderResultPage;
+import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Screenshots;
 import net.thucydides.core.annotations.Step;
 import org.apache.commons.io.IOUtils;
@@ -46,23 +48,11 @@ public class ResourceFinderSteps {
 		
     }
     
-    @Step
-    public void onFinderPageSSA(String language) {
-    			
-		questionPage.clearCookies();
-		String url = questionPage.setEnvironmentSSA(language);
-		questionPage.openAt(url);		
-		System.out.println("Directory path is: " + questionPage.setEnvironmentSSA(language));	
-    }
     
-    @Step
-    public void onFinderPageGL(String language) {
-    			
-		questionPage.clearCookies();
-		String url = questionPage.setEnvironmentGL(language);
-		questionPage.openAt(url);		
-		System.out.println("Directory path is: " + questionPage.setEnvironmentGL(language));	
-    }
+   
+    
+    
+   
     
     @Step
     public void resetAnswers() {
