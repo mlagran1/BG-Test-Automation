@@ -1,5 +1,6 @@
 Meta: 
-@feature SSA English
+@feature SSABest
+@category English
 
 Narrative:
 In order to assure that the basic functionality of SSABest.benefits.gov is working

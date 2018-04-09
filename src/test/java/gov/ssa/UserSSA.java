@@ -84,9 +84,6 @@ public class UserSSA {
 
    		String pageTitle = ssaPage.pullPageTitle();
    		
-   		//System.out.println("page title is: " + pageTitle);
-   		//System.out.println("expected PageName is: " + expectedPageName);
-   		
    		switch(expectedPageName) {
    		case "SSA Best Questionnaire": 
    			Assert.assertEquals("Benefit Finder", pageTitle);
@@ -129,7 +126,6 @@ public class UserSSA {
    			break;
    		} 
    	}
-    
     
     //Footer Test
     @Step
@@ -361,8 +357,6 @@ public class UserSSA {
     
     @Step
    	public void verifyBenefitTitle() {
-    	//System.out.println("getBenefitTitle : " + ssaBrowseByPage.getBenefitTitle());
-    	//System.out.println("pullBenefitTitle : " + ssaPage.pullBenefitTitle());
     	Assert.assertEquals(ssaBrowseByPage.getBenefitTitle(), ssaPage.pullBenefitTitle());
    	}
     
@@ -374,8 +368,6 @@ public class UserSSA {
     
     @Step
    	public void verifyFAQTitle() {
-//    	System.out.println("getFAQquestion : " + ssaFAQPage.getFAQquestion());
-//    	System.out.println("pullPageTitle : " + ssaPage.pullPageTitle());
     	Assert.assertEquals(ssaFAQPage.getFAQquestion(), ssaPage.pullPageTitle());
    	}
     

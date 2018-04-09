@@ -24,8 +24,8 @@ public class ResourceFinderQuestionPage extends ResourceFinderPage {
 	//public String defaultUrl = "https://" + env + ".benefits.gov/benefits/benefit-finder";
 
 	public void clearCookies() {
-		System.out.println("cookies cleared");	
 		this.getDriver().manage().deleteAllCookies();
+		sleep(5000);
 	}
 	
 	public String setEnvironment(String language) {
@@ -37,28 +37,6 @@ public class ResourceFinderQuestionPage extends ResourceFinderPage {
 		return defaultUrl;
 	}
 		
-	
-	public String setEnvironmentSSA(String language) {
-		if(env.isEmpty()){
-			env ="";
-		}
-		
-		String defaultUrl = "https://" + env + ".ssabest.benefits.gov/" + language + "benefits/benefit-finder";
-		return defaultUrl;
-	}
-	
-	
-	public String setEnvironmentGL(String language) {
-		if(env.isEmpty()){
-			env ="www";
-		}
-		
-		String defaultUrl = "https://" + env + ".govloans.gov/" + language + "loans/loan-finder";
-		return defaultUrl;
-	}
-	
-	
-	
     // -------- Question and answer xpath strings --------
 
     private static final String ACTIVE_SECTION_XPATH = "//div[@class='tab-content']";
@@ -147,18 +125,16 @@ public class ResourceFinderQuestionPage extends ResourceFinderPage {
             String sectionNavXpath = String.format(SECTION_NAV_XPATH, formatXpathStringInput(sectionName));
             WebElementFacade sectionNavButton = find(By.xpath(sectionNavXpath));
             sectionNavButton.click();
-            //sleep(5000);
-            System.out.println("section change"); // put a sleep here
+            //sleep(7000);
+            System.out.println("section change"); 
             
-            //System.out.println("Current Benefit total: " + getBenefitTotal());
         }
         
         JavascriptExecutor jse = (JavascriptExecutor)getDriver();
         WebElement element = getDriver().findElement(By.xpath("//div[@class='tab-content']/p/ul/li[@class='active' or @class='active disabled']/a"));
-        //((WebElementFacade) element).waitUntilVisible();
-        String blah = (String) jse.executeScript("return arguments[0].text", element);
+        String page = (String) jse.executeScript("return arguments[0].text", element);
 
-        Integer curPageNum =  Integer.parseInt(blah);
+        Integer curPageNum =  Integer.parseInt(page);
 
         // If we're not on the right page in the section, navigate to that page
         if (!curPageNum.equals(answer.getPageNum())) {
@@ -173,15 +149,9 @@ public class ResourceFinderQuestionPage extends ResourceFinderPage {
             JavascriptExecutor jse2 = (JavascriptExecutor)getDriver();
             WebElement element2 = getDriver().findElement(By.xpath(pageNumXpath));
             jse2.executeScript("arguments[0].click();", element2);
-            //sleep(5000);
-            System.out.println("page change"); //put sleep 3000 here. or wait til visible?
-            
-            //System.out.println("Current Benefit total: " + getBenefitTotal());
-            
+            //sleep(7000);
+            System.out.println("page change");       
         }
-        
-       
-
     }
 
     private void enterText(Integer questionId, String answer) {
@@ -202,8 +172,6 @@ public class ResourceFinderQuestionPage extends ResourceFinderPage {
         dropdown.sendKeys(answer);
     }
     
-    
-
     public String getSectionTitle() {
         return sectionTitle.getText();
     }

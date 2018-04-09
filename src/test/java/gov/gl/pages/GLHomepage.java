@@ -150,9 +150,7 @@ public class GLHomepage extends PageObject {
 	
 	@FindBy(xpath = "//*[@class='home-well-content']/a/img")
 	public WebElementFacade BGHomepageLink;
-	
 
-	
 	// *************************************************************************
 	// Functions
 

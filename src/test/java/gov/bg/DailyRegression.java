@@ -6,19 +6,21 @@ import org.jbehave.core.annotations.Named;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
-//import gov.benefits.bg.test.steps.serenity.User;
 import gov.bg.User;
+
+/**
+ * Class is for all of the Benefits.gov test scenarios
+ */
 
 public class DailyRegression {
 
     @Steps
     User user;
 
-    //Scenario: Verify all of the navbar tabs to assert that the pages open correctly
-    
+    // Scenario: Verify all of the navbar tabs to assert that the pages open correctly
     @Given("the user is on the Benefits home page")
     public void the_user_is_on_homepage() {
-        user.onHomePage();
+        user.open_page("");
     }
     
     @Given("the user is on the Spanish Benefits home page")
@@ -144,11 +146,6 @@ public class DailyRegression {
 		user.clickHomeButtonNode();
 	}
     
-    @Then("the user should be taken to the home page")
-    public void then_the_user_should_be_taken_to_the_home_page() {
-		user.verifyHomepageTitle("EN");
-	}
-    
     //homepage ES
     @Then("the Spanish home page title should show")
     public void then_the_Spanish_home_page_title_should_show() {
@@ -160,13 +157,6 @@ public class DailyRegression {
     	user.open_page("/es/newsroom/news-and-updates");
 		user.clickHomeButtonNode();
 	}
-    
-//    @Then("the user should be taken to the Spanish home page")
-//    public void then_the_user_should_be_taken_to_the_Spanish_home_page() {
-//		user.verifyHomepageTitle("ES");
-//	}
-    
-    
     
     //toggle language test
     
@@ -216,11 +206,6 @@ public class DailyRegression {
     public void then_the_correct_benefit_page_should_appear() {
 		user.verifyBenefitTitle();
 	}
-    
-    
-    
-    
-
     
    //Other resources page    
     @Given("the user is on the Other Resources page")
@@ -283,24 +268,6 @@ public class DailyRegression {
 		user.verifyGroupHeadingsES(filterByState);
 	}
 
-    
-     
-    @When("the user filters by all categories")
-    public void when_the_user_filters_by_all_categories() {
-		user.clickCategoriesCheckbox();
-	}
-    
-    @Then("the correct group headings for categories should appear")
-    public void then_the_correct_group_headings_for_categories_should_appear() {
-    	user.verifyGroupHeadingsEN("-ANY-");
-	}
-    
-    @Then("the correct Spanish group headings for categories should appear")
-    public void then_the_correct_Spanish_group_headings_for_categories_should_appear() {
-    	user.verifyGroupHeadingsES("-TODAS-");
-	}
-    
-    
     
     //News & Updates
     
@@ -408,12 +375,12 @@ public class DailyRegression {
 
     @Given("the user is on the Compass Newsletter page")
     public void given_the_user_is_on_the_compass_newsletter_page() {
-		user.open_page("/newsroom/eNewsletter/october-2017");
+		user.open_page("/newsroom/eNewsletter/april-2018");
 	}
     
     @Given("the user is on the Spanish Compass Newsletter page")
     public void given_the_user_is_on_the_Spanish_compass_newsletter_page() {
-		user.open_page("/es/newsroom/eNewsletter/october-2017");
+		user.open_page("/es/newsroom/eNewsletter/april-2018");
 	}
     
     @Then("the user should see the correct number of compass articles")
@@ -440,17 +407,6 @@ public class DailyRegression {
 		user.clickCompassReadMore(articleNum);
 	}
 
-    
-    @When("the user clicks on compass article tab <articleNum>")
-    public void when_the_user_clicks_on_compass_article_tab(@Named("articleNum") String articleNum) {
-		user.clickCompassTabs(articleNum);
-	}
-    
- 
-    @Then("the user should see the correct compass article")
-    public void then_the_user_should_see_the_correct_compass_article(@Named("articleNum") String articleNum) {
-		user.verifyCompassTabs(articleNum);
-	}
 
     //Slider test
     
@@ -468,9 +424,6 @@ public class DailyRegression {
     @Then("the Spanish slider page should open correctly")
     public void then_the_Spanish_slider_page_should_open_correctly(@Named("sliderNum") String sliderNum) {
 		user.verifySliderTitle(sliderNum, "ES");
-	}
-    
-
-
+	}    
     
 }

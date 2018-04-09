@@ -1,17 +1,14 @@
 package gov.ssa.pages;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -22,13 +19,17 @@ import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
 
+/**
+ * Class is for all of the SSABest.Benefits.gov WebElements and methods to interact with them
+ */
+
 public class SSAPage extends PageObject {
     
 	private String env = System.getProperty("environment");
 	
 	public SSAPage(WebDriver driver) {
 		super(driver);
-		driver.manage().window().maximize();
+		//driver.manage().window().maximize();
 		this.setImplicitTimeout(10, TimeUnit.SECONDS);
 	}
 	
@@ -91,19 +92,6 @@ public class SSAPage extends PageObject {
 		List<String> browserTabs = new ArrayList<String>(getDriver().getWindowHandles());
 		getDriver().switchTo().window(browserTabs.get(1));
 		
-//		for (int i = 0; i < 10; i++) {
-//			try {
-//				Thread.sleep(1000);
-//				System.out.println("page loading");
-//			} catch (InterruptedException e) {
-//			}
-//			// To check page ready state.
-//			if (((JavascriptExecutor) this.getDriver()).executeScript("return document.readyState").toString().equals("complete")) {
-//				System.out.println("done");
-//				break;	
-//			}
-//		}
-		
 		for (int i = 0; i < 10; i++) {
 			try {
 				Thread.sleep(1000);
@@ -116,7 +104,6 @@ public class SSAPage extends PageObject {
 				break;	
 			}
 		}
-		//while loop this?
 		
 		// Perform the actions on new window
 		Serenity.takeScreenshot();
@@ -139,7 +126,6 @@ public class SSAPage extends PageObject {
 			e.printStackTrace();
 		}
 	}
-	
 	
 	@Step
     public void scrollToBottom() {

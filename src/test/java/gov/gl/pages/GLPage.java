@@ -1,17 +1,14 @@
 package gov.gl.pages;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -22,13 +19,17 @@ import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
 
+/**
+ * Class is for all of the Govloans.gov WebElements and methods to interact with them
+ */
+
 public class GLPage extends PageObject {
     
 	private String env = System.getProperty("environment");
 	
 	public GLPage(WebDriver driver) {
 		super(driver);
-		driver.manage().window().maximize();
+		//driver.manage().window().maximize();
 		this.setImplicitTimeout(10, TimeUnit.SECONDS);
 	}
 	
@@ -59,18 +60,12 @@ public class GLPage extends PageObject {
     	//System.out.println("Waiting for page title to load");
         WebDriverWait wait = new WebDriverWait(getDriver(), 10);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='page-header']/h1")));
-        
-        String windowUrl = getDriver().getCurrentUrl();
-        //System.out.println("current window url is: " + windowUrl);
 
     	WebElement pageTitle = getDriver().findElement(By.xpath("//*[@class='page-header']/h1"));
 		return pageTitle.getText();
 	}
     
-    public String pullLoanTitle() {
-    	   
-        String windowUrl = getDriver().getCurrentUrl();
-        //System.out.println("current window url is: " + windowUrl);
+    public String pullLoanTitle() {  
 
     	WebElement loanTitle = getDriver().findElement(By.xpath("//*[@class='span8 benefit-detail-title']/h2"));
 		return loanTitle.getText();
@@ -83,7 +78,6 @@ public class GLPage extends PageObject {
     
     public String getWindowUrl(){
 		String windowUrl = getDriver().getCurrentUrl();
-	    //System.out.println("current window url is: " + windowUrl);
 	    return windowUrl;
 	}
 	
@@ -92,7 +86,6 @@ public class GLPage extends PageObject {
 		String winHandleBefore = getDriver().getWindowHandle();
 
 		// Perform the click operation that opens new window
-		//System.out.println("url passed in is " + url);
 
 		// Switch to new window opened
 		List<String> browserTabs = new ArrayList<String>(getDriver().getWindowHandles());
@@ -110,14 +103,6 @@ public class GLPage extends PageObject {
 				break;	
 			}
 		}
-		
-//		ExpectedCondition<Boolean> pageLoadCondition = new ExpectedCondition<Boolean>() {
-//			public Boolean apply(WebDriver driver) {
-//				return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
-//			}
-//		};
-//		WebDriverWait wait = new WebDriverWait(this.getDriver(), 10);
-//		wait.until(pageLoadCondition);
 
 		// Perform the actions on new window
 		Serenity.takeScreenshot();

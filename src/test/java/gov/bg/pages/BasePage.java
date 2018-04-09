@@ -31,7 +31,6 @@ public class BasePage extends PageObject {
         super(webDriver);
     }
 
-
     public String getPageTitle() {
         return pageTitle.getText();
     }
@@ -39,7 +38,6 @@ public class BasePage extends PageObject {
     public String getSubpageTitle() {
         return subpageTitle.getText();
     }
-
 
     protected void sleep(long duration) {
         try {

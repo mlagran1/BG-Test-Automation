@@ -3,6 +3,7 @@ package gov.bg.pages;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class ResourceFinderPage extends BasePage {
 
@@ -18,6 +19,9 @@ public abstract class ResourceFinderPage extends BasePage {
     @FindBy(xpath = "//div[@id='bc-value']")
     private WebElementFacade benefitTotal;
     
+    @FindBy(xpath = "//*[@id='startFinder']/a")
+	private WebElementFacade startFinder;
+    
     
     @FindBy(xpath = "//*[@id='resetButton']")
     private WebElementFacade resetAnswersButton;
@@ -29,8 +33,9 @@ public abstract class ResourceFinderPage extends BasePage {
     public void clickResetAnswers() {
     	resetAnswersButton.click();
     	System.out.println("Answers Reset");
-    	sleep(1000);
+    	sleep(3000);
     	resetAnswersPopup.click();
+    	sleep(5000);
     }
     
     public void closePage() {
@@ -38,7 +43,12 @@ public abstract class ResourceFinderPage extends BasePage {
     	this.getDriver().quit();
     }
     
-    
+    public void clickFinderButton() {
+    	startFinder.click();
+    	sleep(3000);
+    }
+
+   
 
     public ResourceFinderPage(WebDriver webDriver) {
         super(webDriver);

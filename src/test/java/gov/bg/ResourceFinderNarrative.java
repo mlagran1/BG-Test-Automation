@@ -33,6 +33,11 @@ public class ResourceFinderNarrative {
     }
     
 
+    @When("I click the questionnaire button")
+    public void clickQuestionnaire(){
+    	resourceFinderSteps.clickQuestionnaireButton();
+    	
+    }
 
     @When("I enter my <information> into the questionnaire")
     public void completeResourceFinder(@Named("information") String testCaseFileName) throws IOException {

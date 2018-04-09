@@ -1,5 +1,6 @@
 Meta: 
-@feature BG Spanish
+@feature Benefits
+@category Spanish
 
 Narrative:
 In order to assure that the basic functionality of Benefits.gov Spanish is working
@@ -132,7 +133,7 @@ Examples:
 
 
 Scenario: (Benefits, Spanish) Verify the Other Resources page filter toggle
-Meta: 
+Meta:
 Given the user is on the Spanish Other Resources page
 When the user clicks on the minimize filter button
 Then the filter should disappear
@@ -165,13 +166,6 @@ Examples:
 |Alaska|
 |-TODAS-|
 |Nevada|
-
-
-Scenario: (Benefits, Spanish) Verify the Other Resources page filter by all categories
-Meta: 
-Given the user is on the Spanish Other Resources page
-When the user filters by all categories
-Then the correct Spanish group headings for categories should appear
 
 
 Scenario: (Benefits, Spanish) Verify the News & Updates click article

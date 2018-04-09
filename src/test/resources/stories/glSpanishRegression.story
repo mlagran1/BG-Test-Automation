@@ -1,5 +1,6 @@
 Meta: 
-@feature GL Spanish
+@feature Govloans
+@category Spanish
 
 Narrative:
 In order to assure that the basic functionality of Govloans.gov Spanish is working
@@ -50,7 +51,7 @@ Examples:
 
 
 Scenario: (GovLoans, Spanish) Verify the Loan Categories on the homepage open correctly
-Meta: 
+Meta:
 Given the user is on the Spanish GovLoans homepage
 When the user clicks on the GovLoans <categoryItem> category link
 Then the GovLoans <categoryItem> page should open correctly
@@ -91,7 +92,7 @@ Examples:
 
 
 Scenario: (GovLoans, Spanish) Verify the Browse By Category page functions correctly
-Meta: 
+Meta:
 Given the user is on the Spanish GovLoans Browse By Category page
 When the user clicks on the GovLoans Browse By <categoryItem> link
 Then the GovLoans <categoryItem> page should open correctly

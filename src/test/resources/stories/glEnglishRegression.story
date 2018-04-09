@@ -1,5 +1,6 @@
 Meta: 
-@feature GL English
+@feature Govloans
+@category English
 
 Narrative:
 In order to assure that the basic functionality of Govloans.gov is working
@@ -50,7 +51,7 @@ Examples:
 
 
 Scenario: (GovLoans) Verify the Loan Categories on the homepage open correctly
-Meta: 
+Meta:
 Given the user is on the GovLoans homepage
 When the user clicks on the GovLoans <categoryItem> category link
 Then the GovLoans <categoryItem> page should open correctly
@@ -79,7 +80,7 @@ Examples:
 
 
 Scenario: (GovLoans) Verify that the home buttons work
-Meta: 
+Meta:
 Given the user is on the GovLoans Overview page
 When the user clicks on the GovLoans <homeButton> button
 Then the GovLoans homepage should open correctly
@@ -91,7 +92,7 @@ Examples:
 
 
 Scenario: (GovLoans) Verify that toggle language button works
-Meta: 
+Meta:
 Given the user is on the GovLoans homepage
 When the user clicks on the GovLoans toggle language button
 Then the user should be taken to the GovLoans Spanish homepage
@@ -100,7 +101,7 @@ Then the user should be taken to the GovLoans English homepage
 
 
 Scenario: (GovLoans) Verify the Browse By Category page functions correctly
-Meta: 
+Meta:
 Given the user is on the GovLoans Browse By Category page
 When the user clicks on the GovLoans Browse By <categoryItem> link
 Then the GovLoans <categoryItem> page should open correctly

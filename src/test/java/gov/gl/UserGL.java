@@ -84,8 +84,6 @@ public class UserGL {
 	public void shouldSeePage(String expectedPageName) {
 
 		String pageTitle = glPage.pullPageTitle();
-		//System.out.println("page title: " + pageTitle);
-		//System.out.println("expected PageName: " + expectedPageName);
 		
 		switch(expectedPageName) {
 		case "Loan Finder": 
@@ -131,7 +129,6 @@ public class UserGL {
 			break;
 		} 
 	}
-    
 
     //Footer Test
     @Step
@@ -259,7 +256,6 @@ public class UserGL {
   		}	
   	}	
     
-    
     @Step
     public void clickCategoriesHomepage(String node) {
     	
@@ -346,8 +342,7 @@ public class UserGL {
 			break;	
   		}	
   	}	
-    
-    
+
     @Step
 	public void clickHomeButton(String node) {
   		
@@ -365,7 +360,6 @@ public class UserGL {
 			break;	
   		}	
   	}	
-    
     
     @Step
 	public void verifyHomepage() {
@@ -398,8 +392,6 @@ public class UserGL {
     
     @Step
    	public void verifyLoanTitle() {
-    	//System.out.println("getLoanTitle : " + glBrowseByPage.getLoanTitle());
-    	//System.out.println("pullLoanTitle : " + glPage.pullLoanTitle());
     	Assert.assertEquals(glBrowseByPage.getLoanTitle(), glPage.pullLoanTitle());
    	}
     

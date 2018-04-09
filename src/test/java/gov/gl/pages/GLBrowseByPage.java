@@ -26,7 +26,6 @@ public class GLBrowseByPage extends PageObject {
 	// *************************************************************************
 	// browse by category tests
 	
-
 	public List<WebElement> loanDetailNodes() {
 		return this.getDriver().findElements(By.xpath("//*[@class='browse-by-header']/a"));
 	}

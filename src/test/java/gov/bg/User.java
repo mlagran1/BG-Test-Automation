@@ -11,20 +11,14 @@ import java.util.List;
 
 import org.junit.Assert;
 
+/**
+ * Class bridges DailyRegression.java with BGPage.java 
+ */
+
 public class User {
 
     BGPage bgPage;
 
-    
-    //get rid of this
-    @Step
-    public void onHomePage() {
-    	
-    	bgPage.clearCookies();
-		String url = bgPage.setEnvironment();		
-		bgPage.openAt(url);		
-		//System.out.println("Directory path is: " + bgPage.setEnvironment());
-    }
 
     @Step
 	public void open_page(String directoryPath) {
@@ -32,14 +26,13 @@ public class User {
     	bgPage.clearCookies();
 		String url = bgPage.setEnvironment() + directoryPath;
 		bgPage.openAt(url);
-		//System.out.println("Directory path is: " + url);	
 	}
     
     @Step
     public void clickNavNode(String node) {
     	
     	switch(node) {
-    	//nav links 
+    	// -------- Main Nav Links --------
 		case "newsroom": 
 		case "Sala de Prensa": 
 			bgPage.clickNews();
@@ -59,8 +52,8 @@ public class User {
 		case "browse":
 			bgPage.clickBrowse();
 			break;	
-		//sub nav links	
-		//browse	
+		// -------- Sub Nav Links --------
+		// Browse	
 		case "Browse by Category":
 		case "Búsqueda por categoría":
 			bgPage.clickSubNavButtons(bgPage.browseNode, bgPage.browseByCategoryNode);
@@ -77,7 +70,7 @@ public class User {
 		case "Otros recursos":
 			bgPage.clickSubNavButtons(bgPage.browseNode, bgPage.otherResourcesNode);
 			break;		
-		//newsroom	
+		// Newsroom	
 		case "News & Updates":
 		case "Noticias & Actualizaciones":
 			bgPage.clickSubNavButtons(bgPage.newsroomNode, bgPage.newsAndUpdatesNode);
@@ -86,7 +79,7 @@ public class User {
 		case "Compass el boletín electrónico (en inglés)":
 			bgPage.clickSubNavButtons(bgPage.newsroomNode, bgPage.compassENewsletterNode);
 			break;		
-		//get invovled	
+		// Get Involved
 		case "Become an Advocate":
 		case "Conviértase en un Representante":
 			bgPage.clickSubNavButtons(bgPage.involvedNode, bgPage.becomeAnAdvocateNode);
@@ -99,7 +92,7 @@ public class User {
 		case "Enlace su sitio al nuestro":
 			bgPage.clickSubNavButtons(bgPage.involvedNode, bgPage.linkToUsNode);
 			break;	
-		//about us	
+		// Aboust Us
 		case "Our Mission":
 		case "Nuestra Misión":
 			bgPage.clickSubNavButtons(bgPage.aboutUsNode, bgPage.ourMissionNode);
@@ -124,7 +117,7 @@ public class User {
 		case "Reconocimiento":
 			bgPage.clickSubNavButtons(bgPage.aboutUsNode, bgPage.recognitionNode);
 			break;
-		//Help
+		// Help
 		case "Frequently Asked Questions (FAQS)":
 		case "Preguntas comunes":
 			bgPage.clickSubNavButtons(bgPage.helpNode, bgPage.faqsNode);
@@ -175,7 +168,7 @@ public class User {
 		case "Disaster Assistance ES":
 			bgPage.clickDisasterAssistance();
 			break;		
-    	
+
 		default:
 			System.err.println("INVALID LINK CLICKED");
 			break;
@@ -190,7 +183,7 @@ public class User {
   			Assert.assertEquals("https://twitter.com/benefitsGOV", bgPage.processWindows());	
   			break;
   		case "Facebook":
-  			Assert.assertTrue(bgPage.processWindows().contains("facebook.com/benefitsGOV")); // "m" when using phantomjs, "www" when using chrome
+  			Assert.assertTrue(bgPage.processWindows().contains("facebook.com/benefitsGOV"));
   			break;
   		case "Youtube":
   			Assert.assertEquals("https://www.youtube.com/user/BenefitsGOV", bgPage.processWindows());	
@@ -253,7 +246,7 @@ public class User {
     	}
 	}
     
-    //Pzn Test methods
+    // -------- Personalization Tests --------
     @Step
     public void clickPznButtons(String node) {
     		bgPage.clickenterStateOrTerritoryTextbox(node);
@@ -262,10 +255,7 @@ public class User {
     
     @Step
 	public void verifyStateName(String expectedStateName) {
-    	
     	String currentStateName = bgPage.pullStateName();
-    	//System.out.println("current state name is: " + currentStateName);
-    	
     	Assert.assertEquals(currentStateName, expectedStateName);
 	}
      
@@ -281,22 +271,17 @@ public class User {
     
     @Step
 	public void verifyBenefitTitles() {
-    	for(int i = 0; i < 5; i++){
-    		
+    	for(int i = 0; i < 5; i++){	
     		bgPage.pznBenefitTabs().get(i).click();
     		Serenity.takeScreenshot();
     		String currentBenefitTitle = bgPage.pznBenefitTabs().get(i).getAttribute("title");
     		String benefitDetailTitle = bgPage.pullBenefitDetailTitle(currentBenefitTitle);
     		
-    		//System.out.println("benefit title of the tab clicked on is: " + currentBenefitTitle);
-    		//System.out.println("benefit detail title is: " + benefitDetailTitle);
-    		
     		Assert.assertEquals(currentBenefitTitle.trim(), benefitDetailTitle);
 		}
 	}
     
-    
-    //FAQ tests
+    // -------- FAQ Tests --------
     @Step
    	public void clickExpandFAQ() {
     	bgPage.clickExpandFAQButtons();
@@ -306,8 +291,7 @@ public class User {
    	public void clickMinimizeFAQ() {
     	bgPage.clickMinimizeFAQButtons();
    	}
-    
-      
+
     @Step
    	public void verifyFAQAnswersArePresent() {
     	Boolean answersVisible = bgPage.checkFAQAnswersShow();
@@ -349,11 +333,8 @@ public class User {
     	bgPage.clickCategoryTitle();
    	}
     
-    
     @Step
    	public void verifyCategoryTitle() {
-    	//System.out.println("pullCategoryTitle : " + bgPage.pullCategoryTitle());
-    	//System.out.println("pullPageTitle : " + bgPage.pullPageTitle());
     	Assert.assertEquals(bgPage.pullCategoryTitle(), bgPage.pullPageTitle());
    	}
     
@@ -362,11 +343,8 @@ public class User {
     	bgPage.clickBenefitTitle();
    	}
     
-    
     @Step
    	public void verifyBenefitTitle() {
-    	//System.out.println("pullBenefitTitle : " + bgPage.pullBenefitTitle());
-    	//System.out.println("pullPageTitle : " + bgPage.pullPageTitle());
     	Assert.assertEquals(bgPage.pullBenefitTitle(), bgPage.pullPageTitle());
    	}
     
@@ -378,8 +356,6 @@ public class User {
 		switch (filterType) {
 		case "-ANY-":
 			List<String> expectedHeadingsEN = new ArrayList<>(Arrays.asList("Federal", "State", "Other"));
-			//System.out.println("expectedHeadings are: " + expectedHeadingsEN);
-			//System.out.println("groupHeadingNodes are: " + bgPage.checkGroupHeadingNodes());
 			for (int i = 0; i < expectedHeadingsEN.size(); i++) {
 				Assert.assertEquals(expectedHeadingsEN.get(i), bgPage.checkGroupHeadingNodes().get(i));
 			}
@@ -389,13 +365,11 @@ public class User {
 		case "State":
 		case "Other":
 			Assert.assertEquals(filterType, bgPage.checkGroupHeadingNodes().get(0));
-			//System.out.println("filter heading is: " + bgPage.checkGroupHeadingNodes().get(0));
 			break;
 
 		case "Alaska":
 		case "Nevada":
 			Assert.assertEquals("State", bgPage.checkGroupHeadingNodes().get(0));
-			//System.out.println("filter heading is: " + bgPage.checkGroupHeadingNodes().get(0));
 			break;
 		}
 	}
@@ -406,8 +380,6 @@ public class User {
 		switch (filterType) {
 		case "-TODAS-":
 			List<String> expectedHeadingsES = new ArrayList<>(Arrays.asList("Federal", "Estado", "Otro"));
-			//System.out.println("expectedHeadings are: " + expectedHeadingsES);
-			//System.out.println("groupHeadingNodes are: " + bgPage.checkGroupHeadingNodes());
 			for (int i = 0; i < expectedHeadingsES.size(); i++) {
 				Assert.assertEquals(expectedHeadingsES.get(i), bgPage.checkGroupHeadingNodes().get(i));
 			}
@@ -417,15 +389,12 @@ public class User {
 		case "Estado":
 		case "Otro":
 			Assert.assertEquals(filterType, bgPage.checkGroupHeadingNodes().get(0));
-			//System.out.println("filter heading is: " + bgPage.checkGroupHeadingNodes().get(0));
 			break;
 
 		case "Alaska":
 		case "Nevada":
 			Assert.assertEquals("Estado", bgPage.checkGroupHeadingNodes().get(0));
-			//System.out.println("filter heading is: " + bgPage.checkGroupHeadingNodes().get(0));
 			break;
-
 		}
 	}
      
@@ -461,7 +430,7 @@ public class User {
     	bgPage.clickCategoriesCheckboxNodes();
    	}
     
-    //news and updates tests
+    //news and updates tests, Compass tests
     @Step 
    	public void verifyNewsArticles() {
     	Assert.assertEquals(5, bgPage.checkNewsArticles());
@@ -474,19 +443,13 @@ public class User {
     
     @Step 
    	public void verifyNewsArticleTitle(String articleNum) {	
-    	//System.out.println("link title : " + bgPage.pullNewsAndUpdatesArticleTitle(articleNum));
-    	//System.out.println("article title is : " + bgPage.pullPageTitle());
     	Assert.assertEquals(bgPage.pullNewsAndUpdatesArticleTitle(articleNum), bgPage.pullPageTitle());
    	}
 	
-    
     @Step 
    	public void verifyCompassArticleTitle(String articleNum) {	
-    	//System.out.println("link title : " + bgPage.pullCompassArticleTitle(articleNum));
-    	//System.out.println("compass article title is : " + bgPage.pullCurrentCompassTitle(articleNum));
     	Assert.assertEquals(bgPage.pullCompassArticleTitle(articleNum), bgPage.pullCurrentCompassTitle(articleNum));
    	}
-    
     
     @Step 
 	public void clickArticleReadMore(String articleNum) {   	
@@ -509,26 +472,6 @@ public class User {
    	}
     
     @Step 
-	public void clickCompassTabs(String articleNum) {   	
-    	bgPage.clickCompassTabs(articleNum);
-   	}
-    
-    @Step 
-	public void verifyCompassTabs(String articleNum) {  
-    	
-    	int index = Integer.parseInt(articleNum) - 2;
-    	
-    	String tabTitle = bgPage.compassTabTitles.get(index);
-    	int trimLength = tabTitle.length();
-    	
-    	if(tabTitle.contains("...")){
-    		trimLength -= 3;
-    	}
-    	
-    	articleNum = String.valueOf(Integer.parseInt(articleNum) - 1 );
-   	}
-  
-    @Step 
    	public void clickNewsNavButton(String buttonType) {
           	
     	switch(buttonType) {
@@ -546,7 +489,6 @@ public class User {
 			break;
     	}	
     }
-    
     
     @Step 
    	public void verifyNewsAndUpdatesNavButtons(String buttonType) {	
@@ -569,7 +511,6 @@ public class User {
     	}	
    	}
     
-    
     public void verifyNewsAndUpdatesNavButtonsES(String buttonType) {	
     	if(buttonType.equals("last")){
     		int lastPageNum = Integer.parseInt(bgPage.getNewsAndUpdatesLastPageNumber()) - 1;
@@ -580,10 +521,7 @@ public class User {
     
     
     @Step 
-   	public void verifyArticleType(String articleType) {	
-    	
-    	//System.out.println("bool value is " + bgPage.checkArticleType(articleType));
-    	
+   	public void verifyArticleType(String articleType) {	    	
     	Assert.assertTrue(bgPage.checkArticleType(articleType));
     }
     
@@ -649,15 +587,10 @@ public class User {
 	public void shouldSeePage(String expectedPageName) {
 
 		String pageTitle = bgPage.pullPageTitle();
-		//String subpageTitle = bgPage.pullSubpageTitle(expectedPageName);
-		
-		//System.out.println("page title is: " + pageTitle.toLowerCase());
-		//System.out.println("expected PageName is: " + expectedPageName.toLowerCase());
 		
 		switch(expectedPageName) {
-		//case "welcome to benefits.gov":
 		//case "browse":
-			//Assert.assertEquals(pageTitle.toLowerCase(), "Welcome to Benefits.gov sasdfasdf");
+			//Assert.assertEquals(pageTitle.toLowerCase(), "Welcome to Benefits.gov");
 			//break;
 		case "newsroom": 
 			Assert.assertEquals(pageTitle.toLowerCase(), "news & updates");
@@ -675,10 +608,6 @@ public class User {
 		case "Búsqueda por agencia":	
 			Assert.assertEquals(pageTitle.toLowerCase(), "búsqueda por agencia federal");
 			break;	
-		
-		//case "Compass eNewsletter":	
-			//Assert.assertEquals("April 2017 Compass eNewsletter", pageTitle.toLowerCase());
-			//break;	
 			
 		case "Become an Advocate":
 			Assert.assertEquals("become an advocate", bgPage.pullSubpageTitle(expectedPageName).toLowerCase());
@@ -700,8 +629,7 @@ public class User {
 		case "Enlace su sitio al nuestro":		
 			Assert.assertEquals("enlace su sitio al nuestro", bgPage.pullSubpageTitle(expectedPageName).toLowerCase());
 			break;
-			
-			
+				
 		case "Our Mission":
 			Assert.assertEquals("our mission", bgPage.pullSubpageTitle(expectedPageName).toLowerCase());
 			break;
@@ -779,11 +707,16 @@ public class User {
 			Assert.assertEquals(expectedPageName.toLowerCase(), pageTitle.toLowerCase());
 			break;
 			
+		case "Compass eNewsletter":	
+			Assert.assertTrue(bgPage.processWindows().contains("benefits.gov/newsroom/eNewsletter"));
+  			break;
+			
 		default:
 			Assert.assertEquals(expectedPageName.toLowerCase(), pageTitle.toLowerCase());
 			System.err.println("INVALID PAGE SENT");
 			break;
 		} 
 	}
+     
 
 }

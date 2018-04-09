@@ -1,5 +1,6 @@
 Meta: 
-@feature BG English
+@feature Benefits
+@category English
 
 Narrative:
 In order to assure that the basic functionality of benefits.gov is working
@@ -53,7 +54,7 @@ Examples:
 
 
 Scenario: (Benefits) Verify all of the browse by buttons open correctly
-Meta: 
+Meta:
 Given the user is on the Benefits home page
 When the user clicks on the <browseByItem> on the homepage
 Then the <browseByItem> page should open correctly
@@ -85,7 +86,7 @@ Examples:
 
 
 Scenario: (Benefits) Verify personalization functions correctly
-Meta: 
+Meta:
 Given the user is on the Benefits home page
 When the user clicks on the change location button
 Then the Enter State or Territory text field should show
@@ -113,7 +114,7 @@ Meta:
 Given the user is on the Benefits home page
 Then the home page title should show
 When the user clicks on the home button
-Then the user should be taken to the home page
+Then the user should be taken to the English home page
 
 
 Scenario: (Benefits) Verify that toggle language button works
@@ -176,15 +177,8 @@ Examples:
 |Nevada|
 
 
-Scenario: (Benefits) Verify the Other Resources page filter by all categories
-Meta: 
-Given the user is on the Other Resources page
-When the user filters by all categories
-Then the correct group headings for categories should appear
-
-
 Scenario: (Benefits) Verify the News & Updates click article
-Meta: 
+Meta:
 Given the user is on the News & Updates page
 Then the user should see five news articles
 When the user clicks on article <articleNum>

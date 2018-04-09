@@ -35,25 +35,25 @@ public class ResourceFinderSteps {
     	questionPage.closePage();
     }
 
-    
     @Step
     public void onFinderPage(String language) {
-    			
-    	//WebDriver driver = new Webdriver();
     	
 		questionPage.clearCookies();
+		System.out.println("Cleared Cookies");
 		String url = questionPage.setEnvironment(language);
-		questionPage.openAt(url);		
-		System.out.println("Directory path is: " + questionPage.setEnvironment(language));	
+//		questionPage.openAt(url);		
+//		System.out.println("Directory path is: " + questionPage.setEnvironment(language));	
 		
+		questionPage.openAt("https://www.benefits.gov/");
+		//startFinder.click();
+	
     }
     
-    
-   
-    
-    
-   
-    
+    @Step
+    public void clickQuestionnaireButton() {
+    	questionPage.clickFinderButton();
+    }
+
     @Step
     public void resetAnswers() {
         questionPage.clickResetAnswers();
@@ -103,8 +103,14 @@ public class ResourceFinderSteps {
         // Assert all resource titles on results page
         List<String> resourceTitles = resultPage.getResourceTitles();
 
-        result.getResultAssertionList().forEach(s -> Assert.assertTrue(resourceTitles.contains(s)));
-
+       // result.getResultAssertionList().forEach(s -> Assert.assertTrue(resourceTitles.contains(s)));
+       // result.getResultAssertionList().forEach(s -> Assert.assertEquals(resourceTitles, s));
+        
+        Assert.assertEquals(result.getResultAssertionList(), resourceTitles);
+        
+        //System.out.println("result.getResultAssertionList(): " + result.getResultAssertionList());
+        //System.out.println("resourceTitles:" + resourceTitles);
+        
         // Assert all resource titles on favorites page
         resultPage.clickQuestionnaireNavFavorites();
 

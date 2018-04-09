@@ -14,6 +14,7 @@
         <serenity.version>1.1.36</serenity.version>
         <serenity.jbehave.version>1.13.0</serenity.jbehave.version>
         <maven.failsafe.version>2.19.1</maven.failsafe.version>	
+        <appium.java.version>4.1.2</appium.java.version>
 		<environment>www</environment>
 		
     </properties>
@@ -45,6 +46,20 @@
             <artifactId>serenity-core</artifactId>
             <version>${serenity.version}</version>
         </dependency>
+        
+        <dependency>
+            <groupId>com.browserstack</groupId>
+            <artifactId>browserstack-local-java</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>${appium.java.version}</version>
+            <scope>test</scope>
+        </dependency>
+        
         <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-jbehave</artifactId>

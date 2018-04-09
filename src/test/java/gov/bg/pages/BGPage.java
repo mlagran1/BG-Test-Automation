@@ -1,30 +1,29 @@
 package gov.bg.pages;
 
-
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.google.common.base.Predicate;
-
-import junit.framework.Assert;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 
 import net.thucydides.core.pages.PageObject;
+import gov.bg.User;
+
+
+/**
+ * Class is for all of the Benefits.gov WebElements and methods to interact with them
+ */
 
 @DefaultUrl("https://www.benefits.gov")
 public class BGPage extends PageObject {
@@ -33,7 +32,7 @@ public class BGPage extends PageObject {
 	
 	public BGPage(WebDriver driver) {
 		super(driver);
-		driver.manage().window().maximize();
+		//driver.manage().window().maximize();
 		this.setImplicitTimeout(10, TimeUnit.SECONDS);
 	}
 	
@@ -49,14 +48,8 @@ public class BGPage extends PageObject {
 		return defaultUrl;
 	}
 	
-	public String getCurrUrl() {
-		String currentUrl = getDriver().getCurrentUrl();
-		return currentUrl;
-	}
-
-
 	//********************************************************************************				
-	
+	//Benefit detail
 	private static final String SUBHEADER_XPATH = "//div[@class='field-items']/div[text()='%s']";
 		 
 	private static final String BENEFIT_DETAIL_XPATH = "//div[@class='benefit-node']/div[text()='%s']";
@@ -102,8 +95,7 @@ public class BGPage extends PageObject {
 	}
 	
 	public String pullStateName() {
-		//System.out.println("Waiting for state title to load");
-		WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='state']")));
 
 		WebElement stateName = getDriver().findElement(By.xpath("//*[@class='state']"));
@@ -146,17 +138,13 @@ public class BGPage extends PageObject {
 
 	public boolean checkFAQAnswersShow() {
 		List<WebElement> footer = FAQAnswers();
-//		for (int i = 0; i < footer.size(); i++) {
-//			System.out.println("answer text is: " + footer.get(i).getText());
-//		}
+
 		return footer.size() == 14;
 	}
 
 	public boolean checkFAQAnswersHidden() {
 		List<WebElement> footer = FAQButtonsExpand();
-//		for (int i = 0; i < footer.size(); i++) {
-//			System.out.println("text is: " + footer.get(i).getText());
-//		}
+
 		return footer.size() == 14;
 	}
 	
@@ -236,7 +224,6 @@ public class BGPage extends PageObject {
 		return benefitTitle;
 	}
 	
-	
 	// ***********************************************************************************
 	//other resources tests
 	public List<WebElement> groupHeadingNodes() {
@@ -249,7 +236,6 @@ public class BGPage extends PageObject {
 		List<WebElement> footer = groupHeadingNodes();
 		
 		for(int i = 0; i < footer.size(); i++){	
-			//System.out.println("text is: " + footer.get(i).getText());
 			headingList.add(footer.get(i).getText());
 		}
 		return headingList;
@@ -310,7 +296,6 @@ public class BGPage extends PageObject {
 		pause(1000);
 	}
 
-
 	@FindBy(xpath = "//*[@id='edit-field-agency-state-value-i18n']")
     private WebElementFacade filterByStateDropdown;
 	
@@ -319,13 +304,11 @@ public class BGPage extends PageObject {
 		pause(1000);
 	}
 	
- 
 	public void clickCategoriesCheckboxNodes() {
 		
 		int categoryCount= this.getDriver().findElements(By.xpath("//*[contains(@class,'form-item form-type-bef-checkbox')]/label")).size();
 		for(int i = 0; i < categoryCount; i++){	
 			List<WebElement> categoriesFilter = otherResourceCategoryNodes();
-			//pause(1000);
 			System.out.println("Category is: " + categoriesFilter.get(i).getText());
 			categoriesFilter.get(i).click();
 		}
@@ -342,7 +325,6 @@ public class BGPage extends PageObject {
 	public List<WebElement> compassTabTitles() {
 		return this.getDriver().findElements(By.xpath("//*[@class='sp-thumbnail-title']/div/div/div"));
 	}
-	
 	
 	private static final String COMPASS_TAB_TITLE_XPATH = "(//*[@class='sp-thumbnail-title']/div/div/div)[%s]";
     
@@ -362,7 +344,6 @@ public class BGPage extends PageObject {
 	public int checkNewsArticles() {
 		List<WebElement> articles = newsArticleNodes();
 		for(int i = 0; i < articles.size(); i++){
-			//System.out.println("Article text: " + articles.get(i).getText());
 			currentArticleTitles.add(articles.get(i).getText());
 		}
 		return articles.size();
@@ -394,9 +375,7 @@ public class BGPage extends PageObject {
 	
 	public void clickCompassArticleNodes(String articleNum) {
 		 String compassXpath = String.format(COMPASS_ARTICLE_NUM_XPATH, articleNum);
-		 //System.out.println("compass xpath is: " + compassXpath);	 
 		 WebElementFacade articleNode = find(By.xpath(compassXpath));
-		 
 		 currentCompassArticleTitles.add(articleNode.getText());
 		 
 		 articleNode.click();
@@ -406,21 +385,17 @@ public class BGPage extends PageObject {
 	
 	public String pullNewsAndUpdatesArticleTitle(String articleNum){
 		int index = Integer.parseInt(articleNum) - 1;
-		//System.out.println("article xpath is : " + currentArticleTitles.get(index));
-		//return currentArticleTitles.get(index);
 		return currentArticleTitles.get(index);
 	}
 	
 	public String pullCompassArticleTitle(String articleNum) {
 		int index = Integer.parseInt(articleNum) - 1;
-		//System.out.println("article xpath is : " + currentCompassArticleTitles.get(index));
 		return currentCompassArticleTitles.get(index).toLowerCase();
 	}
 	
 	
 	public String pullCurrentCompassTitle(String articleNum) {
 		String compassTitleXpath = String.format(COMPASS_ARTICLE_TITLE_XPATH, articleNum);
-		//System.out.println("compass title xpath is: " + compassTitleXpath);
 		WebElementFacade articleTitleNode = find(By.xpath(compassTitleXpath));
 
 		return articleTitleNode.getText().toLowerCase();
@@ -433,7 +408,6 @@ public class BGPage extends PageObject {
 	public void clickArticleReadMoreNodes(String articleNum) {
 
 		String articleXpath = String.format(READ_MORE_NUM_XPATH, articleNum);
-		//System.out.println("read more xpath is : " + articleXpath);
 		WebElementFacade readMoreNode = find(By.xpath(articleXpath));
 
 		readMoreNode.click();
@@ -443,11 +417,9 @@ public class BGPage extends PageObject {
 	public void clickCompassReadMoreNodes(String articleNum) {
 
 		String articleXpath = String.format(READ_MORE_COMPASS_NUM_XPATH, articleNum);
-		//System.out.println("read more xpath is : " + articleXpath);
 		WebElementFacade readMoreNode = find(By.xpath(articleXpath));
 
 		String compassXpath = String.format(COMPASS_ARTICLE_NUM_XPATH, articleNum);
-		//System.out.println("compass xpath is: " + compassXpath);
 		WebElementFacade articleNode = find(By.xpath(compassXpath));
 
 		currentCompassArticleTitles.add(articleNode.getText());
@@ -458,7 +430,6 @@ public class BGPage extends PageObject {
 	
 	public String getWindowUrl(){
 		String windowUrl = getDriver().getCurrentUrl();
-	    //System.out.println("current window url is: " + windowUrl);
 	    return windowUrl;
 	}
 	// ***********************************************************************************
@@ -480,7 +451,6 @@ public class BGPage extends PageObject {
 		 while(!sliderTileNode.isDisplayed()){
 			 pause(500);
 			 sliderNextButton.click();
-			 //System.out.println("hit");
 		 }
 		 
 		 sliderTitle = sliderTileNode.getText();
@@ -488,15 +458,10 @@ public class BGPage extends PageObject {
 		 sliderTileNode.click();
 	}
 	
-	
-	
 	public String pullSliderTitle(){
 		return sliderTitle;
 	}
 	
-	
-	
-
 	// ***********************************************************************************
 	@FindBy(xpath = "//*[@class='pager-next']/a")
     private WebElementFacade newsUpdateNavNextNode;
@@ -510,7 +475,6 @@ public class BGPage extends PageObject {
 	@FindBy(xpath = "//*[@class='pager-last last']/a")
     private WebElementFacade newsUpdateNavLastNode;
 	
-	
 	@FindBy(xpath = "//*[@class='pager-current last']")
     private WebElementFacade newsUpdateLastPageNumber;
 	
@@ -518,7 +482,6 @@ public class BGPage extends PageObject {
 		return newsUpdateLastPageNumber.getText();
 	}
 	
-
 	public void clickNewsNavNextNode() {
 		newsUpdateNavNextNode.click();
 	}
@@ -541,12 +504,7 @@ public class BGPage extends PageObject {
 		List<WebElement> articlesType = articleTypeNodes();
 		for(int i = 0; i < articlesType.size(); i++){
 			String currentArticleType = articlesType.get(i).getText();
-			
-			//System.out.println("curr article type is: " + currentArticleType);
-			//System.out.println("article type is: " + articleType);
-
-			//System.out.println("Article type: " + articlesType.get(i).getText());
-			
+					
 			if(!currentArticleType.contains(articleType)){
 				return false;
 			}	
@@ -562,7 +520,6 @@ public class BGPage extends PageObject {
 	
 	public void selectFilterByNewsType(String filterType) {
 		
-		//System.out.println("what we are selecting by: " + filterType);
 		filterByNewsDropdown.sendKeys(filterType);
 		applyButtonNewsAndUpdates.click();
 		pause(1000);
@@ -712,15 +669,10 @@ public class BGPage extends PageObject {
     
     public String pullPageTitle() {
     	
-    	//System.out.println("Waiting for page title to load");
         WebDriverWait wait = new WebDriverWait(getDriver(), 20);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='page-title']")));
         
-        String windowUrl = getDriver().getCurrentUrl();
-        //System.out.println("current window url is: " + windowUrl);
-
     	WebElement pageTitle = getDriver().findElement(By.xpath("//*[@id='page-title']"));
-    	//pause(2000);
 		return pageTitle.getText();
 	}
         
@@ -736,7 +688,6 @@ public class BGPage extends PageObject {
     	return subpageTitle.getText();
     }
     
-
     
   // ***********************************************************************************
   //footer links
@@ -793,28 +744,13 @@ public class BGPage extends PageObject {
 	public String processWindows() {
 		// Store the current window handle
 		String winHandleBefore = getDriver().getWindowHandle();
-
+		
 		// Perform the click operation that opens new window
 
 		// Switch to new window opened
 		List<String> browserTabs = new ArrayList<String>(getDriver().getWindowHandles());
 		getDriver().switchTo().window(browserTabs.get(1));
-		
 	
-//		for (int i = 0; i < 10; i++) {
-//			try {
-//				Thread.sleep(1000);
-//				System.out.println("page loading");
-//			} catch (InterruptedException e) {
-//			}
-//			// To check page ready state.
-//			if (((JavascriptExecutor) this.getDriver()).executeScript("return document.readyState").toString().equals("complete")) {
-//				System.out.println("done");
-//				break;	
-//			}
-//		}
-		
-		
 		for (int i = 0; i < 10; i++) {
 			try {
 				Thread.sleep(1000);
@@ -828,19 +764,19 @@ public class BGPage extends PageObject {
 			}
 		}
 	
-		
 		// Perform the actions on new window
 		Serenity.takeScreenshot();
 		String windowUrl = getDriver().getCurrentUrl();
 
 		// Close the new window, if that window no more required
 		getDriver().close();
-
+		
 		// Switch back to original browser (first window)
 		getDriver().switchTo().window(winHandleBefore);
 
 		// Continue with original browser (first window)
 		return windowUrl;
+		
 	}
 
 	public void pause(long time) {

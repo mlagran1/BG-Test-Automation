@@ -1,5 +1,6 @@
 Meta: 
-@feature SSA Spanish
+@feature SSABest
+@category Spanish
 
 Narrative:
 In order to assure that the basic functionality of SSABest.benefits.gov Spanish is working
