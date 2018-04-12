@@ -29,7 +29,7 @@ public class UserSSA {
     	ssaPage.clearCookies();
 		String url = ssaPage.setEnvironment();		
 		ssaPage.openAt(url);		
-		//System.out.println("Directory path is: " + ssaPage.setEnvironment());
+		//System.out.println("Directory path is: " + url);
     }
 
     @Step
@@ -40,8 +40,7 @@ public class UserSSA {
 		ssaPage.openAt(url);
 		//System.out.println("Directory path is: " + url);	
 	}
-    
-    
+       
     @Step
     public void clickNavNode(String node) {
     	
@@ -78,7 +77,6 @@ public class UserSSA {
     	}	
     }
             
-    
     @Step
    	public void shouldSeePage(String expectedPageName) {
 
@@ -315,34 +313,19 @@ public class UserSSA {
     
     @Step
 	public void verifyHomepage() {
-    	Assert.assertEquals("https://ssabest.benefits.gov/", ssaPage.getWindowUrl());
+    	Assert.assertEquals("Welcome to the Benefit Eligibility Screening Tool (BEST)", ssaPage.pullHomepageTitle());
   	}
     
     @Step
 	public void verifyHomepageES() {
-    	Assert.assertEquals("https://ssabest.benefits.gov/es", ssaPage.getWindowUrl());
+    	Assert.assertEquals("Bienvenido a El Programa Para Determinar Elegibilidad a Beneficios (BEST)", ssaPage.pullHomepageTitle());
+    	
   	}	
 
     @Step
 	public void clickToggleLanguage() {
     	ssaHomepage.languageToggleButton.click();
   	}	
-    
-    @Step
-	public void verifyToggleLanguage(String language) {
-    	
-  		switch(language) { 	
-		case "EN": 
-			Assert.assertEquals("https://ssabest.benefits.gov/", ssaPage.getWindowUrl());
-			break;	
-		case "ES": 
-			Assert.assertEquals("https://ssabest.benefits.gov/es", ssaPage.getWindowUrl());
-			break;
-  		default:
-			System.err.println("INVALID LANGUAGE");
-			break;	
-  		}	
-  	}
     
     //browse by category tests
     @Step

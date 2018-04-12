@@ -25,7 +25,6 @@ import net.thucydides.core.pages.PageObject;
 public class GLHomepage extends PageObject {
     
 	// *************************************************************************
-	// FindBy / private variables section
 	
 	//Main Nav
 	@FindBy(xpath = "//*[@id='navbar']/div/div/div[2]/nav/ul/li[2]/a")
@@ -151,7 +150,6 @@ public class GLHomepage extends PageObject {
 	@FindBy(xpath = "//*[@class='home-well-content']/a/img")
 	public WebElementFacade BGHomepageLink;
 
-	// *************************************************************************
-	// Functions
 
+	
 }

@@ -24,7 +24,6 @@ import net.thucydides.core.pages.PageObject;
 public class SSAHomepage extends PageObject {
     
 	// *************************************************************************
-	// FindBy / private variables section
 	
 	//Main Nav
 	@FindBy(xpath = "//*[@id='nav']/ul/li[2]/a")
@@ -53,7 +52,6 @@ public class SSAHomepage extends PageObject {
 	public WebElementFacade privacyAndTermsSubNavButton;
 	
 	//Footer Links
-	//@FindBy(xpath = "//*[@id='node-15']/div/div/div/div/div/div[1]/ul/li[2]/a")
 	@FindBy(xpath = "//*[@class='partners']/ul/li[1]/a")
 	public WebElementFacade whiteHouseFooterLink;
 						
@@ -71,7 +69,6 @@ public class SSAHomepage extends PageObject {
 	
 	@FindBy(xpath = "//*[@class='privacy']/h5/a")
 	public WebElementFacade privacyAndTermsFooterLink;
-	
 
 	// other homepage links
 	@FindBy(xpath = "//*[@id='nav']/ul/li[1]/a")
@@ -99,7 +96,5 @@ public class SSAHomepage extends PageObject {
 	public WebElementFacade BGHomepageLogoLink;
 	
 	
-	// *************************************************************************
-	// Functions
 
 }

@@ -8,10 +8,10 @@ As a tester
 I want to run the daily regressions at least twice a day
 
 
-Scenario: (GovLoans, Spanish) Verify all of the GovLoans sub-navigation tabs open correctly
+Scenario: (GovLoans, Spanish) Homepage - Header - All the sub-navigation links (9 examples)
 Meta: 
 Given the user is on the Spanish GovLoans homepage
-When the user clicks on the <subNavMenuItem> button within the GovLoans top navigation bar
+When the user clicks on the <subNavMenuItem> button in the GovLoans top navigation bar
 Then the GovLoans <subNavMenuItem> page should open correctly
 
 Examples:
@@ -27,8 +27,8 @@ Examples:
 |Privacidad y Términos de Uso|
 
 
-Scenario: (GovLoans, Spanish) Verify all of the GovLoans footer links open correctly
-Meta: 
+Scenario: (GovLoans, Spanish) Homepage - Footer - All the links open (13 examples)
+Meta:
 Given the user is on the Spanish GovLoans homepage
 When the user clicks on the GovLoans <footerItem> footer link
 Then the GovLoans <footerItem> page should open correctly
@@ -50,8 +50,8 @@ Examples:
 |Privacidad y Términos de Uso|
 
 
-Scenario: (GovLoans, Spanish) Verify the Loan Categories on the homepage open correctly
-Meta:
+Scenario: (GovLoans, Spanish) Homepage - "Loan Categories" - All the category links open (6 examples)
+Meta: 
 Given the user is on the Spanish GovLoans homepage
 When the user clicks on the GovLoans <categoryItem> category link
 Then the GovLoans <categoryItem> page should open correctly
@@ -66,7 +66,7 @@ Examples:
 |Veteranos|
 
 
-Scenario: (GovLoans, Spanish) Verify the homepage links open correctly (non-nav, non-footer, non-loan categories)
+Scenario: (GovLoans, Spanish) Homepage - Main Content Block - All the links open (3 examples)
 Meta: 
 Given the user is on the Spanish GovLoans homepage
 When the user clicks on the GovLoans <homepageItem> homepage link
@@ -79,7 +79,7 @@ Examples:
 |Benefits.gov ES|
 
 
-Scenario: (GovLoans, Spanish) Verify that the home buttons work
+Scenario: (GovLoans, Spanish) Homepage - Verify home buttons (2 examples)
 Meta: 
 Given the user is on the Spanish GovLoans Overview page
 When the user clicks on the GovLoans <homeButton> button
@@ -91,8 +91,8 @@ Examples:
 |Home Nav ES|
 
 
-Scenario: (GovLoans, Spanish) Verify the Browse By Category page functions correctly
-Meta:
+Scenario: (GovLoans, Spanish) Browse By Category - All the category links open (7 examples)
+Meta: 
 Given the user is on the Spanish GovLoans Browse By Category page
 When the user clicks on the GovLoans Browse By <categoryItem> link
 Then the GovLoans <categoryItem> page should open correctly

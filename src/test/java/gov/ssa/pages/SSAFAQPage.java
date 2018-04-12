@@ -24,7 +24,6 @@ import net.thucydides.core.pages.PageObject;
 public class SSAFAQPage extends PageObject {
     
 	// *************************************************************************
-	//
 	private static final String FAQ_QUESTION_XPATH = "(//*[@class='node__title node-title']/a)[%s]";
 	
 	private String FAQquestion;

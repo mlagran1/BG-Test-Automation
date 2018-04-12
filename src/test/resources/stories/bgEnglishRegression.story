@@ -8,24 +8,25 @@ As a tester
 I want to run the daily regressions at least twice a day
 
 
-Scenario: (Benefits) Verify all of the navigation tabs open correctly
-Meta: 
+Scenario: (Benefits) Homepage - Header - All the main navigation links (5 examples)
+Meta:
 Given the user is on the Benefits home page
-When the user clicks on <navMenuItem> within the top navigation bar
+When the user clicks on <navMenuItem> in the top navigation bar
 Then the <navMenuItem> page should open correctly
 
 Examples:
 |navMenuItem|
-|newsroom|
-|get involved|
-|about us|
-|help|
+|Browse|
+|Newsroom|
+|Get Involved|
+|About Us|
+|Help|
 
 
-Scenario: (Benefits) Verify all of the sub-navigation tabs open correctly
+Scenario: (Benefits) Homepage - Header - All the sub-navigation links (18 examples)
 Meta: 
 Given the user is on the Benefits home page
-When the user clicks on the <subNavMenuItem> within the top navigation bar
+When the user clicks on the <subNavMenuItem> in the top navigation bar
 Then the <subNavMenuItem> page should open correctly
 
 Examples:
@@ -36,6 +37,7 @@ Examples:
 |Other Resources|
 
 |News & Updates|
+|Compass eNewsletter|
 
 |Become an Advocate|
 |Become an Affiliate|
@@ -53,7 +55,7 @@ Examples:
 |Privacy and Terms of Use|
 
 
-Scenario: (Benefits) Verify all of the browse by buttons open correctly
+Scenario: (Benefits) Homepage - "Looking for Benefits" - All the Browse for Benefits links (4 examples) 
 Meta:
 Given the user is on the Benefits home page
 When the user clicks on the <browseByItem> on the homepage
@@ -67,10 +69,10 @@ Examples:
 |Browse by Agency|
 
 
-Scenario: (Benefits) Verify all of the footer links open correctly
+Scenario: (Benefits) Homepage - Footer - All the links open (8 examples)
 Meta: 
 Given the user is on the Benefits home page
-When the user clicks on the <footerLink> within the homepage
+When the user clicks on the <footerLink> on the homepage
 Then the <footerLink> page should open correctly
 
 Examples:
@@ -85,7 +87,7 @@ Examples:
 |Disaster Assistance|
 
 
-Scenario: (Benefits) Verify personalization functions correctly
+Scenario: (Benefits) Homepage - "Discover Popular Benefits" - Personalization functions correctly
 Meta:
 Given the user is on the Benefits home page
 When the user clicks on the change location button
@@ -100,24 +102,7 @@ Examples:
 |California|
 
 
-Scenario: (Benefits) Verify FAQ page functions correctly
-Meta: 
-Given the user is on the Benefits FAQ page
-When the user clicks on the expand button
-Then the answer text should show
-When the user clicks on the minimize button
-Then the answer text should be hidden
-
-
-Scenario: (Benefits) Verify that the home button works
-Meta: 
-Given the user is on the Benefits home page
-Then the home page title should show
-When the user clicks on the home button
-Then the user should be taken to the English home page
-
-
-Scenario: (Benefits) Verify that toggle language button works
+Scenario: (Benefits) Homepage - Verify the toggle language button
 Meta: 
 Given the user is on the Benefits home page
 When the user clicks on the toggle language button
@@ -126,7 +111,23 @@ When the user clicks on the toggle language button
 Then the user should be taken to the English home page
 
 
-Scenario: (Benefits) Verify the Browse by pages
+Scenario: (Benefits) Homepage - "News & Updates" - Verify the slider links (6 examples)
+Meta: 
+Given the user is on the Benefits home page
+When the user clicks on slider tile <sliderNum>
+Then the slider page should open correctly
+
+Examples:
+|sliderNum|
+|1|
+|2|
+|3|
+|4|
+|5|
+|6|
+
+
+Scenario: (Benefits) "Browse By" Pages - Verify Category, State, and Agency
 Meta: 
 Given the user is on the Browse by <browseByItem> page
 When the user clicks on a category
@@ -141,16 +142,7 @@ Examples:
 |agency|
 
 
-Scenario: (Benefits) Verify the Other Resources page filter toggle
-Meta: 
-Given the user is on the Other Resources page
-When the user clicks on the minimize filter button
-Then the filter should disappear
-When the user clicks on the expand filter button
-Then the filter should reappear
-
-
-Scenario: (Benefits) Verify the Other Resources page filter by type
+Scenario: (Benefits) Other Resources - Verify filter by type
 Meta: 
 Given the user is on the Other Resources page
 When the user filters by type <filterByType>
@@ -164,7 +156,7 @@ Examples:
 |Other|
 
 
-Scenario: (Benefits) Verify the Other Resources page filter by state
+Scenario: (Benefits) Other Resources - Verify filter by state
 Meta: 
 Given the user is on the Other Resources page
 When the user filters by state <filterByState>
@@ -177,7 +169,7 @@ Examples:
 |Nevada|
 
 
-Scenario: (Benefits) Verify the News & Updates click article
+Scenario: (Benefits) News & Updates - All article title links open
 Meta:
 Given the user is on the News & Updates page
 Then the user should see five news articles
@@ -188,20 +180,12 @@ Examples:
 |articleNum|
 |1|
 |2|
+|3|
+|4|
+|5|
 
-Scenario: (Benefits) Verify the News & Updates click read more
-Meta: 
-Given the user is on the News & Updates page
-Then the user should see five news articles
-When the user clicks on article <articleNum> read more
-Then the user should be taken to the correct article
 
-Examples:
-|articleNum|
-|1|
-|2|
-
-Scenario: (Benefits) Verify the News & Updates navigation buttons
+Scenario: (Benefits) News & Updates - Verify navigation buttons
 Meta: 
 Given the user is on the News & Updates page
 When the user clicks on the next button
@@ -214,7 +198,7 @@ When the user clicks on the first button
 Then the user should be taken to the first page
 
 
-Scenario: (Benefits) Verify the News & Updates page filter by news type works
+Scenario: (Benefits) News & Updates - Verify filter by news type
 Meta: 
 Given the user is on the News & Updates page
 When the user filters by news type <filterByType>
@@ -226,7 +210,7 @@ Examples:
 |Compass Article|
 
 
-Scenario: (Benefits) Verify the News & Updates page filter by benefit category works
+Scenario: (Benefits) News & Updates - Verify filter by benefit category
 Meta: 
 Given the user is on the News & Updates page
 When the user filters by benefit category <benefitCategory>
@@ -237,7 +221,7 @@ Examples:
 |Child Care/Child Support|
 
 
-Scenario: (Benefits) Verify the Compass Newsletter click article
+Scenario: (Benefits) Compass eNewsLetter - All article title links open
 Meta: 
 Given the user is on the Compass Newsletter page
 Then the user should see the correct number of compass articles
@@ -248,33 +232,17 @@ Examples:
 |articleNum|
 |1|
 |2|
-
-
-Scenario: (Benefits) Verify the Compass Newsletter click read more
-Meta: 
-Given the user is on the Compass Newsletter page
-When the user clicks on compass article <articleNum> read more
-Then the user should be taken to the correct compass article
-
-Examples:
-|articleNum|
-|1|
-|2|
-
-
-Scenario: (Benefits) Verify the home page slider
-Meta: 
-Given the user is on the Benefits home page
-When the user clicks on slider tile <sliderNum>
-Then the slider page should open correctly
-
-Examples:
-|sliderNum|
-
-|1|
-|2|
 |3|
 |4|
 |5|
 |6|
+
+
+Scenario: (Benefits) FAQ Page - All the question tabs expand
+Meta: 
+Given the user is on the Benefits FAQ page
+When the user clicks on the expand button
+Then the answer text should show
+When the user clicks on the minimize button
+Then the answer text should be hidden
 

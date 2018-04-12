@@ -7,10 +7,10 @@ In order to assure that the basic functionality of SSABest.benefits.gov Spanish 
 As a tester
 I want to run the daily regressions at least twice a day
 
-Scenario: (SSABest, Spanish) Verify all of the SSABest sub-navigation tabs open correctly
+Scenario: (SSABest, Spanish) Homepage - Header - All the sub-navigation links (6 examples)
 Meta: 
 Given the user is on the Spanish SSABest homepage
-When the user clicks on the <subNavMenuItem> button within the SSABest top navigation bar
+When the user clicks on the <subNavMenuItem> button in the SSABest top navigation bar
 Then the SSABest <subNavMenuItem> page should open correctly
 
 Examples:
@@ -23,7 +23,7 @@ Examples:
 |Privacidad y Términos de Uso|
 
 
-Scenario: (SSABest, Spanish) Verify all of the SSABest footer links open correctly
+Scenario: (SSABest, Spanish) Homepage - Footer - All the links open (6 examples)
 Meta: 
 Given the user is on the Spanish SSABest homepage
 When the user clicks on the SSABest <footerItem> footer link
@@ -39,7 +39,7 @@ Examples:
 |Privacidad y Términos de Uso|
 
 
-Scenario: (SSABest, Spanish) Verify the homepage links open correctly (non-nav, non-footer)
+Scenario: (SSABest, Spanish) Homepage - Main Content Block - All the links open (5 examples)
 Meta: 
 Given the user is on the Spanish SSABest homepage
 When the user clicks on the SSABest <homepageItem> homepage link
@@ -54,7 +54,7 @@ Examples:
 |SSA.gov ES|
 
 
-Scenario: (SSABest, Spanish) Verify that the home buttons work
+Scenario: (SSABest, Spanish) Homepage - Verify home buttons (2 examples)
 Meta: 
 Given the user is on the Spanish SSABest FAQ page
 When the user clicks on the SSABest <homeButton> button
@@ -66,7 +66,7 @@ Examples:
 |Home Nav ES|
 
 
-Scenario: (SSABest, Spanish) Verify the Browse By Category page functions correctly
+Scenario: (SSABest, Spanish) Browse By Category - All the category links open (8 examples)
 Meta: 
 Given the user is on the Spanish SSABest Browse By Category page
 When the user clicks on the SSABest Browse By <categoryItem> link
@@ -86,7 +86,7 @@ Examples:
 |Veteranos|
 
 
-Scenario: (SSABest, Spanish) Verify that the FAQ page functions correctly
+Scenario: (SSABest, Spanish) FAQ Page - All the question links open
 Meta: 
 Given the user is on the Spanish SSABest FAQ page
 When the user clicks on the SSABest FAQ <questionNum> link

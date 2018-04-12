@@ -324,10 +324,10 @@ public class UserGL {
 			Assert.assertEquals("Buscador de Préstamos", glPage.pullPageTitle());
 			break;	
 		case "Loans vs Grants": 
-  			Assert.assertEquals("https://govloans.gov/help/faqs#Government", glPage.getWindowUrl());
+			Assert.assertEquals(glPage.pullPageTitle(), "FAQs");
 			break;
 		case "Préstamos vs Subvenciones": 
-  			Assert.assertEquals("https://es.govloans.gov/help/faqs#Government", glPage.getWindowUrl());
+  			Assert.assertEquals(glPage.pullPageTitle(), "Preguntas más frecuentes");
 			break;
 		case "Benefits.gov": 
 			selectedUrl = "https://www.benefits.gov/";
@@ -363,13 +363,12 @@ public class UserGL {
     
     @Step
 	public void verifyHomepage() {
-    	//Assert.assertEquals("https://govloans.gov/", glPage.getWindowUrl());
-    	Assert.assertTrue(glPage.getWindowUrl().equals("https://govloans.gov/") || glPage.getWindowUrl().equals("https://www.govloans.gov/"));
+    	Assert.assertEquals("Welcome to GovLoans.gov", glPage.pullHomepageTitle());
   	}	
     
     @Step
 	public void verifyHomepageES() {
-    	Assert.assertEquals("https://es.govloans.gov/", glPage.getWindowUrl());
+    	Assert.assertEquals("Bienvenido a GovLoans.gov", glPage.pullHomepageTitle());
   	}	
     
     

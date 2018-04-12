@@ -1,23 +1,12 @@
 package gov.gl.pages;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import net.serenitybdd.core.Serenity;
-import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
-import net.thucydides.core.annotations.DefaultUrl;
+
 
 import net.thucydides.core.pages.PageObject;
 
@@ -31,7 +20,6 @@ public class GLBrowseByPage extends PageObject {
 	}
 
 	private static final String CATEGORY_TITLE_XPATH = "//*[@class='browse-by-category']/a[contains(text(),'%s')]";
-	
 	private static final String LOAN_TITLE_XPATH = "(//*[@class='browse-by-header']/a)[%s]";
 
 	private String loanTitle;

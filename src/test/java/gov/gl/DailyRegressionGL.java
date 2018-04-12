@@ -12,8 +12,6 @@ public class DailyRegressionGL {
 
     @Steps
     UserGL userGL;
-
-    //Scenario: Verify all of the navbar tabs to assert that the pages open correctly
     
     @Given("the user is on the GovLoans homepage")
     public void the_user_is_on_homepage() {
@@ -26,7 +24,7 @@ public class DailyRegressionGL {
     }
     
     //sub nav
-    @When("the user clicks on the <subNavMenuItem> button within the GovLoans top navigation bar")
+    @When("the user clicks on the <subNavMenuItem> button in the GovLoans top navigation bar")
     public void when_user_clicks_on_each_sublink_in_the_GL_top_navigation_bar(@Named("subNavMenuItem") String subNavMenuItem) {
     	userGL.clickNavNode(subNavMenuItem);
 	}
@@ -95,7 +93,6 @@ public class DailyRegressionGL {
     	userGL.verifyHomepageES();
 	}
     
-
     //toggle language test
     @When("the user clicks on the GovLoans toggle language button")
     public void when_the_user_clicks_on_the_GovLoans_toggle_language_button() {
@@ -104,16 +101,13 @@ public class DailyRegressionGL {
     
     @Then("the user should be taken to the GovLoans Spanish homepage")
     public void then_the_user_should_be_taken_to_the_GovLoans_Spanish_home_page() {
-		//userGL.verifyToggleLanguage("ES");
     	userGL.verifyHomepageES();
 	}
     
     @Then("the user should be taken to the GovLoans English homepage")
     public void then_the_user_should_be_taken_to_the_GovLoans_English_home_page() {
-		//userGL.verifyToggleLanguage("EN");
     	userGL.verifyHomepage();
 	}
-    
     
     //Browse by category test
     @Given("the user is on the GovLoans Browse By Category page")
@@ -141,8 +135,5 @@ public class DailyRegressionGL {
 		userGL.verifyLoanTitle();
 	}
     
-    
-    
-
     
 }

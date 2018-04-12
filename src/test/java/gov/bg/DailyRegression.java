@@ -17,19 +17,19 @@ public class DailyRegression {
     @Steps
     User user;
 
-    // Scenario: Verify all of the navbar tabs to assert that the pages open correctly
     @Given("the user is on the Benefits home page")
-    public void the_user_is_on_homepage() {
+    public void the_user_is_on_the_BG_homepage() {
         user.open_page("");
     }
     
     @Given("the user is on the Spanish Benefits home page")
-    public void the_user_is_on_spanish_homepage() {
+    public void the_user_is_on_the_BG_spanish_homepage() {
         user.open_page("/es");
     }
     
-    @When("the user clicks on <navMenuItem> within the top navigation bar")
-    public void when_I_click_on_each_link_in_the_top_navigation_bar(@Named("navMenuItem") String navMenuItem) {
+    // Main Nav
+    @When("the user clicks on <navMenuItem> in the top navigation bar")
+    public void when_the_user_clicks_on_each_link_in_the_top_navigation_bar(@Named("navMenuItem") String navMenuItem) {
 		user.clickNavNode(navMenuItem);
 	}
 
@@ -39,8 +39,8 @@ public class DailyRegression {
 	}
     
     //sub nav
-    @When("the user clicks on the <subNavMenuItem> within the top navigation bar")
-    public void when_user_clicks_on_each_sublink_in_the_top_navigation_bar(@Named("subNavMenuItem") String subNavMenuItem) {
+    @When("the user clicks on the <subNavMenuItem> in the top navigation bar")
+    public void when_the_user_clicks_on_each_sublink_in_the_top_navigation_bar(@Named("subNavMenuItem") String subNavMenuItem) {
 		user.clickNavNode(subNavMenuItem);
 	}
 
@@ -49,7 +49,7 @@ public class DailyRegression {
 		user.shouldSeePage(subNavMenuItem);
 	}
     
-  //browse by links
+    // browse by links
     @When("the user clicks on the <browseByItem> on the homepage")
     public void when_user_clicks_on_each_browse_by_link_on_the_homepage(@Named("browseByItem") String browseByItem) {
 		user.clickBrowseByNode(browseByItem);
@@ -60,10 +60,8 @@ public class DailyRegression {
 		user.shouldSeePage(browseByItem);
 	}
     
-    
-    
-  //footer links
-    @When("the user clicks on the <footerLink> within the homepage")
+    // footer link
+    @When("the user clicks on the <footerLink> on the homepage")
     public void when_user_clicks_on_each_footer_link_on_the_homepage(@Named("footerLink") String footerLink) {
 		user.clickFooterLink(footerLink);
 	}
@@ -73,8 +71,7 @@ public class DailyRegression {
     	user.verifyFooterURL(footerLink);
 	}
     
-//pzn test
-    
+    // Personalization
     @When("the user clicks on the change location button")
     public void when_user_clicks_on_the_change_location_button() {
 		user.clickChangeLocation();
@@ -98,68 +95,9 @@ public class DailyRegression {
     @Then("the correct benefits should show")
     public void then_the_correct_benefits_should_show() {
     	user.verifyBenefitTitles();
-	}
+	}  
     
-    
-  //FAQ page test
-    @Given("the user is on the Benefits FAQ page")
-    public void the_user_is_on_FAQ_page() {
-        user.open_page("/help/faqs");
-    }
-    
-    @Given("the user is on the Spanish Benefits FAQ page")
-    public void the_user_is_on_the_Spanish_FAQ_page() {
-        user.open_page("/es/help/faqs");
-    }
-    
-    
-    @When("the user clicks on the expand button")
-    public void when_the_user_clicks_on_the_expand_button() {
-		user.clickExpandFAQ();
-	}
-
-    @Then("the answer text should show")
-    public void then_the_answer_text_should_show() {
-		user.verifyFAQAnswersArePresent();
-	}
-
-    @When("the user clicks on the minimize button")
-    public void when_the_user_clicks_on_the_minimize_button() {
-		user.clickMinimizeFAQ();
-	}
-    
-    @Then("the answer text should be hidden")
-    public void then_the_answer_text_should_be_hidden() {
-		user.verifyFAQAnswersAreHidden();
-	}
-    
-    //Homepage test
-    
-    @Then("the home page title should show")
-    public void then_the_home_page_title_should_show() {
-		user.verifyHomepageTitle("EN");
-	}
-
-    @When("the user clicks on the home button")
-    public void when_the_user_clicks_on_the_home_button() {
-    	user.open_page("/newsroom/news-and-updates");
-		user.clickHomeButtonNode();
-	}
-    
-    //homepage ES
-    @Then("the Spanish home page title should show")
-    public void then_the_Spanish_home_page_title_should_show() {
-		user.verifyHomepageTitle("ES");
-	}
-
-    @When("the user clicks on the Spanish home button")
-    public void when_the_user_clicks_on_the_Spanish_home_button() {
-    	user.open_page("/es/newsroom/news-and-updates");
-		user.clickHomeButtonNode();
-	}
-    
-    //toggle language test
-    
+    // toggle language
     @When("the user clicks on the toggle language button")
     public void when_the_user_clicks_on_the_toggle_language_button() {
 		user.clickToggleLanguageButtonNode();
@@ -175,8 +113,23 @@ public class DailyRegression {
 		user.verifyHomepageTitle("EN");
 	}
     
-    //Browse by category page
-
+    //Slider test
+    @When("the user clicks on slider tile <sliderNum>")
+    public void when_the_user_clicks_on_slider_tile_silderNum(@Named("sliderNum") String sliderNum) {
+		user.clickSliderTile(sliderNum);
+	}
+    
+    @Then("the slider page should open correctly")
+    public void then_the_slider_page_should_open_correctly(@Named("sliderNum") String sliderNum) {
+		user.verifySliderTitle(sliderNum, "EN");
+	}
+    
+    @Then("the Spanish slider page should open correctly")
+    public void then_the_Spanish_slider_page_should_open_correctly(@Named("sliderNum") String sliderNum) {
+		user.verifySliderTitle(sliderNum, "ES");
+	}    
+    
+    // "Browse By" pages
     @Given("the user is on the Browse by <browseByItem> page")
     public void the_user_is_on_Browse_by_Item_page(@Named("browseByItem") String browseByItem) {
         user.open_page("/benefits/browse-by-" + browseByItem);
@@ -217,25 +170,6 @@ public class DailyRegression {
     public void the_user_is_on_Spanish_Other_Resources_page() {
         user.open_page("/es/benefits/other-resources");
     }
-    
-    
-    @When("the user clicks on the minimize filter button")
-    public void when_the_correct_number_of_filter_categories_should_appear() {
-		user.clickToggleFilterButtonNode();
-	}
-    @Then("the filter should disappear")
-    public void then_the_filter_should_disappear() {
-		user.verifyFilterIsHidden();
-	}
-    @When("the user clicks on the expand filter button")
-    public void when_the_user_clicks_on_the_expand_filter_button() {
-		user.clickToggleFilterButtonNode();
-	}
-    @Then("the filter should reappear")
-    public void then_the_filter_should_reappear() {
-		user.verifyFilterIsPresent();
-	}
- 
 
     @When("the user filters by type <filterByType>")
     public void when_the_user_filters_by_type_filterByType(@Named("filterByType") String filterByType) {
@@ -252,7 +186,6 @@ public class DailyRegression {
 		user.verifyGroupHeadingsES(filterByType);
 	}
     
-    
     @When("the user filters by state <filterByState>")
     public void when_the_user_filters_by_state_filterByState(@Named("filterByState") String filterByState) {
 		user.clickFilterByState(filterByState);
@@ -267,10 +200,8 @@ public class DailyRegression {
     public void then_the_correct_Spanish_group_headings_for_state_filterByState_should_appear(@Named("filterByState") String filterByState) {
 		user.verifyGroupHeadingsES(filterByState);
 	}
-
-    
-    //News & Updates
-    
+   
+    // News & Updates
     @Given("the user is on the News & Updates page")
     public void given_the_user_is_on_the_news_and_updates_page() {
 		user.open_page("/newsroom/news-and-updates");
@@ -295,13 +226,6 @@ public class DailyRegression {
     public void then_the_user_shsould_be_taken_to_the_correct_article_page(@Named("articleNum") String articleNum) {
 		user.verifyNewsArticleTitle(articleNum);
 	}
-    
-    
-    @When("the user clicks on article <articleNum> read more")
-    public void when_the_user_clicks_on_article_articleNum_read_more(@Named("articleNum") String articleNum) {
-		user.clickArticleReadMore(articleNum);
-	}
-    
     
     @When("the user clicks on the next button")
     public void when_the_user_clicks_on_the_next_button() {
@@ -348,8 +272,6 @@ public class DailyRegression {
     	user.verifyNewsAndUpdatesNavButtons("first");
 	}
     
-   
-
     @When("the user filters by news type <filterByType>")
     public void when_the_user_filers_by_news_type_filterByType(@Named("filterByType") String filterByType) {
 		user.clickFilterByNewsType(filterByType);
@@ -372,7 +294,6 @@ public class DailyRegression {
 	}
     
     //compass tests
-
     @Given("the user is on the Compass Newsletter page")
     public void given_the_user_is_on_the_compass_newsletter_page() {
 		user.open_page("/newsroom/eNewsletter/april-2018");
@@ -388,42 +309,46 @@ public class DailyRegression {
     	user.verifyCompassArticles();
 	}
     
-   
-    
     @When("the user clicks on compass article <articleNum>")
     public void when_the_user_clicks_on_compass_article_articleNum(@Named("articleNum") String articleNum) {
 		user.clickCompassArticle(articleNum);
 	}
-    
     
     @Then("the user should be taken to the correct compass article")
     public void then_the_user_should_be_taken_to_the_correct_compass_article(@Named("articleNum") String articleNum) {
     	user.verifyCompassArticleTitle(articleNum);
 	}
     
+    // FAQ page test
+    @Given("the user is on the Benefits FAQ page")
+    public void the_user_is_on_FAQ_page() {
+        user.open_page("/help/faqs");
+    }
     
-    @When("the user clicks on compass article <articleNum> read more")
-    public void when_the_user_clicks_on_compass_article_articleNum_read_more(@Named("articleNum") String articleNum) {
-		user.clickCompassReadMore(articleNum);
+    @Given("the user is on the Spanish Benefits FAQ page")
+    public void the_user_is_on_the_Spanish_FAQ_page() {
+        user.open_page("/es/help/faqs");
+    }
+    
+    
+    @When("the user clicks on the expand button")
+    public void when_the_user_clicks_on_the_expand_button() {
+		user.clickExpandFAQ();
 	}
 
+    @Then("the answer text should show")
+    public void then_the_answer_text_should_show() {
+		user.verifyFAQAnswersArePresent();
+	}
 
-    //Slider test
-    
-    @When("the user clicks on slider tile <sliderNum>")
-    public void when_the_user_clicks_on_slider_tile_silderNum(@Named("sliderNum") String sliderNum) {
-		user.clickSliderTile(sliderNum);
+    @When("the user clicks on the minimize button")
+    public void when_the_user_clicks_on_the_minimize_button() {
+		user.clickMinimizeFAQ();
 	}
     
-    
-    @Then("the slider page should open correctly")
-    public void then_the_slider_page_should_open_correctly(@Named("sliderNum") String sliderNum) {
-		user.verifySliderTitle(sliderNum, "EN");
+    @Then("the answer text should be hidden")
+    public void then_the_answer_text_should_be_hidden() {
+		user.verifyFAQAnswersAreHidden();
 	}
-    
-    @Then("the Spanish slider page should open correctly")
-    public void then_the_Spanish_slider_page_should_open_correctly(@Named("sliderNum") String sliderNum) {
-		user.verifySliderTitle(sliderNum, "ES");
-	}    
     
 }

@@ -7,10 +7,10 @@ In order to assure that the basic functionality of SSABest.benefits.gov is worki
 As a tester
 I want to run the daily regressions at least twice a day
 
-Scenario: (SSABest) Verify all of the SSABest sub-navigation tabs open correctly
+Scenario: (SSABest) Homepage - Header - All the sub-navigation links (6 examples)
 Meta: 
 Given the user is on the SSABest homepage
-When the user clicks on the <subNavMenuItem> button within the SSABest top navigation bar
+When the user clicks on the <subNavMenuItem> button in the SSABest top navigation bar
 Then the SSABest <subNavMenuItem> page should open correctly
 
 Examples:
@@ -23,7 +23,7 @@ Examples:
 |Privacy & Terms of Use|
 
 
-Scenario: (SSABest) Verify all of the SSABest footer links open correctly
+Scenario: (SSABest) Homepage - Footer - All the links open (6 examples)
 Meta: 
 Given the user is on the SSABest homepage
 When the user clicks on the SSABest <footerItem> footer link
@@ -39,7 +39,7 @@ Examples:
 |Privacy & Terms of Use|
 
 
-Scenario: (SSABest) Verify the homepage links open correctly (non-nav, non-footer)
+Scenario: (SSABest) Homepage - Main Content Block - All the links open (5 examples)
 Meta: 
 Given the user is on the SSABest homepage
 When the user clicks on the SSABest <homepageItem> homepage link
@@ -54,7 +54,7 @@ Examples:
 |SSA.gov|
 
 
-Scenario: (SSABest) Verify that the home buttons work
+Scenario: (SSABest) Homepage - Verify home buttons (2 examples)
 Meta: 
 Given the user is on the SSABest FAQ page
 When the user clicks on the SSABest <homeButton> button
@@ -66,7 +66,7 @@ Examples:
 |Home Nav|
 
 
-Scenario: (SSABest) Verify that toggle language button works
+Scenario: (SSABest) Homepage - Verify the toggle language button
 Meta: 
 Given the user is on the SSABest homepage
 When the user clicks on the SSABest toggle language button
@@ -75,7 +75,7 @@ When the user clicks on the SSABest toggle language button
 Then the user should be taken to the SSABest English homepage
 
 
-Scenario: (SSABest) Verify the Browse By Category page functions correctly
+Scenario: (SSABest) Browse By Category - All the category links open (8 examples)
 Meta: 
 Given the user is on the SSABest Browse By Category page
 When the user clicks on the SSABest Browse By <categoryItem> link
@@ -95,8 +95,7 @@ Examples:
 |Veterans|
 
 
-
-Scenario: (SSABest) Verify that the FAQ page functions correctly
+Scenario: (SSABest) FAQ Page - All the question links open
 Meta: 
 Given the user is on the SSABest FAQ page
 When the user clicks on the SSABest FAQ <questionNum> link

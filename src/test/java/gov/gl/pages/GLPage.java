@@ -71,6 +71,12 @@ public class GLPage extends PageObject {
 		return loanTitle.getText();
 	}
     
+    public String pullHomepageTitle() {  
+
+    	WebElement homepageTitle = getDriver().findElement(By.xpath("//*[@class='home-well-header']/span"));
+		return homepageTitle.getText();
+	}
+    
     public void clickSubNavButtons(WebElementFacade nav, WebElementFacade subNav) {
         Actions action = new Actions(getDriver());
         action.moveToElement(nav).pause(1000).moveToElement(subNav).click().build().perform();

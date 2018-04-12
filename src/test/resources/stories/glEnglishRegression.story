@@ -8,10 +8,10 @@ As a tester
 I want to run the daily regressions at least twice a day
 
 
-Scenario: (GovLoans) Verify all of the GovLoans sub-navigation tabs open correctly
+Scenario: (GovLoans) Homepage - Header - All the sub-navigation links (9 examples)
 Meta: 
 Given the user is on the GovLoans homepage
-When the user clicks on the <subNavMenuItem> button within the GovLoans top navigation bar
+When the user clicks on the <subNavMenuItem> button in the GovLoans top navigation bar
 Then the GovLoans <subNavMenuItem> page should open correctly
 
 Examples:
@@ -27,7 +27,8 @@ Examples:
 |Privacy & Terms of Use|
 
 
-Scenario: (GovLoans) Verify all of the GovLoans footer links open correctly
+Scenario: (GovLoans) Homepage - Footer - All the links open (13 examples)
+
 Meta: 
 Given the user is on the GovLoans homepage
 When the user clicks on the GovLoans <footerItem> footer link
@@ -50,7 +51,7 @@ Examples:
 |Privacy & Terms of Use|
 
 
-Scenario: (GovLoans) Verify the Loan Categories on the homepage open correctly
+Scenario: (GovLoans) Homepage - "Loan Categories" - All the category links open (6 examples)
 Meta:
 Given the user is on the GovLoans homepage
 When the user clicks on the GovLoans <categoryItem> category link
@@ -66,7 +67,7 @@ Examples:
 |Veteran|
 
 
-Scenario: (GovLoans) Verify the homepage links open correctly (non-nav, non-footer, non-loan categories)
+Scenario: (GovLoans) Homepage - Main Content Block - All the links open (3 examples)
 Meta: 
 Given the user is on the GovLoans homepage
 When the user clicks on the GovLoans <homepageItem> homepage link
@@ -79,7 +80,7 @@ Examples:
 |Benefits.gov|
 
 
-Scenario: (GovLoans) Verify that the home buttons work
+Scenario: (GovLoans) Homepage - Verify home buttons (2 examples)
 Meta:
 Given the user is on the GovLoans Overview page
 When the user clicks on the GovLoans <homeButton> button
@@ -91,7 +92,7 @@ Examples:
 |Home Nav|
 
 
-Scenario: (GovLoans) Verify that toggle language button works
+Scenario: (GovLoans) Homepage - Verify the toggle language button
 Meta:
 Given the user is on the GovLoans homepage
 When the user clicks on the GovLoans toggle language button
@@ -100,7 +101,7 @@ When the user clicks on the GovLoans toggle language button
 Then the user should be taken to the GovLoans English homepage
 
 
-Scenario: (GovLoans) Verify the Browse By Category page functions correctly
+Scenario: (GovLoans) Browse By Category - All the category links open (7 examples)
 Meta:
 Given the user is on the GovLoans Browse By Category page
 When the user clicks on the GovLoans Browse By <categoryItem> link

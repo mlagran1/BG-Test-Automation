@@ -12,8 +12,6 @@ public class DailyRegressionSSA {
 
     @Steps
     UserSSA userSSA;
-
-    //Scenario: Verify all of the navbar tabs to assert that the pages open correctly
     
     @Given("the user is on the SSABest homepage")
     public void the_user_is_on_homepage() {
@@ -26,7 +24,7 @@ public class DailyRegressionSSA {
     }
     
     //sub nav
-    @When("the user clicks on the <subNavMenuItem> button within the SSABest top navigation bar")
+    @When("the user clicks on the <subNavMenuItem> button in the SSABest top navigation bar")
     public void when_user_clicks_on_each_sublink_in_the_GL_top_navigation_bar(@Named("subNavMenuItem") String subNavMenuItem) {
     	userSSA.clickNavNode(subNavMenuItem);
 	}
@@ -92,12 +90,12 @@ public class DailyRegressionSSA {
     
     @Then("the user should be taken to the SSABest Spanish homepage")
     public void then_the_user_should_be_taken_to_the_SSABest_Spanish_home_page() {
-		userSSA.verifyToggleLanguage("ES");
+		userSSA.verifyHomepageES();
 	}
     
     @Then("the user should be taken to the SSABest English homepage")
     public void then_the_user_should_be_taken_to_the_SSABest_English_home_page() {
-		userSSA.verifyToggleLanguage("EN");
+		userSSA.verifyHomepage();
 	}
     
     //Browse by category test

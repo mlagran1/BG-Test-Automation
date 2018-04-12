@@ -8,34 +8,36 @@ As a tester
 I want to run the daily regressions at least twice a day
 
 
-Scenario: (Benefits, Spanish) Verify all of the navigation tabs open correctly
+Scenario: (Benefits, Spanish) Homepage - Header - All the main navigation links (5 examples)
 Meta:                          
 Given the user is on the Spanish Benefits home page
-When the user clicks on <navMenuItem> within the top navigation bar
+When the user clicks on <navMenuItem> in the top navigation bar
 Then the <navMenuItem> page should open correctly
 
 Examples:
 |navMenuItem|
+|Búsqueda|
 |Sala de Prensa|
 |Involúcrese|
 |Sobre Nosotros|
 |Ayuda|
 
 
-Scenario: (Benefits, Spanish) Verify all of the sub-navigation tabs open correctly
+Scenario: (Benefits, Spanish) Homepage - Header - All the sub-navigation links (18 examples)
 Meta: 
 Given the user is on the Spanish Benefits home page
-When the user clicks on the <subNavMenuItem> within the top navigation bar
+When the user clicks on the <subNavMenuItem> in the top navigation bar
 Then the <subNavMenuItem> page should open correctly
 
 Examples:
 |subNavMenuItem|
 |Búsqueda por categoría|
 |Búsqueda por estado|
-|Búsqueda por agencia|
+|Búsqueda por agencia federal|
 |Otros recursos|
 
 |Noticias & Actualizaciones|
+|Compass el boletín electrónico (en inglés)|
 
 |Conviértase en un Representante|
 |Conviértase en un Afiliado|
@@ -53,7 +55,7 @@ Examples:
 |Privacidad y Términos de Uso|
 
 
-Scenario: (Benefits, Spanish) Verify all of the browse by buttons open correctly
+Scenario: (Benefits, Spanish) Homepage - "Looking for Benefits" - All the Browse for Benefits links (4 examples)
 Meta: 
 Given the user is on the Spanish Benefits home page
 When the user clicks on the <browseByItem> on the homepage
@@ -67,10 +69,10 @@ Examples:
 |Búsqueda por agencia|
 
 
-Scenario: (Benefits, Spanish) Verify all of the footer links open correctly
+Scenario: (Benefits, Spanish) Homepage - Footer - All the links open (8 examples)
 Meta: 
 Given the user is on the Spanish Benefits home page
-When the user clicks on the <footerLink> within the homepage
+When the user clicks on the <footerLink> on the homepage
 Then the <footerLink> page should open correctly
 
 Examples:
@@ -85,7 +87,7 @@ Examples:
 |Disaster Assistance ES|
 
 
-Scenario: (Benefits, Spanish) Verify personalization functions correctly
+Scenario: (Benefits, Spanish) Homepage - "Discover Popular Benefits" - Personalization functions correctly
 Meta: 
 Given the user is on the Spanish Benefits home page
 When the user clicks on the change location button
@@ -100,24 +102,23 @@ Examples:
 |California|
 
 
-Scenario: (Benefits, Spanish) Verify FAQ page functions correctly
-Meta: 
-Given the user is on the Spanish Benefits FAQ page
-When the user clicks on the expand button
-Then the answer text should show
-When the user clicks on the minimize button
-Then the answer text should be hidden
-
-
-Scenario: (Benefits, Spanish) Verify that the home button works
+Scenario: (Benefits, Spanish) Homepage - "News & Updates" - Verify the slider links (6 examples)
 Meta: 
 Given the user is on the Spanish Benefits home page
-Then the Spanish home page title should show
-When the user clicks on the Spanish home button
-Then the user should be taken to the Spanish home page
+When the user clicks on slider tile <sliderNum>
+Then the Spanish slider page should open correctly
+
+Examples:
+|sliderNum|
+|1|
+|2|
+|3|
+|4|
+|5|
+|6|
 
 
-Scenario: (Benefits, Spanish) Verify the Browse by pages
+Scenario: (Benefits, Spanish) "Browse By" Pages - Verify Category, State, and Agency
 Meta: 
 Given the user is on the Spanish Browse by <browseByItem> page
 When the user clicks on a category
@@ -132,16 +133,7 @@ Examples:
 |agency|
 
 
-Scenario: (Benefits, Spanish) Verify the Other Resources page filter toggle
-Meta:
-Given the user is on the Spanish Other Resources page
-When the user clicks on the minimize filter button
-Then the filter should disappear
-When the user clicks on the expand filter button
-Then the filter should reappear
-
-
-Scenario: (Benefits, Spanish) Verify the Other Resources page filter by type
+Scenario: (Benefits, Spanish) Other Resources - Verify filter by type
 Meta: 
 Given the user is on the Spanish Other Resources page
 When the user filters by type <filterByType>
@@ -155,7 +147,7 @@ Examples:
 |Otro|
 
 
-Scenario: (Benefits, Spanish) Verify the Other Resources page filter by state
+Scenario: (Benefits, Spanish) Other Resources - Verify filter by state
 Meta: 
 Given the user is on the Spanish Other Resources page
 When the user filters by state <filterByState>
@@ -168,7 +160,7 @@ Examples:
 |Nevada|
 
 
-Scenario: (Benefits, Spanish) Verify the News & Updates click article
+Scenario: (Benefits, Spanish) News & Updates - All article title links open
 Meta: 
 Given the user is on the Spanish News & Updates page
 Then the user should see five news articles
@@ -179,22 +171,12 @@ Examples:
 |articleNum|
 |1|
 |2|
+|3|
+|4|
+|5|
 
 
-Scenario: (Benefits, Spanish) Verify the News & Updates click read more
-Meta: 
-Given the user is on the Spanish News & Updates page
-Then the user should see five news articles
-When the user clicks on article <articleNum> read more
-Then the user should be taken to the correct article
-
-Examples:
-|articleNum|
-|1|
-|2|
-
-
-Scenario: (Benefits, Spanish) Verify the News & Updates navigation buttons
+Scenario: (Benefits, Spanish) News & Updates - Verify navigation buttons
 Meta: 
 Given the user is on the Spanish News & Updates page
 When the user clicks on the next button
@@ -207,7 +189,7 @@ When the user clicks on the first button
 Then the user should be taken to the first page
 
 
-Scenario: (Benefits, Spanish) Verify the News & Updates page filter by news type works
+Scenario: (Benefits, Spanish) News & Updates - Verify filter by news type
 Meta: 
 Given the user is on the Spanish News & Updates page
 When the user filters by news type <filterByType>
@@ -219,7 +201,7 @@ Examples:
 |Artículo de Compass|
 
 
-Scenario: (Benefits, Spanish) Verify the News & Updates page filter by benefit category works
+Scenario: (Benefits, Spanish) News & Updates - Verify filter by benefit category
 Meta: 
 Given the user is on the Spanish News & Updates page
 When the user filters by benefit category <benefitCategory>
@@ -230,7 +212,7 @@ Examples:
 |Cuidado infantil/Manutención|
 
 
-Scenario: (Benefits, Spanish) Verify the Compass Newsletter click article
+Scenario: (Benefits, Spanish) Compass eNewsLetter - All article title links open
 Meta: 
 Given the user is on the Spanish Compass Newsletter page
 Then the user should see the correct number of compass articles
@@ -241,34 +223,21 @@ Examples:
 |articleNum|
 |1|
 |2|
-
-
-Scenario: (Benefits, Spanish) Verify the Compass Newsletter click read more
-Meta: 
-Given the user is on the Spanish Compass Newsletter page
-When the user clicks on compass article <articleNum> read more
-Then the user should be taken to the correct compass article
-
-Examples:
-|articleNum|
-|1|
-|2|
-
-
-Scenario: (Benefits, Spanish) Verify the home page slider
-Meta: 
-Given the user is on the Spanish Benefits home page
-When the user clicks on slider tile <sliderNum>
-Then the Spanish slider page should open correctly
-
-Examples:
-|sliderNum|
-
-|1|
-|2|
 |3|
 |4|
 |5|
 |6|
+
+
+Scenario: (Benefits, Spanish) FAQ Page - All the question tabs expand
+Meta: 
+Given the user is on the Spanish Benefits FAQ page
+When the user clicks on the expand button
+Then the answer text should show
+When the user clicks on the minimize button
+Then the answer text should be hidden
+
+
+
 
 

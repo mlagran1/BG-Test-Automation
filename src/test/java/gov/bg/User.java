@@ -19,10 +19,8 @@ public class User {
 
     BGPage bgPage;
 
-
     @Step
 	public void open_page(String directoryPath) {
-    	
     	bgPage.clearCookies();
 		String url = bgPage.setEnvironment() + directoryPath;
 		bgPage.openAt(url);
@@ -32,103 +30,104 @@ public class User {
     public void clickNavNode(String node) {
     	
     	switch(node) {
-    	// -------- Main Nav Links --------
-		case "newsroom": 
+    	// Main nav
+    	case "Browse": 
+		case "Búsqueda": 
+			bgPage.clickBrowse();
+			break;
+		case "Newsroom": 
 		case "Sala de Prensa": 
 			bgPage.clickNews();
 			break;
-		case "get involved":
+		case "Get Involved":
 		case "Involúcrese":
 			bgPage.clickInvolved();
 			break;
-		case "help":
+		case "Help":
 		case "Ayuda":
 			bgPage.clickHelp();
 			break;
-		case "about us":
+		case "About Us":
 		case "Sobre Nosotros":
 			bgPage.clickAboutUs();
 			break;
-		case "browse":
-			bgPage.clickBrowse();
-			break;	
-		// -------- Sub Nav Links --------
+		// Sub nav
 		// Browse	
 		case "Browse by Category":
 		case "Búsqueda por categoría":
-			bgPage.clickSubNavButtons(bgPage.browseNode, bgPage.browseByCategoryNode);
+			bgPage.clickBrowseByCategory();
 			break;	
 		case "Browse by State":
 		case "Búsqueda por estado":
-			bgPage.clickSubNavButtons(bgPage.browseNode, bgPage.browseByStateNode);
+			bgPage.clickBrowseByState();
 			break;	
 		case "Browse by Agency":
-		case "Búsqueda por agencia":
-			bgPage.clickSubNavButtons(bgPage.browseNode, bgPage.browseByAgencyNode);
+		case "Búsqueda por agencia federal":
+			bgPage.clickBrowseByAgency();
 			break;		
 		case "Other Resources":
 		case "Otros recursos":
-			bgPage.clickSubNavButtons(bgPage.browseNode, bgPage.otherResourcesNode);
+			bgPage.clickOtherResources();
 			break;		
 		// Newsroom	
 		case "News & Updates":
 		case "Noticias & Actualizaciones":
-			bgPage.clickSubNavButtons(bgPage.newsroomNode, bgPage.newsAndUpdatesNode);
+			bgPage.clickNewsAndUpdates();
 			break;	
 		case "Compass eNewsletter":
 		case "Compass el boletín electrónico (en inglés)":
-			bgPage.clickSubNavButtons(bgPage.newsroomNode, bgPage.compassENewsletterNode);
+			bgPage.clickCompass();
 			break;		
 		// Get Involved
 		case "Become an Advocate":
 		case "Conviértase en un Representante":
-			bgPage.clickSubNavButtons(bgPage.involvedNode, bgPage.becomeAnAdvocateNode);
+			bgPage.clickBecomeAnAdvocate();
 			break;	
 		case "Become an Affiliate":
 		case "Conviértase en un Afiliado":
-			bgPage.clickSubNavButtons(bgPage.involvedNode, bgPage.becomeAnAffiliateNode);
+			bgPage.clickBecomeAnAffiliate();
 			break;	
 		case "Link to Us":
 		case "Enlace su sitio al nuestro":
-			bgPage.clickSubNavButtons(bgPage.involvedNode, bgPage.linkToUsNode);
+			bgPage.clickLinkToUs();
 			break;	
-		// Aboust Us
+		// About Us
 		case "Our Mission":
 		case "Nuestra Misión":
-			bgPage.clickSubNavButtons(bgPage.aboutUsNode, bgPage.ourMissionNode);
+			bgPage.clickOurMission();
 			break;	
 		case "Our History":
 		case "Nuestra Historia":
-			bgPage.clickSubNavButtons(bgPage.aboutUsNode, bgPage.ourHistoryNode);
+			bgPage.clickOurHistory();
 			break;	
 		case "Our Partners":
 		case "Nuestros Socios":
-			bgPage.clickSubNavButtons(bgPage.aboutUsNode, bgPage.ourPartnersNode);
+			bgPage.clickOurPartners();
 			break;	
 		case "Become a Partner":
 		case "Conviértase en un socio":
-			bgPage.clickSubNavButtons(bgPage.aboutUsNode, bgPage.becomeAPartnerNode);
+			bgPage.clickBecomeAPartner();
 			break;	
 		case "Our Platform":
 		case "Nuestra Plataforma":
-			bgPage.clickSubNavButtons(bgPage.aboutUsNode, bgPage.ourPlatformNode);
+			bgPage.clickOurPlatform();
 			break;	
 		case "Recognition":
 		case "Reconocimiento":
-			bgPage.clickSubNavButtons(bgPage.aboutUsNode, bgPage.recognitionNode);
+			bgPage.clickRecognition();
 			break;
 		// Help
 		case "Frequently Asked Questions (FAQS)":
 		case "Preguntas comunes":
-			bgPage.clickSubNavButtons(bgPage.helpNode, bgPage.faqsNode);
+			bgPage.clickFAQs();
 			break;
 		case "Contact Us":
 		case "Contáctenos":
-			bgPage.clickSubNavButtons(bgPage.helpNode, bgPage.contactUsNode);
+			bgPage.clickContactUs();
 			break;
 		case "Privacy and Terms of Use":
 		case "Privacidad y Términos de Uso":
-			bgPage.clickSubNavButtons(bgPage.helpNode, bgPage.privacyAndTermsOfUseNode);
+			bgPage.clickPrivacyAndTermsOfUse();
 			break;		
 			
 		default:
@@ -246,7 +245,19 @@ public class User {
     	}
 	}
     
-    // -------- Personalization Tests --------
+    // Verify homepage
+    @Step
+   	public void verifyHomepageTitle(String language) {
+       	
+    	if(language.equals("EN")){
+    		Assert.assertEquals(bgPage.pullPageTitle(bgPage.getHomepageTitleXpath()), "Looking for Benefits?");
+    	}
+    	else if(language.equals("ES")){
+    		Assert.assertEquals(bgPage.pullPageTitle(bgPage.getHomepageTitleXpath()), "¿Busca Beneficios?");
+    	}
+   	}
+    
+    // Personalization
     @Step
     public void clickPznButtons(String node) {
     		bgPage.clickenterStateOrTerritoryTextbox(node);
@@ -281,7 +292,7 @@ public class User {
 		}
 	}
     
-    // -------- FAQ Tests --------
+    // FAQ
     @Step
    	public void clickExpandFAQ() {
     	bgPage.clickExpandFAQButtons();
@@ -304,30 +315,13 @@ public class User {
     	Assert.assertTrue(answersVisible);
    	}
     
-    //verify homepage items
-    @Step
-   	public void verifyHomepageTitle(String language) {
-       	
-    	if(language.equals("EN")){
-    		Assert.assertEquals(bgPage.pullHomepageBenefitTitle(), "Looking for Benefits?");
-    	}
-    	else if(language.equals("ES")){
-    		Assert.assertEquals(bgPage.pullHomepageBenefitTitle(), "¿Busca Beneficios?");
-    	}
-   	}
-    
-    @Step
-   	public void clickHomeButtonNode() {
-    	bgPage.clickHomeButton();
-   	}
-    
+    // Language toggle
     @Step
    	public void clickToggleLanguageButtonNode() {
     	bgPage.clickToggleLanguageButton();
    	}
     
-    //browse by category tests
-
+    // Browse by category
     @Step
     public void clickBrowseByCategoryNode() {
     	bgPage.clickCategoryTitle();
@@ -335,7 +329,7 @@ public class User {
     
     @Step
    	public void verifyCategoryTitle() {
-    	Assert.assertEquals(bgPage.pullCategoryTitle(), bgPage.pullPageTitle());
+    	Assert.assertEquals(bgPage.pullCategoryTitle(), bgPage.pullPageTitle(bgPage.getPageTitleXpath()));
    	}
     
     @Step
@@ -345,11 +339,10 @@ public class User {
     
     @Step
    	public void verifyBenefitTitle() {
-    	Assert.assertEquals(bgPage.pullBenefitTitle(), bgPage.pullPageTitle());
+    	Assert.assertEquals(bgPage.pullBenefitTitle(), bgPage.pullPageTitle(bgPage.getPageTitleXpath()));
    	}
     
-    //other Resources test
-   
+    // Other Resources 
 	@Step
 	public void verifyGroupHeadingsEN(String filterType) {
 
@@ -399,23 +392,6 @@ public class User {
 	}
      
     @Step
-   	public void clickToggleFilterButtonNode() {  	
-    	bgPage.clickToggleFilterButton();
-   	}
-    
-    @Step
-   	public void verifyFilterIsPresent() {
-    	Boolean filterPresent = bgPage.checkFilterShow();
-    	Assert.assertTrue(filterPresent);
-   	}
-    
-    @Step
-   	public void verifyFilterIsHidden() {
-    	Boolean filterHidden = bgPage.checkFilterHidden();
-    	Assert.assertTrue(filterHidden);
-   	}
-
-    @Step
    	public void clickFilterByType(String filterType) {
     	bgPage.selectFilterByType(filterType);
    	}
@@ -425,12 +401,7 @@ public class User {
     	bgPage.selectFilterByState(filterType);
    	}
     
-    @Step
-   	public void clickCategoriesCheckbox() {
-    	bgPage.clickCategoriesCheckboxNodes();
-   	}
-    
-    //news and updates tests, Compass tests
+    // news and updates, Compass 
     @Step 
    	public void verifyNewsArticles() {
     	Assert.assertEquals(5, bgPage.checkNewsArticles());
@@ -443,23 +414,13 @@ public class User {
     
     @Step 
    	public void verifyNewsArticleTitle(String articleNum) {	
-    	Assert.assertEquals(bgPage.pullNewsAndUpdatesArticleTitle(articleNum), bgPage.pullPageTitle());
+    	Assert.assertEquals(bgPage.pullNewsAndUpdatesArticleTitle(articleNum), bgPage.pullPageTitle(bgPage.getPageTitleXpath()));
    	}
 	
     @Step 
    	public void verifyCompassArticleTitle(String articleNum) {	
     	Assert.assertEquals(bgPage.pullCompassArticleTitle(articleNum), bgPage.pullCurrentCompassTitle(articleNum));
    	}
-    
-    @Step 
-	public void clickArticleReadMore(String articleNum) {   	
-    	bgPage.clickArticleReadMoreNodes(articleNum);
-   	}
-    
-	@Step
-	public void clickCompassReadMore(String articleNum) {
-		bgPage.clickCompassReadMoreNodes(articleNum);
-	}
     
     @Step 
    	public void verifyCompassArticles() {
@@ -535,12 +496,11 @@ public class User {
     	bgPage.selectFilterByBenefitCategory(filterType);
    	}
     
-    //Slider test
+    // Slider
     @Step
    	public void clickSliderTile(String sliderNum) {
     	bgPage.clickSliderTileNode(sliderNum);
    	}
-    
     
     @Step 
    	public void verifySliderTitle(String sliderNum, String language) {	
@@ -550,19 +510,17 @@ public class User {
     	switch(sliderNum) {
 		case "1": 
 			if(language.equals("EN")){
-   				//Assert.assertEquals(bgPage.getWindowUrl(), "https://www.benefits.gov/newsroom/eNewsletter/october-2017");
    				Assert.assertTrue(bgPage.getWindowUrl().contains("benefits.gov/newsroom/eNewsletter"));
    			}
    			else if(language.equals("ES")){
-   				//Assert.assertEquals(bgPage.getWindowUrl(), "https://www.benefits.gov/es/newsroom/eNewsletter/october-2017");
    				Assert.assertTrue(bgPage.getWindowUrl().contains("benefits.gov/es/newsroom/eNewsletter"));
    			}
    			break;
 		case "2": 
-	    	Assert.assertEquals(bgPage.pullSliderTitle(), bgPage.pullPageTitle());
+	    	Assert.assertEquals(bgPage.pullSliderTitle(), bgPage.pullPageTitle(bgPage.getPageTitleXpath()));
 			break;
    		case "3": 
-   			Assert.assertEquals(bgPage.pullSliderTitle(), bgPage.pullPageTitle());
+   			Assert.assertEquals(bgPage.pullSliderTitle(), bgPage.pullPageTitle(bgPage.getPageTitleXpath()));
 			break;
 		case "4": 
 			selectedUrl = "https://www.youtube.com/watch?v=zz0UoSL-Ivw";
@@ -574,10 +532,10 @@ public class User {
 			break;
 		case "6": 
 			if(language.equals("EN")){
-				Assert.assertEquals(bgPage.getWindowUrl(), "https://www.benefits.gov/about-us#recognition");
+				Assert.assertTrue(bgPage.getWindowUrl().contains("benefits.gov/about-us#recognition"));
    			}
    			else if(language.equals("ES")){	
-   				Assert.assertEquals(bgPage.getWindowUrl(), "https://www.benefits.gov/es/sobre-nosotros#reconocimiento");
+   				Assert.assertTrue(bgPage.getWindowUrl().contains("benefits.gov/es/sobre-nosotros#reconocimiento"));
    			}
    			break;
     	}
@@ -586,105 +544,68 @@ public class User {
     @Step
 	public void shouldSeePage(String expectedPageName) {
 
-		String pageTitle = bgPage.pullPageTitle();
-		
 		switch(expectedPageName) {
-		//case "browse":
-			//Assert.assertEquals(pageTitle.toLowerCase(), "Welcome to Benefits.gov");
-			//break;
-		case "newsroom": 
-			Assert.assertEquals(pageTitle.toLowerCase(), "news & updates");
+		case "Browse":
+			Assert.assertEquals(bgPage.pullPageTitle(bgPage.getHomepageTitleXpath()), "Looking for Benefits?");
+			break;
+		case "Búsqueda":
+			Assert.assertEquals(bgPage.pullPageTitle(bgPage.getHomepageTitleXpath()), "¿Busca Beneficios?");
+			break;	
+
+		case "Newsroom": 
+			Assert.assertEquals(bgPage.pullPageTitle(bgPage.getPageTitleXpath()), "News & Updates");
 			break;
 		case "Sala de Prensa": 
-			Assert.assertEquals(pageTitle.toLowerCase(), "noticias & actualizaciones");
+			Assert.assertEquals(bgPage.pullPageTitle(bgPage.getPageTitleXpath()), "Noticias & Actualizaciones");
 			break;	
-		case "help":
-			Assert.assertEquals(pageTitle.toLowerCase(), "frequently asked questions (faqs)");
+		
+		case "Help":
+			Assert.assertEquals(bgPage.pullPageTitle(bgPage.getPageTitleXpath()), "Frequently Asked Questions (FAQS)");
 			break;
 		case "Ayuda":
-			Assert.assertEquals(pageTitle.toLowerCase(), "preguntas comunes");
-			break;	
-		
-		case "Búsqueda por agencia":	
-			Assert.assertEquals(pageTitle.toLowerCase(), "búsqueda por agencia federal");
+			Assert.assertEquals(bgPage.pullPageTitle(bgPage.getPageTitleXpath()), "Preguntas comunes");
 			break;	
 			
+		case "Compass eNewsletter":
+		case "Compass el boletín electrónico (en inglés)":
+			Assert.assertEquals(bgPage.pullPageTitle(bgPage.getCompassTitleXpath()), "Quarterly eNewsletter About the Benefits.gov Program");
+			break;	
+			
+		//Get Involved sub pages	
 		case "Become an Advocate":
-			Assert.assertEquals("become an advocate", bgPage.pullSubpageTitle(expectedPageName).toLowerCase());
-			break;
-		case "Conviértase en un Representante":	
-			Assert.assertEquals("conviértase en un representante", bgPage.pullSubpageTitle(expectedPageName).toLowerCase());
-			break;
-			
+		case "Conviértase en un Representante":
 		case "Become an Affiliate":
-			Assert.assertEquals("become an affiliate", bgPage.pullSubpageTitle(expectedPageName).toLowerCase());
-			break;
 		case "Conviértase en un Afiliado":		
-			Assert.assertEquals("conviértase en un afiliado", bgPage.pullSubpageTitle(expectedPageName).toLowerCase());
-			break;
-			
 		case "Link to Us":
-			Assert.assertEquals("link to us", bgPage.pullSubpageTitle(expectedPageName).toLowerCase());
-			break;
-		case "Enlace su sitio al nuestro":		
-			Assert.assertEquals("enlace su sitio al nuestro", bgPage.pullSubpageTitle(expectedPageName).toLowerCase());
-			break;
-				
+		case "Enlace su sitio al nuestro":	
+		//About Us sub pages	
 		case "Our Mission":
-			Assert.assertEquals("our mission", bgPage.pullSubpageTitle(expectedPageName).toLowerCase());
-			break;
 		case "Nuestra Misión":		
-			Assert.assertEquals("nuestra misión", bgPage.pullSubpageTitle(expectedPageName).toLowerCase());
-			break;
-			
 		case "Our History":
-			Assert.assertEquals("our history", bgPage.pullSubpageTitle(expectedPageName).toLowerCase());
-			break;
 		case "Nuestra Historia":		
-			Assert.assertEquals("nuestra historia", bgPage.pullSubpageTitle(expectedPageName).toLowerCase());
-			break;
-			
 		case "Our Partners":
-			Assert.assertEquals("our partners", bgPage.pullSubpageTitle(expectedPageName).toLowerCase());
-			break;
 		case "Nuestros Socios":		
-			Assert.assertEquals("nuestros socios", bgPage.pullSubpageTitle(expectedPageName).toLowerCase());
-			break;
-			
 		case "Become a Partner":
-			Assert.assertEquals("become a partner", bgPage.pullSubpageTitle(expectedPageName).toLowerCase());
-			break;
 		case "Conviértase en un socio":		
-			Assert.assertEquals("conviértase en un socio", bgPage.pullSubpageTitle(expectedPageName).toLowerCase());
+		case "Our Platform":
+		case "Nuestra Plataforma":	
+		case "Recognition":
+		case "Reconocimiento":	
+			Assert.assertEquals(bgPage.pullSubpageTitle(expectedPageName), expectedPageName);
 			break;	
 			
-		case "Our Platform":
-			Assert.assertEquals("our platform", bgPage.pullSubpageTitle(expectedPageName).toLowerCase());
-			break;
-		case "Nuestra Plataforma":	
-			Assert.assertEquals("nuestra plataforma", bgPage.pullSubpageTitle(expectedPageName).toLowerCase());
-			break;
-			
-		case "Recognition":
-			Assert.assertEquals("recognition", bgPage.pullSubpageTitle(expectedPageName).toLowerCase());
-			break;
-		case "Reconocimiento":	
-			Assert.assertEquals("reconocimiento", bgPage.pullSubpageTitle(expectedPageName).toLowerCase());
-			break;
-			
-		case "get involved":
+		//Main Nav	
+		case "Get Involved":
 		case "Involúcrese":
-			
-		case "about us":
-		case "Sobre Nosotros":	
-		
+		case "About Us":
+		case "Sobre Nosotros":		
+		//Sub Nav	
 		case "Browse by Category":
-		case "Búsqueda por categoría":	
-				
+		case "Búsqueda por categoría":				
 		case "Browse by State":
-		case "Búsqueda por estado":
-			
-		case "Browse by Agency":	
+		case "Búsqueda por estado":	
+		case "Browse by Agency":
+		case "Búsqueda por agencia federal":
 			
 		case "Other Resources":
 		case "Otros recursos":	
@@ -694,25 +615,18 @@ public class User {
 			
 		case "Frequently Asked Questions (FAQS)":
 		case "Preguntas comunes":	
-			
 		case "Contact Us":
 		case "Contáctenos":	
-			
 		case "Privacy and Terms of Use":
 		case "Privacidad y Términos de Uso":	
 			
 		case "Benefit Finder":
 		case "Buscador de Beneficios":	
 			
-			Assert.assertEquals(expectedPageName.toLowerCase(), pageTitle.toLowerCase());
+			Assert.assertEquals(bgPage.pullPageTitle(bgPage.getPageTitleXpath()), expectedPageName);
 			break;
-			
-		case "Compass eNewsletter":	
-			Assert.assertTrue(bgPage.processWindows().contains("benefits.gov/newsroom/eNewsletter"));
-  			break;
-			
+					
 		default:
-			Assert.assertEquals(expectedPageName.toLowerCase(), pageTitle.toLowerCase());
 			System.err.println("INVALID PAGE SENT");
 			break;
 		} 

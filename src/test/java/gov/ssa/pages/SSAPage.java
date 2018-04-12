@@ -69,6 +69,11 @@ public class SSAPage extends PageObject {
 		return benefitTitle.getText();
 	}
     
+    public String pullHomepageTitle() {
+
+    	WebElement homepageTitle = getDriver().findElement(By.xpath("//*[@class='region region-left-subcontent']/div/h2"));
+		return homepageTitle.getText();
+	}
     
     public void clickSubNavButtons(WebElementFacade nav, WebElementFacade subNav) {
         Actions action = new Actions(getDriver());
