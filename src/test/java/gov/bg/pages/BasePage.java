@@ -4,6 +4,8 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
+
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
@@ -29,6 +31,7 @@ public class BasePage extends PageObject {
 
     public BasePage(WebDriver webDriver) {
         super(webDriver);
+        //webDriver.manage().window().setSize(new Dimension(400, 784));
     }
 
     public String getPageTitle() {

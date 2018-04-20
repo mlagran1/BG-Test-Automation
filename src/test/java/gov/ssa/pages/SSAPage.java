@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -89,7 +90,8 @@ public class SSAPage extends PageObject {
 	public String processWindows() {
 		
 		// Store the current window handle
-		String winHandleBefore = getDriver().getWindowHandle();
+		String winHandleBefore =  getDriver().getWindowHandle();
+		System.out.println("past the first point");
 
 		// Perform the click operation that opens new window
 
@@ -113,7 +115,7 @@ public class SSAPage extends PageObject {
 		// Perform the actions on new window
 		Serenity.takeScreenshot();
 		String windowUrl = getDriver().getCurrentUrl();
-
+		System.out.println(windowUrl);
 		// Close the new window, if that window no more required
 		getDriver().close();
 
