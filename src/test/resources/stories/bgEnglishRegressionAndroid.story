@@ -10,7 +10,7 @@ I want to run the daily regressions at least twice a day
 
 
 Scenario: (Benefits) Homepage - Header - All the sub-navigation links (18 examples)
-Meta: @skip @failed
+Meta: @skip @passed
 Given the user is on the Benefits home page
 When the user clicks on the <subNavMenuItem> in the top navigation bar (android)
 Then the <subNavMenuItem> page should open correctly

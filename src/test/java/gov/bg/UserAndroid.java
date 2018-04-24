@@ -55,6 +55,7 @@ public class UserAndroid {
 		// Browse	
 		case "Browse by Category":
 		case "Búsqueda por categoría":
+			System.out.println("IM BEING CALLED");
 			bgPage.clickBrowseByCategory();
 			break;	
 		case "Browse by State":

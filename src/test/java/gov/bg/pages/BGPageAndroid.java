@@ -224,8 +224,9 @@ public class BGPageAndroid extends PageObject {
     //Browse
     public void clickTwoElements(WebElementFacade node1, WebElementFacade node2) {
     		clickNavMenu();
-    		System.out.println("Nav menu was clicked");
+    		pause(1000);
     		node1.click();
+    		pause(1000);
     		node2.click();
     }
     
